@@ -18,7 +18,7 @@ interface SlipSnitch {
   };
 }
 
-/** Render Snitch (maille serrée) */
+/** Render Snitch (maille coulée) */
 export const SlipSnitch = ({
   fillColor = "#1a1a1a",
   radius = 8,
