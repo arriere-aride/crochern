@@ -1,10 +1,12 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from "@storybook/blocks";
+import { SingleCrochet } from "./RenderEntity/SingleCrochet/SingleCrochet";
+import { Chain } from "./RenderEntity/Chain/Chain";
+import { SlipSnitch } from "./RenderEntity/SlipSnitch/SlipSnitch";
+import { AiOutlineCheckSquare } from "react-icons/ai";
 
 <Meta title="Crochet/Introduction" />
 
-<style>
-
-</style>
+<style></style>
 
 # Welcome to Storybook
 
@@ -14,3 +16,74 @@ That makes it easy to develop hard-to-reach states. Save these UI states as **st
 Browse example stories now by navigating to them in the sidebar.
 View their code in the `stories` directory to learn how they work.
 We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
+
+## Crochet symbols and abbreviations
+
+<table>
+  <tr>
+    <td>symbol</td>
+    <td>name</td>
+    <td>english abbreviation</td>
+    <td>traduction</td>
+    <td>french abbreviation</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>
+      <svg width="16px" height="16px" viewBox="0 0 24 24">
+        <SingleCrochet position={{ x: 8, y: 8 }} />
+      </svg>
+      <svg width="16px" height="16px" viewBox="0 0 24 24">
+        <SingleCrochet rotation={45} position={{ x: 8, y: 8 }} />
+      </svg>
+    </td>
+    <td>
+      <a 
+        style={{textDecoration: "underline"}} 
+        href="./?path=/docs/crochet-renderentity-singlecrochet--docs">
+        Single crochet
+      </a>
+    </td>
+    <td>ms</td>
+    <td>Maille serrée</td>
+    <td>sc</td>
+    <td><AiOutlineCheckSquare style={{color:"green", fontSize: "16px"}} /></td>
+  </tr>
+    <tr>
+    <td>
+      <svg width="16px" height="16px" viewBox="0 0 32 32">
+        <Chain position={{ cx: 16, cy: 16 }} />
+      </svg>
+    </td>
+    <td>
+      <a 
+        style={{textDecoration: "underline"}} 
+        href="./?path=/docs/crochet-renderentity-chain--docs">
+        Chain Stitch
+      </a>
+    </td>
+    <td>ch</td>
+    <td>Maille en l’air</td>
+    <td>ml</td>
+    <td><AiOutlineCheckSquare style={{color:"green", fontSize: "16px"}} /></td>
+  </tr>
+    <tr>
+    <td>
+      <svg width="16px" height="16px" viewBox="0 0 32 32">
+        <SlipSnitch position={{ cx: 16, cy: 16 }} />
+      </svg>
+    </td>
+    <td>
+      <a 
+          style={{textDecoration: "underline"}} 
+          href="./?path=/docs/crochet-renderentity-slipsnitch--docs">
+      Slip Stitch
+      </a>
+    </td>
+    <td>sl st</td>
+    <td>Maille coulée</td>
+    <td>mc</td>
+    <td><AiOutlineCheckSquare style={{color:"green", fontSize: "16px"}} /></td>
+  </tr>
+
+</table>
