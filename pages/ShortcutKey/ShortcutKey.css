@@ -1,0 +1,19 @@
+.shortcut-key {
+  border: 0;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  font-weight: 700;
+}
+
+.shortcut-key--small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+.shortcut-key--medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+.shortcut-key--large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
