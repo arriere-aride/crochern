@@ -41,3 +41,11 @@ export const Small: Story = {
     label: 'F1',
   },
 };
+
+
+export const ExtraSmall: Story = {
+  args: {
+    size: 'extra-small',
+    label: 'F1',
+  },
+};

@@ -5,6 +5,10 @@
   font-weight: 700;
 }
 
+.shortcut-key--extra-small {
+  font-size: 8px;
+  padding: 8px 12px;
+}
 .shortcut-key--small {
   font-size: 12px;
   padding: 10px 16px;

@@ -17,7 +17,7 @@ interface ShortcutKey {
   /**
    * How large it should be?
    */
-  size?: "small" | "medium" | "large";
+  size?: "extra-small" | "small" | "medium" | "large";
   /**
    * Key content
    */
