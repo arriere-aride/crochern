@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "sb": "storybook dev -p 6006",
+    "sb:build": "storybook build",
+    "sb:docs": "storybook dev --docs"
   },
   "dependencies": {
     "@types/node": "18.15.11",

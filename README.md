@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 To run stories through [storybook](https://storybook.js.org/):
 
 ```bash
-npm run storybook
+npm run sb
 ```
 
 Open [http://localhost:6006](http://localhost:6006) with your browser to see the result.
