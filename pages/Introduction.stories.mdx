@@ -8,12 +8,17 @@ import {
   TrebleCrochet,
   DoubleTrebleCrochet,
 } from "./RenderEntity";
-import { FrontLoopOnly, BackLoopOnly, FrontPost } from "./RenderVariation";
+import {
+  FrontLoopOnly,
+  BackLoopOnly,
+  FrontPost,
+  BackPost,
+} from "./RenderVariation";
 
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
 
-<Meta title="Crochet/Introduction" />
+<Meta title="Introduction" />
 
 <style></style>
 
@@ -277,7 +282,7 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
       </svg>
       <svg width="24px" height="24px" viewBox="0 0 24 24">
         <SingleCrochet position={{ x: 16 - 4, y: 16 - 9 }} rotation={45} />
-        <FrontPost position={{ x: 16 , y: 16 }} size={8} />
+        <FrontPost position={{ x: 16, y: 16 }} size={8} />
       </svg>
     </td>
     <td>
@@ -296,7 +301,15 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     </td>
   </tr>
   <tr>
-    <td></td>
+    <td>
+      <svg width="24px" height="24px" viewBox="0 0 24 24">
+        <BackPost position={{ x: 16, y: 16 }} size={8} />
+      </svg>
+      <svg width="24px" height="24px" viewBox="0 0 24 24">
+        <TrebleCrochet position={{ x: 16, y: 16 - 7 }} rotation={45} />
+        <BackPost position={{ x: 16, y: 16 }} size={8} />
+      </svg>
+    </td>
     <td>
       <a style={{ textDecoration: "underline" }}>Back post</a>
     </td>
@@ -304,7 +317,7 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>Relief arrière</td>
     <td></td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
 </table>
