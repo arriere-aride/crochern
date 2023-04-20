@@ -1,7 +1,13 @@
 import { Meta } from "@storybook/blocks";
-import { SingleCrochet, Chain , SlipSnitch, HalfDoubleCrochet } from "./RenderEntity";
+import {
+  SingleCrochet,
+  Chain,
+  SlipSnitch,
+  HalfDoubleCrochet,
+  DoubleCrochet,
+} from "./RenderEntity";
 import { AiOutlineCheckSquare } from "react-icons/ai";
-import {GrStatusPlaceholder} from "react-icons/gr"
+import { GrStatusPlaceholder } from "react-icons/gr";
 
 <Meta title="Crochet/Introduction" />
 
@@ -105,9 +111,19 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
   </tr>
     <tr>
     <td>
+    <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <DoubleCrochet position={{ x: 16, y: 16 }} />
+      </svg>
+      <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <DoubleCrochet position={{ x: 16, y: 16 }} rotation={25} />
+      </svg>
+      <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <DoubleCrochet position={{ x: 16, y: 16 }} rotation={-25} />
+      </svg>
     </td>
     <td>
       <a 
+      href="./?path=/docs/crochet-renderentity-doublecrochet--docs"
           style={{textDecoration: "underline"}} 
           >
       Double Crochet
@@ -116,7 +132,7 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>dc</td>
     <td>Bride</td>
     <td>br</td>
-    <td><GrStatusPlaceholder style={{color:"#FBE361", fontSize: "14px"}} /></td>
+    <td><AiOutlineCheckSquare style={{color:"green", fontSize: "16px"}} /></td>
   </tr>
   <tr>
     <td>
