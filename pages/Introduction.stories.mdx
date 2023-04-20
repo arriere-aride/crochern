@@ -6,6 +6,7 @@ import {
   HalfDoubleCrochet,
   DoubleCrochet,
   TrebleCrochet,
+  DoubleTrebleCrochet,
 } from "./RenderEntity";
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
@@ -162,9 +163,19 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
   </tr>
    <tr>
     <td>
+     <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <DoubleTrebleCrochet position={{ x: 16, y: 16 }} />
+      </svg>
+      <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <DoubleTrebleCrochet position={{ x: 16, y: 16 }} rotation={25} />
+      </svg>
+      <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <DoubleTrebleCrochet position={{ x: 16, y: 16 }} rotation={-25} />
+      </svg>
     </td>
     <td>
       <a 
+      href="./?path=/docs/crochet-renderentity-doubletreblecrochet--docs"
           style={{textDecoration: "underline"}} 
           >
       Double Treble Crochet
@@ -173,7 +184,7 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Triple-Bride</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{color:"#FBE361", fontSize: "14px"}} /></td>
+    <td><AiOutlineCheckSquare style={{color:"green", fontSize: "16px"}} /></td>
   </tr>
 
 </table>
