@@ -8,6 +8,8 @@ import {
   TrebleCrochet,
   DoubleTrebleCrochet,
 } from "./RenderEntity";
+import {FrontLoopOnly} from "./RenderVariation"
+
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
 
@@ -219,9 +221,22 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>status</td>
   </tr>
   <tr>
-    <td></td>
     <td>
-      <a style={{ textDecoration: "underline" }}>In front loop only</a>
+      <svg width="16px" height="16px" viewBox="0 0 32 32">
+        <FrontLoopOnly position={{ x: 16, y: 16 }} />
+      </svg>
+      <svg width="16px" height="16px" viewBox="0 0 32 32">
+        <SlipSnitch position={{ cx: 16, cy: 16-8 }} />
+        <FrontLoopOnly position={{ x: 16-8, y: 16+2 }} />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="./?path=/docs/crochet-rendervariation-frontlooponly--docs"
+        style={{ textDecoration: "underline" }}
+      >
+        In front loop only
+      </a>
     </td>
     <td></td>
     <td>Dans le brin avant</td>
