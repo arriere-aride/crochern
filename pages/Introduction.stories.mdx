@@ -1,7 +1,5 @@
 import { Meta } from "@storybook/blocks";
-import { SingleCrochet } from "./RenderEntity/SingleCrochet/SingleCrochet";
-import { Chain } from "./RenderEntity/Chain/Chain";
-import { SlipSnitch } from "./RenderEntity/SlipSnitch/SlipSnitch";
+import { SingleCrochet, Chain , SlipSnitch, HalfDoubleCrochet } from "./RenderEntity";
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import {GrStatusPlaceholder} from "react-icons/gr"
 
@@ -88,9 +86,13 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
   </tr>
   <tr>
     <td>
+    <svg width="24px" height="24px" viewBox="0 0 32 32">
+        <HalfDoubleCrochet position={{ x: 16, y: 16 }} />
+      </svg>
     </td>
     <td>
       <a 
+      href="./?path=/docs/crochet-renderentity-halfdoublecrochet--docs"
           style={{textDecoration: "underline"}} 
           >
       Half Double Crochet
@@ -99,7 +101,7 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>hdc</td>
     <td>Demi-bride</td>
     <td>Demi-br</td>
-    <td><GrStatusPlaceholder style={{color:"#FBE361", fontSize: "14px"}} /></td>
+    <td><AiOutlineCheckSquare style={{color:"green", fontSize: "16px"}} /></td>
   </tr>
     <tr>
     <td>
