@@ -8,7 +8,7 @@ import {
   TrebleCrochet,
   DoubleTrebleCrochet,
 } from "./RenderEntity";
-import { FrontLoopOnly, BackLoopOnly } from "./RenderVariation";
+import { FrontLoopOnly, BackLoopOnly, FrontPost } from "./RenderVariation";
 
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
@@ -252,7 +252,7 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
       </svg>
       <svg width="24px" height="24px" viewBox="0 0 24 24">
         <DoubleCrochet position={{ x: 16, y: 16 - 6 }} rotation={25} />
-        <BackLoopOnly position={{ x: 16-  4, y: 16 + 3 }} size={8} />
+        <BackLoopOnly position={{ x: 16 - 4, y: 16 + 3 }} size={8} />
       </svg>
     </td>
     <td>
@@ -271,15 +271,28 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     </td>
   </tr>
   <tr>
-    <td></td>
     <td>
-      <a style={{ textDecoration: "underline" }}>Front post</a>
+      <svg width="24px" height="24px" viewBox="0 0 24 24">
+        <FrontPost position={{ x: 16, y: 16 }} size={8} />
+      </svg>
+      <svg width="24px" height="24px" viewBox="0 0 24 24">
+        <SingleCrochet position={{ x: 16 - 4, y: 16 - 9 }} rotation={45} />
+        <FrontPost position={{ x: 16 , y: 16 }} size={8} />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="./?path=/docs/crochet-rendervariation-frontpost--docs"
+        style={{ textDecoration: "underline" }}
+      >
+        Front post
+      </a>
     </td>
     <td></td>
     <td>Relief avant</td>
     <td></td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
