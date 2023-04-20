@@ -23,7 +23,7 @@ interface FrontPost {
   debug?: boolean;
 }
 
-/** Render In front loop only (Dans le brin avant) */
+/** Render Front post (Relief avant) */
 export const FrontPost = ({
   fillColor = "#1a1a1a",
   position = { x: 50, y: 50 },

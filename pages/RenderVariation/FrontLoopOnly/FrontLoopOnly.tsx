@@ -23,7 +23,7 @@ interface FrontLoopOnly {
   debug?: boolean;
 }
 
-/** Render In front loop only (Dans le brin avant) */
+/** Render In back loop only (Dans le brin arrière) */
 export const FrontLoopOnly = ({
   fillColor = "#1a1a1a",
   position = { x: 50, y: 50 },
