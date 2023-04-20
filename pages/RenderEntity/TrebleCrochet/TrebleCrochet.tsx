@@ -19,7 +19,7 @@ interface TrebleCrochet {
     rotation: number;
 }
 
-/** Render Half double crochet (demi-bride) */
+/** Render Treble crochet (Double bride) */
 export const TrebleCrochet = ({
   position = { x: 50, y: 50 },
   size = 16,
