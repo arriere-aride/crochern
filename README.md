@@ -1,4 +1,4 @@
-# pattern-crochet
+# Crochern
 
 Website to help you create pattern for crochet.
 
