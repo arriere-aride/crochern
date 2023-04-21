@@ -17,10 +17,6 @@ interface TwoSingleCrochetOneStitch {
    * Line size
    */
   size?: number;
-  /**
-   * Arc debug toggle
-   */
-  debug?: boolean;
 }
 
 /** Render Two Single Crochet in One Stitch  (2 Mailles Serrées dans la même Maille) */
@@ -28,7 +24,6 @@ export const TwoSingleCrochetOneStitch = ({
   fillColor = "#1a1a1a",
   position = { x: 50, y: 50 },
   size = 16,
-  debug = false,
   ...props
 }: TwoSingleCrochetOneStitch) => {
   const id: string = Math.floor(Math.random() * 100).toString();
