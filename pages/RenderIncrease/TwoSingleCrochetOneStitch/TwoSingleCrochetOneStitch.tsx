@@ -30,6 +30,7 @@ export const TwoSingleCrochetOneStitch = ({
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
   const tierceSize = Math.floor(size / 3);
+  const padding = 1
 
   return (
     <g id={`render-item-tscoc--${id}`} stroke={fillColor} strokeWidth={2}>
@@ -38,12 +39,12 @@ export const TwoSingleCrochetOneStitch = ({
         style={{ transformOrigin: "center", transformBox: "fill-box" }}
       >
         <line
-          x1={x - tierceSize }
+          x1={x - tierceSize + padding }
           y1={y - tierceSize * 2}
-          x2={x + tierceSize }
+          x2={x + tierceSize - padding }
           y2={y - tierceSize * 2}
         />
-        <line x1={x} y1={y - tierceSize} x2={x} y2={y - size} />
+        <line x1={x} y1={y - tierceSize - padding} x2={x} y2={y - size+padding} />
       </g>
       <g id={`render-item-tscoc-container--${id}`}>
         <path d={`M ${x} ${y} ${x - halfSize} ${y - size} `} />
