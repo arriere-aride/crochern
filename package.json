@@ -11,8 +11,8 @@
     "sb:build": "storybook build",
     "sb:docs": "storybook dev --docs",
     "build-storybook": "storybook build",
+    "test-storybook": "test-storybook",
     "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes"
-    
   },
   "dependencies": {
     "@types/node": "18.15.11",
@@ -33,6 +33,7 @@
     "@storybook/blocks": "^7.0.6",
     "@storybook/nextjs": "^7.0.6",
     "@storybook/react": "^7.0.6",
+    "@storybook/test-runner": "^0.10.0",
     "@storybook/testing-library": "^0.0.14-next.2",
     "chromatic": "^6.17.3",
     "eslint-plugin-storybook": "^0.6.11",
