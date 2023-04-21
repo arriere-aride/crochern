@@ -20,7 +20,7 @@ interface ThreeSingleCrochetOneStitch {
 
 }
 
-/** Render Two Single Crochet in One Stitch  (2 Mailles Serrées dans la même Maille) */
+/** Render Three Single Crochet in One Stitch  (3 Mailles Serrées dans la même Maille) */
 export const ThreeSingleCrochetOneStitch = ({
   fillColor = "#1a1a1a",
   position = { x: 50, y: 50 },
