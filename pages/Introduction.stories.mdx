@@ -21,6 +21,8 @@ import {
   RepeatDoubleCrochetOneStitch,
 } from "./RenderIncrease";
 
+import { TwoSingleCrochetTogether } from "./RenderDecrease";
+
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
 
@@ -484,15 +486,24 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>status</td>
   </tr>
   <tr>
-    <td></td>
     <td>
-      <a style={{ textDecoration: "underline" }}>2 Single Crochet together</a>
+      <svg width="24px" height="24px" viewBox="0 0 24 24">
+        <TwoSingleCrochetTogether position={{ x: 16, y: 16 }} />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="./?path=/docs/crochet-renderdecrease-twosinglecrochettogether--docs"
+        style={{ textDecoration: "underline" }}
+      >
+        2 Single Crochet together
+      </a>
     </td>
     <td>2 sc tog</td>
     <td>2 Mailles Serées écoulées ensemble</td>
     <td>2 ms écoul. ens.</td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
