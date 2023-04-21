@@ -10,6 +10,7 @@
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "sb:docs": "storybook dev --docs",
+    "build-storybook": "storybook build",
     "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes"
     
   },
