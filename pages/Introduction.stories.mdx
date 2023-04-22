@@ -25,6 +25,7 @@ import {
   TwoSingleCrochetTogether,
   ThreeSingleCrochetTogether,
   TwoDoubleCrochetTogether,
+  RepeatDoubleCrochetTogether,
 } from "./RenderDecrease";
 
 import { AiOutlineCheckSquare } from "react-icons/ai";
@@ -553,39 +554,66 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     </td>
   </tr>
   <tr>
-    <td></td>
     <td>
-      <a style={{ textDecoration: "underline" }}>3 Double Crochet together</a>
+      <svg width="64px" height="64px" viewBox="45 32 64 64">
+        <RepeatDoubleCrochetTogether position={{ x: 16, y: 0 }} />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="./?path=/docs/crochet-renderdecrease-repeatdoublecrochettogether--docs"
+        style={{ textDecoration: "underline" }}
+      >
+        3 Double Crochet together
+      </a>
     </td>
     <td>3 dc tog</td>
     <td>3 Brides écoulées ensemble</td>
     <td>3 br écoul. ens.</td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
-    <td></td>
     <td>
-      <a style={{ textDecoration: "underline" }}>5 Double Crochet together</a>
+      <svg width="64px" height="64px" viewBox="45 32 64 64">
+        <RepeatDoubleCrochetTogether position={{ x: 16, y: 0 }} repeat={5} />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="./?path=/story/crochet-renderdecrease-repeatdoublecrochettogether--with-five"
+        style={{ textDecoration: "underline" }}
+      >
+        5 Double Crochet together
+      </a>
     </td>
     <td>5 dc tog</td>
     <td>5 Brides écoulées ensemble</td>
     <td>5 br écoul. ens.</td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
-    <td></td>
     <td>
-      <a style={{ textDecoration: "underline" }}>9 Double Crochet together</a>
+      <svg width="64px" height="64px" viewBox="45 32 64 64">
+        <RepeatDoubleCrochetTogether position={{ x: 16, y: 0 }} repeat={9} />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="./?path=/story/crochet-renderdecrease-repeatdoublecrochettogether--with-nine"
+        style={{ textDecoration: "underline" }}
+      >
+        9 Double Crochet together
+      </a>
     </td>
     <td>9 dc tog</td>
     <td>9 Brides écoulées ensemble</td>
     <td>9 br écoul. ens.</td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
 </table>
