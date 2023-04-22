@@ -36,14 +36,6 @@ interface ShortcutKey {
     handler: () => void;
   }[];
 
-  /**
-   * What hover properties to use?
-   */
-  hover?: {
-    backgroundColor: string;
-    borderBottomColor: string;
-    labelColor: string;
-  };
 }
 
 /**
