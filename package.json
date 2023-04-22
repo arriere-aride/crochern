@@ -27,6 +27,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
     "@storybook/addon-links": "^7.0.6",
@@ -37,6 +39,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "chromatic": "^6.17.3",
     "eslint-plugin-storybook": "^0.6.11",
+    "husky": "^8.0.3",
     "storybook": "^7.0.6",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
