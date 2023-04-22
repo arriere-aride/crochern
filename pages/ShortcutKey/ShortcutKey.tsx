@@ -35,6 +35,15 @@ interface ShortcutKey {
     name: string;
     handler: () => void;
   }[];
+
+  /**
+   * What hover properties to use?
+   */
+  hover?: {
+    backgroundColor: string;
+    borderBottomColor: string;
+    labelColor: string;
+  };
 }
 
 /**
@@ -44,30 +53,31 @@ export const ShortcutKey = ({
   size = "medium",
   backgroundColor = "#D9D9D9",
   borderBottomColor = "#676767",
+  hover = {
+    borderBottomColor: "#D9D9D9",
+    backgroundColor: "#676767",
+    labelColor: "#fefefe",
+  },
   labelColor = "#1F7B76",
   label,
-
   onPress,
   ...props
 }: ShortcutKey) => {
-
   return (
-    <Fragment>
-        <button
-          type="button"
-          className={["shortcut-key", `shortcut-key--${size}`].join(" ")}
-          onClick={onPress}
-          {...props}
-        >
-          {label}
-          <style jsx>{`
-            button {
-              background-color: ${backgroundColor};
-              border-bottom-color: ${borderBottomColor};
-              color: ${labelColor};
-            }
-          `}</style>
-        </button>
-    </Fragment>
+    <button
+      type="button"
+      className={["shortcut-key", `shortcut-key--${size}`].join(" ")}
+      onClick={onPress}
+      {...props}
+    >
+      {label}
+      <style jsx>{`
+        button {
+          background-color: ${backgroundColor};
+          border-bottom-color: ${borderBottomColor};
+          color: ${labelColor};
+        }
+      `}</style>
+    </button>
   );
 };

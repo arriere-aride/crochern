@@ -3,6 +3,7 @@
   border-bottom-width: 2px;
   border-bottom-style: solid;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .shortcut-key--extra-small {
