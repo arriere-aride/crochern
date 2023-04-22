@@ -45,11 +45,6 @@ export const ShortcutKey = ({
   size = "medium",
   backgroundColor = "#D9D9D9",
   borderBottomColor = "#676767",
-  hover = {
-    borderBottomColor: "#D9D9D9",
-    backgroundColor: "#676767",
-    labelColor: "#fefefe",
-  },
   labelColor = "#1F7B76",
   label,
   onPress,
