@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./ShortcutKey.css";
 
 interface ShortcutKey {
@@ -27,6 +27,14 @@ interface ShortcutKey {
    * Optional click handler
    */
   onPress?: () => void;
+
+  /**
+   * Keyboard key attached to shortcut
+   */
+  keyMaps?: {
+    name: string;
+    handler: () => void;
+  }[];
 }
 
 /**
@@ -36,24 +44,30 @@ export const ShortcutKey = ({
   size = "medium",
   backgroundColor = "#D9D9D9",
   borderBottomColor = "#676767",
-  labelColor="#1F7B76",
+  labelColor = "#1F7B76",
   label,
+
+  onPress,
   ...props
 }: ShortcutKey) => {
+
   return (
-    <button
-      type="button"
-      className={["shortcut-key", `shortcut-key--${size}`].join(" ")}
-      {...props}
-    >
-      {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-          border-bottom-color: ${borderBottomColor};
-          color: ${labelColor};
-        }
-      `}</style>
-    </button>
+    <Fragment>
+        <button
+          type="button"
+          className={["shortcut-key", `shortcut-key--${size}`].join(" ")}
+          onClick={onPress}
+          {...props}
+        >
+          {label}
+          <style jsx>{`
+            button {
+              background-color: ${backgroundColor};
+              border-bottom-color: ${borderBottomColor};
+              color: ${labelColor};
+            }
+          `}</style>
+        </button>
+    </Fragment>
   );
 };

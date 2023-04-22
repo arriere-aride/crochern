@@ -1,51 +1,60 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
 
-import { ShortcutKey } from './ShortcutKey';
+import { ShortcutKey } from "./ShortcutKey";
 
 const meta: Meta<typeof ShortcutKey> = {
-  title: 'Crochet/Info/ShortcutKey',
+  title: "Crochet/Info/ShortcutKey",
   component: ShortcutKey,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     backgroundColor: {
-      control: 'color',
+      control: "color",
     },
     borderBottomColor: {
       control: "color",
     },
     labelColor: {
-      control: "color"
-    }
+      control: "color",
+    },
+    onPress: {
+      action: "pressed",
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof ShortcutKey>;
 
+
 export const Medium: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const btn = canvas.getByRole("button");
+    await userEvent.click(btn);
+  },
   args: {
-    label: 'F1',
+    label: "F1",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: 'large',
-    label: 'F1',
+    size: "large",
+    label: "F1",
   },
 };
 
 export const Small: Story = {
   args: {
-    size: 'small',
-    label: 'F1',
+    size: "small",
+    label: "F1",
   },
 };
 
-
 export const ExtraSmall: Story = {
   args: {
-    size: 'extra-small',
-    label: 'F1',
+    size: "extra-small",
+    label: "F1",
   },
 };
