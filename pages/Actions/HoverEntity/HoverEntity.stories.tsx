@@ -18,6 +18,7 @@ export const Medium: Story = {
     const canvas = within(canvasElement);
     const element = canvas.getByTestId("hover-element");
     await userEvent.hover(element);
+    await userEvent.click(element)
   },
   args: {
     entity: <>entity</>,
@@ -60,6 +61,15 @@ export const onSvg: Story = {
     await userEvent.hover(element);
   },
   args: {
+    panel: {
+      active: true,
+      label: "Bride",
+      css: {
+        backgroundColor: "#a1a1a1",
+        borderColor: "transparent",
+        labelColor: "#fefefe",
+      },
+    },
     size: "small",
     entity: (
       <div style={{ width: "32px", height: "32px" }}>
