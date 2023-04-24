@@ -23,7 +23,7 @@ interface DoubleCrochet {
   padding?:number;
 }
 
-/** Render Half double crochet (demi-bride) */
+/** Render Double crochet (bride) */
 export const DoubleCrochet = ({
   position = { x: 0, y: 0 },
   size = 16,
