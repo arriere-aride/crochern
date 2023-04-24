@@ -40,6 +40,7 @@ export const FrontLoopOnly = ({
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
   const quarterSize = Math.floor(size / 4);
+  const sixthSize = Math.floor(size / 6);
   const center = { x: x + halfSize, y: y + halfSize };
   const box = {
     min: { x: x + padding, y: y + padding },
@@ -51,9 +52,9 @@ export const FrontLoopOnly = ({
     { x: `${box.max.x}`, y: `${box.max.y}` },
   ];
   const corner = {
-    left: {x: box.min.x, y: box.max.y - quarterSize},
-    right: {x: box.max.x, y: box.max.y -quarterSize} 
-  }
+    left: { x: box.min.x + sixthSize, y: box.max.y - quarterSize },
+    right: { x: box.max.x - sixthSize, y: box.max.y - quarterSize },
+  };
 
   return (
     <g
@@ -63,9 +64,7 @@ export const FrontLoopOnly = ({
       fill="transparent"
     >
       <path
-        d={`M ${corner.left.x} ${corner.left.y} C ${curve[0].x} ${
-          curve[0].y
-        }, ${curve[1].x} ${curve[1].y}, ${corner.right.x} ${corner.right.y} `}
+        d={`M ${corner.left.x} ${corner.left.y} C ${curve[0].x} ${curve[0].y}, ${curve[1].x} ${curve[1].y}, ${corner.right.x} ${corner.right.y} `}
       />
       {debug && (
         <g id={`debug-render-item-flo--${id}`} fill="red" strokeWidth={0}>
