@@ -14,6 +14,10 @@ interface FrontLoopOnly {
     y: number;
   };
   /**
+   * What padding to set
+   */
+  padding?: number;
+  /**
    * Line size
    */
   size?: number;
@@ -26,18 +30,30 @@ interface FrontLoopOnly {
 /** Render In back loop only (Dans le brin arrière) */
 export const FrontLoopOnly = ({
   fillColor = "#1a1a1a",
-  position = { x: 50, y: 50 },
+  position = { x: 0, y: 0 },
   size = 16,
   debug = false,
+  padding = 1,
   ...props
 }: FrontLoopOnly) => {
   const id: string = Math.floor(Math.random() * 100).toString();
   const { x, y } = position;
+  const halfSize = Math.floor(size / 2);
   const quarterSize = Math.floor(size / 4);
+  const center = { x: x + halfSize, y: y + halfSize };
+  const box = {
+    min: { x: x + padding, y: y + padding },
+    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+  };
+
   const curve: { x: string; y: string }[] = [
-    { x: `${x + quarterSize}`, y: `${y + quarterSize}` },
-    { x: `${x + quarterSize * 3}`, y: `${y + quarterSize}` },
+    { x: `${box.min.x}`, y: `${box.max.y}` },
+    { x: `${box.max.x}`, y: `${box.max.y}` },
   ];
+  const corner = {
+    left: {x: box.min.x, y: box.max.y - quarterSize},
+    right: {x: box.max.x, y: box.max.y -quarterSize} 
+  }
 
   return (
     <g
@@ -47,14 +63,14 @@ export const FrontLoopOnly = ({
       fill="transparent"
     >
       <path
-        d={`M ${x} ${y} C ${curve[0].x} ${curve[0].y}, ${curve[1].x} ${
-          curve[1].y
-        }, ${x + size} ${y} `}
+        d={`M ${corner.left.x} ${corner.left.y} C ${curve[0].x} ${
+          curve[0].y
+        }, ${curve[1].x} ${curve[1].y}, ${corner.right.x} ${corner.right.y} `}
       />
       {debug && (
-        <g id={`debug-render-item-flo--${id}`} fill="red" strokeWidth={0} >
-          <circle cx={curve[0].x} cy={curve[0].y}  r={1} />
-          <circle cx={curve[1].x} cy={curve[1].y}  r={1} />
+        <g id={`debug-render-item-flo--${id}`} fill="red" strokeWidth={0}>
+          <circle cx={curve[0].x} cy={curve[0].y} r={1} />
+          <circle cx={curve[1].x} cy={curve[1].y} r={1} />
         </g>
       )}
     </g>
