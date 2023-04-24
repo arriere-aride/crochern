@@ -8,6 +8,7 @@ import {
   Chain,
   HalfDoubleCrochet,
   TrebleCrochet,
+  DoubleTrebleCrochet,
 } from "../RenderEntity";
 
 const meta: Meta<typeof RenderBox> = {
@@ -59,8 +60,15 @@ export const WithDoubleCrochet: Story = {
     entity: <DoubleCrochet />,
   },
 };
+
 export const WithTrebleCrochet: Story = {
   args: {
     entity: <TrebleCrochet />,
+  },
+};
+
+export const WithDoubleTrebleCrochet: Story = {
+  args: {
+    entity: <DoubleTrebleCrochet />,
   },
 };

@@ -6,6 +6,10 @@ interface RenderBox {
    */
   size: number;
   /**
+   * What stroke width to use
+   */
+  strokeWidth?: number;
+  /**
    * What fill color to use
    */
   fillColor: string;
@@ -28,10 +32,11 @@ interface RenderBox {
 }
 
 const RenderBox = ({
-  size = 20,
+  size = 22,
   fillColor = "#566FA6",
   radius = 2,
   padding = 4,
+  strokeWidth = 2,
   position = { x: 0, y: 0 },
   entity,
 }: RenderBox): JSX.Element => {
@@ -65,6 +70,7 @@ const RenderBox = ({
           },
           padding,
           size,
+          strokeWidth,
         })
       )}
     </g>
