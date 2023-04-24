@@ -5,7 +5,6 @@ interface FrontLoopOnly {
    * What fill color to use
    */
   fillColor?: string;
-
   /**
    * Where to position
    */
@@ -27,7 +26,7 @@ interface FrontLoopOnly {
   debug?: boolean;
 }
 
-/** Render In back loop only (Dans le brin arrière) */
+/** Render In front loop only (Dans le brin avant) */
 export const FrontLoopOnly = ({
   fillColor = "#1a1a1a",
   position = { x: 0, y: 0 },

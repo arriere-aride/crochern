@@ -11,7 +11,7 @@ import {
   DoubleTrebleCrochet,
 } from "../RenderEntity";
 
-import { FrontLoopOnly } from "../RenderVariation";
+import { BackLoopOnly, FrontLoopOnly } from "../RenderVariation";
 
 const meta: Meta<typeof RenderBox> = {
   title: "Crochet/RenderBox",
@@ -78,5 +78,11 @@ export const WithDoubleTrebleCrochet: Story = {
 export const WithFrontLoopOnly: Story = {
   args: {
     entity: <FrontLoopOnly />,
+  },
+};
+
+export const WithBackLoopOnly: Story = {
+  args: {
+    entity: <BackLoopOnly />,
   },
 };
