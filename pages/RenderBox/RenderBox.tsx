@@ -1,11 +1,29 @@
 import React from "react";
 
 interface RenderBox {
+  /**
+   * Box size, will also scale entity inside
+   */
   size: number;
+  /**
+   * What fill color to use
+   */
   fillColor: string;
+  /**
+   * What radius corners circle to use
+   */
   radius: number;
+  /**
+   * What entity to render
+   */
   entity: React.ReactNode | JSX.Element;
+  /**
+   * What padding entity should have
+   */
   padding: number;
+  /**
+   * What position it have on the grid
+   */
   position: { x: number; y: number };
 }
 
@@ -13,6 +31,7 @@ const RenderBox = ({
   size = 20,
   fillColor = "#566FA6",
   radius = 2,
+  padding = 4,
   position = { x: 0, y: 0 },
   entity,
 }: RenderBox): JSX.Element => {
@@ -29,7 +48,7 @@ const RenderBox = ({
     `M ${position.x + radius} ${size - radius} V ${position.y + radius}`,
   ];
   return (
-    <g strokeWidth={1} >
+    <g strokeWidth={1}>
       {corners.map((corner) => (
         <circle {...corner} r={radius} fill={fillColor} />
       ))}
@@ -43,10 +62,9 @@ const RenderBox = ({
             cy: (position.y + size) / 2,
             x: position.x,
             y: position.y,
-            
           },
-          
-          size
+          padding,
+          size,
         })
       )}
     </g>
