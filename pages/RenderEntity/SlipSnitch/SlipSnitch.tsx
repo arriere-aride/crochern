@@ -6,6 +6,10 @@ interface SlipSnitch {
    */
   fillColor?: string;
   /**
+   * What stroke color to use
+   */
+  strokeColor?: string;
+  /**
    * What radius to use
    */
   radius?: number;
@@ -21,19 +25,17 @@ interface SlipSnitch {
 /** Render Snitch (maille coulée) */
 export const SlipSnitch = ({
   fillColor = "#1a1a1a",
+  strokeColor = "transparent",
   radius = 8,
-  position = { cx: 50, cy: 50 },
+  position = { cx: 8, cy: 8 },
   ...props
 }: SlipSnitch) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  const id: number = Math.floor(Math.random() * 100);
+  const r = Math.floor(radius / 2);
 
   return (
-    <g id={`render-item-slst--${id}`} fill={fillColor}>
-      <circle
-        cx={position.cx.toString()}
-        cy={position.cy.toString()}
-        r={radius.toString()}
-      />
+    <g id={`render-item-slst--${id}`} fill={fillColor} stroke={strokeColor}>
+      <circle cx={position.cx} cy={position.cy} r={r} />
     </g>
   );
 };

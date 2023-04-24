@@ -9,8 +9,8 @@ interface Chain {
    * What radius to use
    */
   radius?: {
-    rx: number;
-    ry: number;
+    rx?: number;
+    ry?: number;
   };
   /**
    * Where to position
@@ -24,20 +24,19 @@ interface Chain {
 /** Render Chain (maille en l’air) */
 export const Chain = ({
   fillColor = "#1a1a1a",
-  radius = { rx: 16, ry: 8 },
-  position = { cx: 50, cy: 50 },
+  radius = { rx: 8, ry: 4 },
+  position = { cx: 8, cy: 4 },
   ...props
 }: Chain) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  const id: number = Math.floor(Math.random() * 100);
+  const { rx, ry } = {
+    rx: radius.rx || Math.floor((radius.ry || 1) * 2),
+    ry: radius.ry || Math.floor((radius.rx || 1) / 2),
+  };
 
   return (
     <g id={`render-item-ch--${id}`} fill={fillColor}>
-      <ellipse
-        cx={position.cx.toString()}
-        cy={position.cy.toString()}
-        rx={radius.rx.toString()}
-        ry={radius.ry.toString()}
-      />
+      <ellipse cx={position.cx} cy={position.cy} rx={rx} ry={ry} />
     </g>
   );
 };
