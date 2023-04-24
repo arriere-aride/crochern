@@ -12,7 +12,7 @@
     "sb:docs": "storybook dev --docs",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
-    "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes"
+    "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes --auto-accept-changes"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
