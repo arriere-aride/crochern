@@ -1,6 +1,8 @@
 # Crochern
 
-Website to help you create pattern for crochet.
+_Crochet + Pattern = Crochern_
+
+Website to help you create crochet pattern.
 
 Based on [Next js](https://nextjs.org).
 
