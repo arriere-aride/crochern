@@ -6,6 +6,7 @@ import {
   SingleCrochet,
   SlipSnitch,
   Chain,
+  HalfDoubleCrochet,
 } from "../RenderEntity";
 
 const meta: Meta<typeof RenderBox> = {
@@ -44,6 +45,11 @@ export const WithChain: Story = {
 export const WithSingleCrochet: Story = {
   args: {
     entity: <SingleCrochet />,
+  },
+};
+export const WithHalfDoubleCrochet: Story = {
+  args: {
+    entity: <HalfDoubleCrochet />,
   },
 };
 
