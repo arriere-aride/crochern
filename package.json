@@ -47,6 +47,6 @@
     "storybook": "^7.0.6",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
-  "readme": "ERROR: No README data found!",
+  "readme": "README.md",
   "_id": "crochern@0.1.0"
 }
