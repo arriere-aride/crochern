@@ -51,11 +51,10 @@ export const FrontPost = ({
   const tierceSize = Math.floor(size / 3);
   const quarterSize = Math.floor(size / 4);
   const fifthSize = Math.floor(size / 5);
-  const sixthSize = Math.floor(size / 6);
   const seventhSize = Math.floor(size/7)
   const center = { x: x + halfSize, y: y + halfSize };
   const box = {
-    min: { x: x + padding, y: y + padding },
+    min: { x: center.x + padding, y: center.y + padding },
     max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
   };
   const curve: { x: string; y: string }[] = [
