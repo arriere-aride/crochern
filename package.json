@@ -44,6 +44,7 @@
     "chromatic": "^6.17.3",
     "eslint-plugin-storybook": "^0.6.11",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
     "storybook": "^7.0.6",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
