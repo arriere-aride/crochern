@@ -45,6 +45,7 @@
     "eslint-plugin-storybook": "^0.6.11",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
+    "riteway": "^7.0.0",
     "storybook": "^7.0.6",
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
