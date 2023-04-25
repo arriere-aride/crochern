@@ -38,9 +38,7 @@ export const TwoSingleCrochetOneStitch = ({
   const id: string = Math.floor(Math.random() * 100).toString();
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
-  const quarterSize = Math.floor(size/4)
-  const sixthSize = Math.floor(size / 6);
-  const eightSize = Math.floor(size / 8);
+  const doubleStrokeWidth = strokeWidth * 2;
 
   const center = { x: x + halfSize, y: y + halfSize };
   const box = {
@@ -56,21 +54,21 @@ export const TwoSingleCrochetOneStitch = ({
         strokeWidth={strokeWidth}
       >
         <line
-          x1={box.min.x + quarterSize}
-          y1={center.y - quarterSize + sixthSize}
-          x2={box.max.x - quarterSize}
-          y2={center.y - quarterSize + sixthSize}
+          x1={box.min.x + doubleStrokeWidth}
+          y1={center.y}
+          x2={box.max.x - doubleStrokeWidth}
+          y2={center.y}
         />
         <line
           x1={center.x}
-          y1={y + quarterSize}
+          y1={box.min.y + doubleStrokeWidth}
           x2={center.x}
-          y2={y + halfSize}
+          y2={box.max.y - doubleStrokeWidth}
         />
       </g>
       <g id={`render-item-tscoc-container--${id}`}>
-        <path d={`M ${center.x} ${box.max.y} ${box.min.x} ${box.min.y} `} />
-        <path d={`M ${center.x} ${box.max.y} ${box.max.x} ${box.min.y} `} />
+        <path d={`M ${center.x} ${box.max.y} ${box.min.x} ${center.y} `} />
+        <path d={`M ${center.x} ${box.max.y} ${box.max.x} ${center.y} `} />
       </g>
     </g>
   );
