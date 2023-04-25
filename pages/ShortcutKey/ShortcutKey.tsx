@@ -35,7 +35,6 @@ interface ShortcutKey {
     name: string;
     handler: () => void;
   }[];
-
 }
 
 /**

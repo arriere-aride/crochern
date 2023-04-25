@@ -26,7 +26,6 @@ const meta: Meta<typeof ShortcutKey> = {
 export default meta;
 type Story = StoryObj<typeof ShortcutKey>;
 
-
 export const Medium: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

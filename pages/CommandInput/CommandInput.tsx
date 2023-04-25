@@ -61,13 +61,15 @@ export const CommandInput = ({
             type="text"
             name="command-bar--input"
             className={["command-bar--input", `command-bar--${size}`].join(" ")}
-            style={{ color: contentColor, backgroundColor, outlineColor: borderColor }}
+            style={{
+              color: contentColor,
+              backgroundColor,
+              outlineColor: borderColor,
+            }}
             placeholder={placeholder}
           />
         </div>
-        <div className="command-bar--shortcut">
-          {shortcutKey}
-        </div>
+        <div className="command-bar--shortcut">{shortcutKey}</div>
       </div>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
 export const usePressKey = (keys: any, callback: any, node = null) => {
   // implement the callback ref pattern
@@ -22,12 +22,10 @@ export const usePressKey = (keys: any, callback: any, node = null) => {
     // target is either the provided node or the document
     const targetNode = node ?? document;
     // attach the event listener
-    targetNode &&
-      targetNode.addEventListener("keydown", handleKeyPress);
+    targetNode && targetNode.addEventListener("keydown", handleKeyPress);
 
     // remove the event listener
     return () =>
-      targetNode &&
-        targetNode.removeEventListener("keydown", handleKeyPress);
+      targetNode && targetNode.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress, node]);
 };

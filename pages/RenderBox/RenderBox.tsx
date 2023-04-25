@@ -32,7 +32,7 @@ interface RenderBox {
 }
 
 const RenderBox = ({
-  size = 22,
+  size = 24,
   fillColor = "#566FA6",
   radius = 2,
   padding = 4,
@@ -54,11 +54,20 @@ const RenderBox = ({
   ];
   return (
     <g strokeWidth={1}>
-      {corners.map((corner) => (
-        <circle {...corner} r={radius} fill={fillColor} />
+      {corners.map((corner, index) => (
+        <circle
+          {...corner}
+          r={radius}
+          fill={fillColor}
+          key={`renderbox--box-corner--${index}`}
+        />
       ))}
-      {paths.map((line) => (
-        <path d={line} stroke={fillColor} />
+      {paths.map((line, index) => (
+        <path
+          d={line}
+          stroke={fillColor}
+          key={`renderbox--box-line--${index}`}
+        />
       ))}
       {React.Children.map(entity, (child) =>
         React.cloneElement(child as any, {

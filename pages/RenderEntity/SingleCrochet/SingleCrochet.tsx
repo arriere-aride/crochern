@@ -60,7 +60,7 @@ export const SingleCrochet = ({
         <line
           x1={box.min.x}
           y1={center.y}
-          x2={box.max.y}
+          x2={box.max.x}
           y2={center.y}
         />
         <line

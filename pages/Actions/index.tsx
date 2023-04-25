@@ -1,1 +1,1 @@
-export {HoverEntity} from "./HoverEntity/HoverEntity"
+export { HoverEntity } from "./HoverEntity/HoverEntity";

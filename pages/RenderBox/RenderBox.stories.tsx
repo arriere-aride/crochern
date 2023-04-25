@@ -11,7 +11,13 @@ import {
   DoubleTrebleCrochet,
 } from "../RenderEntity";
 
-import { BackLoopOnly, BackPost, FrontLoopOnly, FrontPost } from "../RenderVariation";
+import {
+  BackLoopOnly,
+  BackPost,
+  FrontLoopOnly,
+  FrontPost,
+} from "../RenderVariation";
+import { TwoSingleCrochetOneStitch } from "../RenderIncrease";
 
 const meta: Meta<typeof RenderBox> = {
   title: "Crochet/RenderBox",
@@ -96,5 +102,11 @@ export const WithFrontPost: Story = {
 export const WithBackPost: Story = {
   args: {
     entity: <BackPost />,
+  },
+};
+
+export const WithTwoSingleCrochetOneStitch: Story = {
+  args: {
+    entity: <TwoSingleCrochetOneStitch />,
   },
 };

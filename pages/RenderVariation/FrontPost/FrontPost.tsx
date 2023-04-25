@@ -54,7 +54,7 @@ export const FrontPost = ({
   const seventhSize = Math.floor(size/7)
   const center = { x: x + halfSize, y: y + halfSize };
   const box = {
-    min: { x: center.x + padding, y: center.y + padding },
+    min: { x: x + padding, y: y + padding },
     max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
   };
   const curve: { x: string; y: string }[] = [

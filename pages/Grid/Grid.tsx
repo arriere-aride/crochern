@@ -6,15 +6,15 @@ interface Grid {
    * Cell is the most little atom in grid
    */
   cell: {
-    size: unit,
+    size: unit;
     strokeColor: string;
     strokeWidth: unit;
   };
   /**
-   * Separator separates cell 
+   * Separator separates cell
    */
   separator: {
-    size: unit,
+    size: unit;
     strokeColor: string;
     strokeWidth: unit;
   };
@@ -33,7 +33,7 @@ const Grid = ({
   cell = {
     strokeWidth: 0.5,
     strokeColor: "gray",
-    size: 8
+    size: 8,
   },
   separator = {
     strokeWidth: 1,
@@ -68,7 +68,10 @@ const Grid = ({
         height={separator.size}
         patternUnits="userSpaceOnUse"
       >
-        <path fill="url(#a)" d={`M0 0h${separator.size}v${separator.size}H0z`} />
+        <path
+          fill="url(#a)"
+          d={`M0 0h${separator.size}v${separator.size}H0z`}
+        />
         <path
           fill="none"
           stroke={separator.strokeColor}

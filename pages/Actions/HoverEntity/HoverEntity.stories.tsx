@@ -54,7 +54,7 @@ export const HoverCirlce: Story = {
   },
 };
 
-export const onSvg: Story = {
+export const HoverOnSvg: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const element = canvas.getByTestId("hover-element");
