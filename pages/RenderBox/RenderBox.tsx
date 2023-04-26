@@ -32,7 +32,7 @@ interface RenderBox {
 }
 
 const RenderBox = ({
-  size = 24,
+  size = 26,
   fillColor = "#566FA6",
   radius = 2,
   padding = 4,

@@ -19,6 +19,7 @@ import {
 } from "../RenderVariation";
 import {
   ThreeSingleCrochetOneStitch,
+  TwoDoubleCrochetOneStitch,
   TwoSingleCrochetOneStitch,
 } from "../RenderIncrease";
 
@@ -117,5 +118,11 @@ export const WithTwoSingleCrochetOneStitch: Story = {
 export const WithThreeSingleCrochetOneStitch: Story = {
   args: {
     entity: <ThreeSingleCrochetOneStitch />,
+  },
+};
+
+export const WithTwoDoubleCrochetOneStitch: Story = {
+  args: {
+    entity: <TwoDoubleCrochetOneStitch />,
   },
 };
