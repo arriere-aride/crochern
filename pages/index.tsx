@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import Script from "next/script";
-import { Grid } from "./Grid/Grid";
+import { Grid } from "@@/components/Grid/Grid";
 
 export default function Home() {
   return (
@@ -12,24 +11,23 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Script src="https://cdn.tailwindcss.com" />
       <main className="h-screen w-screen bg-gradient-to-b from-[#758918] to-[#9E9A41] ">
         <div className="absolute h-full w-full m-0 z-0">
           <Grid
             grid={{
               strokeWidth: 0.5,
-              strokeColor: "#758918",
+              stroke: "#758918",
               width: "100%",
               height: "100%",
             }}
             cell={{
               strokeWidth: 0.5,
-              strokeColor: "#758918",
+              stroke: "#758918",
               size: 16,
             }}
             separator={{
               strokeWidth: 1,
-              strokeColor: "#9E9A41",
+              stroke: "#9E9A41",
               size: 64,
             }}
           />
