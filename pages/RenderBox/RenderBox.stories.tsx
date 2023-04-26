@@ -17,7 +17,10 @@ import {
   FrontLoopOnly,
   FrontPost,
 } from "../RenderVariation";
-import { TwoSingleCrochetOneStitch } from "../RenderIncrease";
+import {
+  ThreeSingleCrochetOneStitch,
+  TwoSingleCrochetOneStitch,
+} from "../RenderIncrease";
 
 const meta: Meta<typeof RenderBox> = {
   title: "Crochet/RenderBox",
@@ -30,7 +33,7 @@ const meta: Meta<typeof RenderBox> = {
   },
   decorators: [
     (Story) => (
-      <svg width="128" height="128">
+      <svg width="32" height="32">
         <Story />
       </svg>
     ),
@@ -108,5 +111,11 @@ export const WithBackPost: Story = {
 export const WithTwoSingleCrochetOneStitch: Story = {
   args: {
     entity: <TwoSingleCrochetOneStitch />,
+  },
+};
+
+export const WithThreeSingleCrochetOneStitch: Story = {
+  args: {
+    entity: <ThreeSingleCrochetOneStitch />,
   },
 };
