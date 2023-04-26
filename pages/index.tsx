@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import { Grid } from "./Grid/Grid";
 
 export default function Home() {
@@ -9,9 +10,9 @@ export default function Home() {
         <title>Crochern - Crochet Pattern Maker</title>
         <meta name="description" content="make pattern of crochet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.tailwindcss.com" async></script>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Script src="https://cdn.tailwindcss.com" />
       <main className="h-screen w-screen bg-gradient-to-b from-[#758918] to-[#9E9A41] ">
         <div className="absolute h-full w-full m-0 z-0">
           <Grid
