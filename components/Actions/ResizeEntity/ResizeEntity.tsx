@@ -1,6 +1,6 @@
 import { Fragment, Children, cloneElement } from "react";
 
-interface IResizeEntity {
+interface ResizeEntity {
   /**
    * Wich entity to use?
    */
@@ -24,7 +24,7 @@ export const ResizeEntity = ({
   size = 16,
   scale = 1,
   onResize,
-}: IResizeEntity): JSX.Element => {
+}: ResizeEntity): JSX.Element => {
   return (
     <Fragment>
       {Children.map(entity, (child) =>
