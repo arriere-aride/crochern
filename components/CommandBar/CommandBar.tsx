@@ -100,7 +100,7 @@ export const CommandBar = ({
   shortcutKey = <></>,
   placeholder = "",
   toggleKey = "F1",
-  isVisible = false
+  isVisible = false,
 }: CommandBar): JSX.Element => {
   const commandBarInputSizes = {
     small: {
@@ -121,14 +121,15 @@ export const CommandBar = ({
   };
   const [visible, setVisible] = useToggle(isVisible);
   const onKeyPress = (event: any) => {
-    setVisible()
+    setVisible();
   };
-  
+
   usePressKey([toggleKey.toString()], onKeyPress);
 
   return (
     <Fragment>
       <CommandBarContainer
+        data-testid="command-bar"
         style={{
           backgroundColor,
           borderColor,
