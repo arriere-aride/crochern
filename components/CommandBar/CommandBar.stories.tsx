@@ -14,7 +14,7 @@ const meta: Meta<typeof CommandBar> = {
 export default meta;
 type Story = StoryObj<typeof CommandBar>;
 
-export const Medium: Story = {
+export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const bar = canvas.getByTestId("command-bar");
@@ -26,6 +26,13 @@ export const Medium: Story = {
     toggleKey: "F1",
   },
 };
+
+export const VisibleByDefault: Story = {
+  args: {
+    isVisible: true
+  },
+};
+
 export const WithShortKey: Story = {
   args: {
     isVisible: true,
