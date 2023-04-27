@@ -19,7 +19,6 @@ export const Default: Story = {
     const key = "F4";
     const canvas = within(canvasElement);
     const bar = canvas.getByTestId("command-bar");
-    await bar.focus();
     expect(bar).not.toBeVisible();
     await userEvent.keyboard(`{${key}}`);
     await bar.focus();
