@@ -29,7 +29,7 @@ export const Default: Story = {
 
 export const VisibleByDefault: Story = {
   args: {
-    isVisible: true
+    isVisible: true,
   },
 };
 
