@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect } from '@storybook/jest'
+import { expect } from "@storybook/jest";
 
 import { CommandBar } from "./CommandBar";
 import { ShortcutKey } from "../ShortcutKey/ShortcutKey";
@@ -20,7 +20,7 @@ export const Medium: Story = {
     const bar = canvas.getByTestId("command-bar");
     expect(bar).not.toBeVisible();
     await userEvent.keyboard("{F1}");
-    await waitFor(() => expect(bar).toBeVisible())
+    await waitFor(() => expect(bar).toBeVisible());
   },
   args: {
     toggleKey: "F1",
