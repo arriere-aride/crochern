@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CommandInput } from "./CommandInput";
+import { CommandBar } from "./CommandBar";
 import { ShortcutKey } from "../ShortcutKey/ShortcutKey";
 
-const meta: Meta<typeof CommandInput> = {
-  title: "Crochet/Input/CommandInput",
-  component: CommandInput,
+const meta: Meta<typeof CommandBar> = {
+  title: "Crochet/Bar/CommandBar",
+  component: CommandBar,
   tags: ["autodocs"],
 };
 
 export default meta;
-type Story = StoryObj<typeof CommandInput>;
+type Story = StoryObj<typeof CommandBar>;
 
 export const Medium: Story = {};
 export const WithShortKey: Story = {

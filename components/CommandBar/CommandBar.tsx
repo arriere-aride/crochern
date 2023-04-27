@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 import styled from "@emotion/styled";
 
-interface CommandInput {
+interface CommandBar {
   /**
    * How large it should be?
    */
@@ -82,7 +82,7 @@ const CommandBarShortCut = styled.div`
  * or Visual Studio Code ["Command Palette"](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette),
  * opens an input where commands can be found and triggered
  */
-export const CommandInput = ({
+export const CommandBar = ({
   size = "medium",
   caretColor = "#F0DF87",
   backgroundColor = "#13474A",
@@ -90,7 +90,7 @@ export const CommandInput = ({
   contentColor = "#B4b4b4",
   shortcutKey = <></>,
   placeholder = "",
-}: CommandInput): JSX.Element => {
+}: CommandBar): JSX.Element => {
   const commandBarInputSizes = {
     small: {
       fontSize: "12px",
