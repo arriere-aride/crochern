@@ -16,14 +16,17 @@ type Story = StoryObj<typeof CommandBar>;
 
 export const Default: Story = {
   play: async ({ canvasElement }) => {
+    const key = "F4";
     const canvas = within(canvasElement);
     const bar = canvas.getByTestId("command-bar");
+    await bar.focus();
     expect(bar).not.toBeVisible();
-    await userEvent.keyboard("{F1}");
+    await userEvent.keyboard(`{${key}}`);
+    await bar.focus();
     await waitFor(() => expect(bar).toBeVisible());
   },
   args: {
-    toggleKey: "F1",
+    toggleKey: "F4",
   },
 };
 
