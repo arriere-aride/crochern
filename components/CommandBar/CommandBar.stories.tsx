@@ -12,9 +12,14 @@ const meta: Meta<typeof CommandBar> = {
 export default meta;
 type Story = StoryObj<typeof CommandBar>;
 
-export const Medium: Story = {};
+export const Medium: Story = {
+  args: {
+    isVisible: true,
+  },
+};
 export const WithShortKey: Story = {
   args: {
+    isVisible: true,
     shortcutKey: (
       <>
         <ShortcutKey label="R" size="extra-small" />

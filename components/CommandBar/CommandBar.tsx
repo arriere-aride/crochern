@@ -1,37 +1,7 @@
 import React, { Fragment } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
 import styled from "@emotion/styled";
-
-interface CommandBar {
-  /**
-   * How large it should be?
-   */
-  size?: "small" | "medium" | "large";
-  /**
-   * What caret color to use
-   */
-  caretColor?: string;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * What border color to use
-   */
-  borderColor?: string;
-  /**
-   * What content color to use
-   */
-  contentColor?: string;
-  /**
-   * Display keyboard key shortcut
-   */
-  shortcutKey: JSX.Element;
-  /**
-   * What placeholder to use
-   */
-  placeholder?: string;
-}
+import { usePressKey, useToggle } from "@@/components/hooks";
 
 const CommandBarContainer = styled.div`
   position: relative;
@@ -77,6 +47,45 @@ const CommandBarShortCut = styled.div`
   align-items: center;
 `;
 
+interface CommandBar {
+  /**
+   * How large it should be?
+   */
+  size?: "small" | "medium" | "large";
+  /**
+   * What caret color to use
+   */
+  caretColor?: string;
+  /**
+   * What background color to use
+   */
+  backgroundColor?: string;
+  /**
+   * What border color to use
+   */
+  borderColor?: string;
+  /**
+   * What content color to use
+   */
+  contentColor?: string;
+  /**
+   * Display keyboard key shortcut
+   */
+  shortcutKey: JSX.Element;
+  /**
+   * What placeholder to use
+   */
+  placeholder?: string;
+  /**
+   * What key to use in order to toggle
+   */
+  toggleKey?: string;
+  /**
+   * What visibility by default?
+   */
+  isVisible?: boolean;
+}
+
 /**
  * Like [Alfred](https://www.alfredapp.com/),
  * or Visual Studio Code ["Command Palette"](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette),
@@ -90,6 +99,8 @@ export const CommandBar = ({
   contentColor = "#B4b4b4",
   shortcutKey = <></>,
   placeholder = "",
+  toggleKey = "F1",
+  isVisible = false
 }: CommandBar): JSX.Element => {
   const commandBarInputSizes = {
     small: {
@@ -108,9 +119,22 @@ export const CommandBar = ({
       paddingBottom: "12px",
     },
   };
+  const [visible, setVisible] = useToggle(isVisible);
+  const onKeyPress = (event: any) => {
+    setVisible()
+  };
+  
+  usePressKey([toggleKey.toString()], onKeyPress);
+
   return (
     <Fragment>
-      <CommandBarContainer style={{ backgroundColor, borderColor }}>
+      <CommandBarContainer
+        style={{
+          backgroundColor,
+          borderColor,
+          visibility: visible ? "visible" : "hidden",
+        }}
+      >
         <CommandBarCaret style={{ color: caretColor }}>
           <AiOutlineCaretRight />
         </CommandBarCaret>
