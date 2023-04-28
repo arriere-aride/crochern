@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import React from "react";
 
 interface SingleCrochet {
@@ -26,6 +27,14 @@ interface SingleCrochet {
   rotation?: number;
 
   padding?: number;
+  /**
+   * How to style on hover?
+   */
+  hoverColors?: {
+    backgroundColor: string;
+    borderColor: string;
+    props?: any;
+  };
 }
 
 /** Render Single crochet (maille serrée) */
@@ -36,6 +45,10 @@ export const SingleCrochet = ({
   rotation = 0,
   strokeWidth = 2,
   padding = 1,
+  hoverColors = {
+    backgroundColor: "#F0DF87",
+    borderColor: "inherit",
+  },
   ...props
 }: SingleCrochet) => {
   const id: string = Math.floor(Math.random() * 100).toString();
@@ -48,11 +61,20 @@ export const SingleCrochet = ({
     max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
   };
 
+  const SingleCrochetContainer = styled.svg`
+    stroke: ${fillColor};
+    cursor: pointer;
+    &:hover {
+      border-color: ${hoverColors.borderColor};
+      stroke: ${hoverColors.backgroundColor};
+      ${hoverColors.props};
+    }
+  `;
+
   return (
-    <svg x={x} y={y} width={box.max.x} height={box.max.y}>
+    <SingleCrochetContainer x={x} y={y} width={box.max.x} height={box.max.y}>
       <g
         id={`render-item-sc--${id}`}
-        stroke={fillColor}
         strokeWidth={strokeWidth}
         transform={rotate}
         style={{ transformOrigin: "center", transformBox: "fill-box" }}
@@ -60,6 +82,6 @@ export const SingleCrochet = ({
         <line x1={box.min.x} y1={center.y} x2={box.max.x} y2={center.y} />
         <line x1={center.x} y1={box.min.y} x2={center.x} y2={box.max.y} />
       </g>
-    </svg>
+    </SingleCrochetContainer>
   );
 };
