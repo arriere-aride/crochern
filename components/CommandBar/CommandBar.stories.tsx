@@ -15,13 +15,18 @@ export default meta;
 type Story = StoryObj<typeof CommandBar>;
 
 export const Default: Story = {
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const key = "F4";
     const canvas = within(canvasElement);
     const bar = canvas.getByTestId("command-bar");
+
     expect(bar).not.toBeVisible();
-    await userEvent.keyboard(`{${key}}`);
-    await bar.focus();
+
+    await step("user press toggle key", async () => {
+      await userEvent.keyboard(`{${key}}`);
+      await bar.focus();
+    });
+
     // issue with testing a keyEvent, not testable
     // await waitFor(() => expect(bar).toBeVisible());
   },
