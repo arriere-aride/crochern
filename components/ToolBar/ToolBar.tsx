@@ -37,7 +37,7 @@ interface ToolBar {
    * @param props any
    * @returns any
    */
-  onClick: ({ e, index, ...props }: any) => any;
+  onClick?: ({ e, index, ...props }: any) => any;
   /**
    * What key to use in order to toggle
    */

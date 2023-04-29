@@ -3,23 +3,16 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Grid } from "./Grid";
 
 const meta: Meta<typeof Grid> = {
-  title: "Crochet/Atoms/Info/Grid",
+  title: "Crochet/Atoms/Grid",
   component: Grid,
   tags: ["autodocs"],
   argTypes: {},
-  decorators: [
-    (Story) => (
-      <svg>
-        <Story />
-      </svg>
-    ),
-  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof Grid>;
 
-export const Default: Story = { args: {} };
+export const Default: Story = {};
 export const GridFourRatio: Story = {
   args: {
     grid: {
