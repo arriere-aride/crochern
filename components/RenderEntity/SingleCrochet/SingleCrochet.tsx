@@ -25,16 +25,10 @@ interface SingleCrochet {
    * Rotating piece, in degrees
    */
   rotation?: number;
-
-  padding?: number;
   /**
-   * How to style on hover?
+   * What padding to set
    */
-  hoverColors?: {
-    backgroundColor: string;
-    borderColor: string;
-    props?: any;
-  };
+  padding?: number;
 }
 
 /** Render Single crochet (maille serrée) */
@@ -45,11 +39,6 @@ export const SingleCrochet = ({
   rotation = 0,
   strokeWidth = 2,
   padding = 1,
-  hoverColors = {
-    backgroundColor: "#F0DF87",
-    borderColor: "inherit",
-  },
-  ...props
 }: SingleCrochet) => {
   const id: string = Math.floor(Math.random() * 100).toString();
   const { x, y } = position;
@@ -64,11 +53,6 @@ export const SingleCrochet = ({
   const SingleCrochetContainer = styled.svg`
     stroke: ${fillColor};
     cursor: pointer;
-    &:hover {
-      border-color: ${hoverColors.borderColor};
-      stroke: ${hoverColors.backgroundColor};
-      ${hoverColors.props};
-    }
   `;
 
   return (

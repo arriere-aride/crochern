@@ -1,6 +1,11 @@
+import styled from "@emotion/styled";
 import React from "react";
 
 interface DoubleCrochet {
+  /**
+   * What stroke width to set
+   */
+  strokeWidth?: number;
   /**
    * What position it have
    */
@@ -30,7 +35,7 @@ export const DoubleCrochet = ({
   fillColor = "#1a1a1a",
   rotation = 0,
   padding = 1,
-  ...props
+  strokeWidth = 2,
 }: DoubleCrochet) => {
   const id: string = Math.floor(Math.random() * 100).toString();
   const { x, y } = position;
@@ -43,38 +48,42 @@ export const DoubleCrochet = ({
     max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
   };
 
+  const DoubleCrochetContainer = styled.svg`
+    stroke: ${fillColor};
+    cursor: pointer;
+  `;
+
   return (
-    <g id={`render-item-dc--${id}`} stroke={fillColor} strokeWidth={2}>
-      <line
-        stroke={fillColor}
-        strokeWidth={2}
-        x1={center.x}
-        y1={box.max.y}
-        x2={center.x}
-        y2={box.min.y}
-      />
-      <line
-        stroke={fillColor}
-        strokeWidth={2}
-        x1={box.min.x}
-        y1={box.min.y}
-        x2={box.max.x}
-        y2={box.min.y}
-      />
-      <g
-        id={`render-item-dc-bar--${id}`}
-        transform={rotate}
-        style={{ transformOrigin: "center", transformBox: "fill-box" }}
-      >
+    <DoubleCrochetContainer x={x} y={y} width={box.max.x} height={box.max.y}>
+      <g id={`render-item-dc--${id}`} strokeWidth={strokeWidth}>
         <line
-          stroke={fillColor}
-          strokeWidth={2}
-          x1={center.x - fifthSize}
-          x2={center.x + fifthSize}
-          y1={center.y}
-          y2={center.y}
+          strokeWidth={strokeWidth}
+          x1={center.x}
+          y1={box.max.y}
+          x2={center.x}
+          y2={box.min.y}
         />
+        <line
+          strokeWidth={strokeWidth}
+          x1={box.min.x}
+          y1={box.min.y}
+          x2={box.max.x}
+          y2={box.min.y}
+        />
+        <g
+          id={`render-item-dc-bar--${id}`}
+          transform={rotate}
+          style={{ transformOrigin: "center", transformBox: "fill-box" }}
+        >
+          <line
+            strokeWidth={strokeWidth}
+            x1={center.x - fifthSize}
+            x2={center.x + fifthSize}
+            y1={center.y}
+            y2={center.y}
+          />
+        </g>
       </g>
-    </g>
+    </DoubleCrochetContainer>
   );
 };

@@ -1,6 +1,11 @@
+import styled from "@emotion/styled";
 import React from "react";
 
 interface TrebleCrochet {
+  /**
+   * What stroke width to set
+   */
+  strokeWidth?: number;
   /**
    * What position it have
    */
@@ -35,7 +40,7 @@ export const TrebleCrochet = ({
   rotation = 0,
   padding = 1,
   middlePadding = 8,
-  ...props
+  strokeWidth = 2,
 }: TrebleCrochet) => {
   const id: string = Math.floor(Math.random() * 100).toString();
   const { x, y } = position;
@@ -49,46 +54,35 @@ export const TrebleCrochet = ({
     max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
   };
 
+  const TrebleCrochetContainer = styled.svg`
+    stroke: ${fillColor};
+    cursor: pointer;
+  `;
+
   return (
-    <g id={`render-item-tc--${id}`} stroke={fillColor} strokeWidth={2}>
-      <line
-        stroke={fillColor}
-        strokeWidth={2}
-        x1={center.x}
-        y1={box.max.y}
-        x2={center.x}
-        y2={box.min.y}
-      />
-      <line
-        stroke={fillColor}
-        strokeWidth={2}
-        x1={box.min.x}
-        y1={box.min.y}
-        x2={box.max.x}
-        y2={box.min.y}
-      />
-      <g
-        id={`render-item-tc-bar--${id}`}
-        transform={rotate}
-        style={{ transformOrigin: "center", transformBox: "fill-box" }}
-      >
-        <line
-          stroke={fillColor}
-          strokeWidth={2}
-          x1={center.x - fifthSize}
-          x2={center.x + fifthSize}
-          y1={center.y + middleBarSize}
-          y2={center.y + middleBarSize}
-        />
-        <line
-          stroke={fillColor}
-          strokeWidth={2}
-          x1={center.x - fifthSize}
-          x2={center.x + fifthSize}
-          y1={center.y - middleBarSize}
-          y2={center.y - middleBarSize}
-        />
+    <TrebleCrochetContainer x={x} y={y} width={box.max.x} height={box.max.y}>
+      <g id={`render-item-tc--${id}`} strokeWidth={strokeWidth}>
+        <line x1={center.x} y1={box.max.y} x2={center.x} y2={box.min.y} />
+        <line x1={box.min.x} y1={box.min.y} x2={box.max.x} y2={box.min.y} />
+        <g
+          id={`render-item-tc-bar--${id}`}
+          transform={rotate}
+          style={{ transformOrigin: "center", transformBox: "fill-box" }}
+        >
+          <line
+            x1={center.x - fifthSize}
+            x2={center.x + fifthSize}
+            y1={center.y + middleBarSize}
+            y2={center.y + middleBarSize}
+          />
+          <line
+            x1={center.x - fifthSize}
+            x2={center.x + fifthSize}
+            y1={center.y - middleBarSize}
+            y2={center.y - middleBarSize}
+          />
+        </g>
       </g>
-    </g>
+    </TrebleCrochetContainer>
   );
 };

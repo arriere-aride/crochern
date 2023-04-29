@@ -9,6 +9,7 @@ import {
   DoubleCrochet,
   TrebleCrochet,
   DoubleTrebleCrochet,
+  SlipSnitch,
 } from "../RenderEntity";
 
 const meta: Meta<typeof ToolBar> = {
@@ -37,6 +38,7 @@ type Story = StoryObj<typeof ToolBar>;
 export const Default: Story = {
   args: {
     tools: [
+      { label: "Slip Snitch", entity: <SlipSnitch /> },
       { label: "Single Crochet", entity: <SingleCrochet /> },
       { label: "Chain", entity: <Chain /> },
       { label: "Half Double Crochet", entity: <HalfDoubleCrochet /> },

@@ -5,6 +5,7 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
 import { usePressKey, useToggle } from "../hooks";
+import styled from "@emotion/styled";
 
 interface ToolBar {
   /**
@@ -71,6 +72,16 @@ export const ToolBar = ({
   };
   usePressKey([toggleKey?.toString()], onKeyPress);
   const cellSize = `${toolSize + padding}px`;
+  const Anchor = styled.a`
+    display: inline-flex;
+    height: ${toolSize}px;
+    cursor: pointer;
+    padding: ${padding}px;
+    &:hover svg svg * {
+      fill: #f0df87;
+      stroke: #f0df87;
+    }
+  `;
   return (
     <Box
       sx={{
@@ -98,19 +109,16 @@ export const ToolBar = ({
               >
                 {tool.label}
               </Tooltip>
-              <a
-                className={`anchor-${index}`}
-                style={{ display: "inline-block", height: toolSize }}
-              >
-                <svg style={{ padding }} width="100%" height="100%">
+              <Anchor className={`anchor-${index}`}>
+                <svg width="100%" height="100%">
                   {cloneElement(entity as any, {
                     onClick: (e: any) => onClick({ e, index }),
                     fillColor,
                     backgroundColor,
-                    size: 24 - padding,
+                    size: toolSize - padding,
                   })}
                 </svg>
-              </a>
+              </Anchor>
             </div>
           ))}
         </div>

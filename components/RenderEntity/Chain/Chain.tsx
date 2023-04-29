@@ -1,17 +1,34 @@
+import styled from "@emotion/styled";
 import React from "react";
 
 interface Chain {
+  /**
+   * What stroke width to set
+   */
+  strokeWidth?: number;
   /**
    * What fill color to use
    */
   fillColor?: string;
   /**
+   * What stroke color to use
+   */
+  strokeColor?: string;
+  /**
+   * What padding to set
+   */
+  padding?: number;
+  /**
    * What radius to use
    */
   radius?: {
-    rx?: number;
-    ry?: number;
+    rx: number;
+    ry: number;
   };
+  /**
+   * Box size
+   */
+  size?: number;
   /**
    * Where to position
    */
@@ -24,19 +41,33 @@ interface Chain {
 /** Render Chain (maille en l’air) */
 export const Chain = ({
   fillColor = "#1a1a1a",
+  strokeColor = "transparent",
+  padding = 0,
   radius = { rx: 8, ry: 4 },
-  position = { cx: 8, cy: 4 },
-  ...props
+  size = 16,
+  position = { cx: 0, cy: 0 },
+  strokeWidth = 0,
 }: Chain) => {
   const id: number = Math.floor(Math.random() * 100);
-  const { rx, ry } = {
-    rx: radius.rx || Math.floor((radius.ry || 1) * 2),
-    ry: radius.ry || Math.floor((radius.rx || 1) / 2),
+  const { rx, ry } = radius;
+  const halfSize = Math.floor(size / 2);
+  const { cx: x, cy: y } = position;
+  const center = { x: x + halfSize, y: y + halfSize };
+  const box = {
+    min: { x: x + padding, y: y + padding },
+    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
   };
 
+  const ChainContainer = styled.svg`
+    stroke: ${strokeColor};
+    fill: ${fillColor};
+  `;
+
   return (
-    <g id={`render-item-ch--${id}`} fill={fillColor}>
-      <ellipse cx={position.cx} cy={position.cy} rx={rx} ry={ry} />
-    </g>
+    <ChainContainer x={x} y={y} width={box.max.x} height={box.max.y}>
+      <g id={`render-item-ch--${id}`} strokeWidth={strokeWidth}>
+        <ellipse cx={center.x} cy={center.y} rx={rx} ry={ry} />
+      </g>
+    </ChainContainer>
   );
 };
