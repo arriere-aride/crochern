@@ -1,0 +1,17 @@
+name: Testing pipeline
+on:
+  push: 
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+  call-playwright:
+    uses: ./.github/workflows/playwright.yaml
+  call-chromatic:
+    needs: call-playwright
+    uses: ./.github/workflows/chromatic.yaml
