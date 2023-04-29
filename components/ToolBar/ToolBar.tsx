@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-key */
 import React, { Children, Fragment, cloneElement } from "react";
 import { Box } from "rebass";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 import { usePressKey, useToggle } from "../hooks";
 
@@ -8,7 +10,11 @@ interface ToolBar {
   /**
    * What tools to use
    */
-  tools?: JSX.Element[] | React.ReactNode[];
+  tools?: { entity: JSX.Element | React.ReactNode; label: string }[];
+  /**
+   * Which size each tool have
+   */
+  toolSize?: number;
   /**
    * What background color to use
    */
@@ -51,6 +57,7 @@ export const ToolBar = ({
   backgroundColor = "#484848",
   fillColor = "#7F7F80",
   borderColor = "#008C9E",
+  toolSize = 24,
   padding = 4,
   toggleKey,
   isVisible = true,
@@ -63,8 +70,7 @@ export const ToolBar = ({
     }
   };
   usePressKey([toggleKey?.toString()], onKeyPress);
-  const cellSize = `${24 + padding}px`;
-
+  const cellSize = `${toolSize + padding}px`;
   return (
     <Box
       sx={{
@@ -79,16 +85,35 @@ export const ToolBar = ({
       }}
     >
       {tools.map((tool, index: number) => (
-        <svg style={{ padding }}>
-          {Children.map(tool, (entity) =>
-            cloneElement(entity as any, {
-              onClick: (e: any) => onClick({ e, index }),
-              fillColor,
-              backgroundColor,
-              size: 24 - padding,
-            })
-          )}
-        </svg>
+        <div key={`toolBar-tool-${index}`} style={{ height: toolSize }}>
+          {Children.map(tool.entity, (entity) => (
+            <div
+              key={`toolBar-tool-entity-${index}`}
+              style={{ height: toolSize }}
+            >
+              <Tooltip
+                anchorSelect={`.anchor-${index}`}
+                place="right"
+                style={{ backgroundColor }}
+              >
+                {tool.label}
+              </Tooltip>
+              <a
+                className={`anchor-${index}`}
+                style={{ display: "inline-block", height: toolSize }}
+              >
+                <svg style={{ padding }} width="100%" height="100%">
+                  {cloneElement(entity as any, {
+                    onClick: (e: any) => onClick({ e, index }),
+                    fillColor,
+                    backgroundColor,
+                    size: 24 - padding,
+                  })}
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
       ))}
     </Box>
   );
