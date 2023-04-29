@@ -1,0 +1,21 @@
+# .github/workflows/coverage.yml
+
+# Workflow name
+name: Code Coverage Summary Report
+
+# Event for the workflow
+on: push
+
+# List of jobs
+jobs:
+  cobertura:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - name: Cover
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage.cobertura.xml
+          badge: true
+          fail_below_min: true

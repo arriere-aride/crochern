@@ -10,6 +10,8 @@
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "sb:docs": "storybook dev --docs",
+    "sb:cover:lcov": "npx nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
+    "sb:cover:cobertura": "npx nyc report --reporter=cobertura -t coverage/storybook --report-dir .",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook --coverage",
     "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes --auto-accept-changes"

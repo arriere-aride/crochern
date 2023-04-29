@@ -1,0 +1,894 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage lines-valid="267" lines-covered="250" line-rate="0.9362999999999999" branches-valid="180" branches-covered="168" branch-rate="0.9333" timestamp="1682771560820" complexity="0" version="0.1">
+  <sources>
+    <source>D:\Jerome\dev\site-pattern-crochet\front</source>
+  </sources>
+  <packages>
+    <package name="Actions" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="index.tsx" filename="components\Actions\index.tsx" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Actions.ResizeEntity" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="ResizeEntity.tsx" filename="components\Actions\ResizeEntity\ResizeEntity.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="16" signature="()V">
+              <lines>
+                <line number="22" hits="16"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="16" signature="()V">
+              <lines>
+                <line number="30" hits="16"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="12" branch="false"/>
+            <line number="28" hits="16" branch="false"/>
+            <line number="31" hits="16" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Actions.RotateEntity" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="RotateEntity.tsx" filename="components\Actions\RotateEntity\RotateEntity.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="14" signature="()V">
+              <lines>
+                <line number="18" hits="14"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="18" hits="12" branch="false"/>
+            <line number="23" hits="14" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="CommandBar" line-rate="0.9166" branch-rate="1">
+      <classes>
+        <class name="CommandBar.tsx" filename="components\CommandBar\CommandBar.tsx" line-rate="0.9166" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="9" signature="()V">
+              <lines>
+                <line number="94" hits="9"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="123" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="4" branch="false"/>
+            <line number="14" hits="4" branch="false"/>
+            <line number="25" hits="4" branch="false"/>
+            <line number="31" hits="4" branch="false"/>
+            <line number="40" hits="4" branch="false"/>
+            <line number="94" hits="4" branch="false"/>
+            <line number="105" hits="9" branch="false"/>
+            <line number="122" hits="9" branch="false"/>
+            <line number="123" hits="9" branch="false"/>
+            <line number="124" hits="0" branch="false"/>
+            <line number="127" hits="9" branch="false"/>
+            <line number="129" hits="9" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Events.OnScrollResize" line-rate="0.5714" branch-rate="1">
+      <classes>
+        <class name="OnScrollResize.tsx" filename="components\Events\OnScrollResize\OnScrollResize.tsx" line-rate="0.5714" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="20" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="27" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="28" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="20" hits="2" branch="false"/>
+            <line number="25" hits="2" branch="false"/>
+            <line number="27" hits="2" branch="false"/>
+            <line number="28" hits="0" branch="false"/>
+            <line number="29" hits="0" branch="false"/>
+            <line number="30" hits="0" branch="false"/>
+            <line number="34" hits="2" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Grid" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="Grid.tsx" filename="components\Grid\Grid.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="9" signature="()V">
+              <lines>
+                <line number="32" hits="9"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="32" hits="4" branch="false"/>
+            <line number="50" hits="9" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="PressKey" line-rate="0.6363" branch-rate="0.5">
+      <classes>
+        <class name="PressKey.tsx" filename="components\PressKey\PressKey.tsx" line-rate="0.6363" branch-rate="0.5">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="11" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="15" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="11" hits="2" branch="false"/>
+            <line number="12" hits="2" branch="false"/>
+            <line number="13" hits="2" branch="false"/>
+            <line number="15" hits="2" branch="false"/>
+            <line number="16" hits="0" branch="false"/>
+            <line number="17" hits="0" branch="false"/>
+            <line number="18" hits="0" branch="false"/>
+            <line number="21" hits="2" branch="false"/>
+            <line number="22" hits="2" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="23" hits="0" branch="false"/>
+            <line number="29" hits="2" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderBox" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="RenderBox.tsx" filename="components\RenderBox\RenderBox.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="105" signature="()V">
+              <lines>
+                <line number="34" hits="105"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="420" signature="()V">
+              <lines>
+                <line number="57" hits="420"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="420" signature="()V">
+              <lines>
+                <line number="65" hits="420"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="105" signature="()V">
+              <lines>
+                <line number="72" hits="105"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="34" hits="14" branch="false"/>
+            <line number="43" hits="105" branch="false"/>
+            <line number="49" hits="105" branch="false"/>
+            <line number="55" hits="105" branch="false"/>
+            <line number="58" hits="420" branch="false"/>
+            <line number="66" hits="420" branch="false"/>
+            <line number="73" hits="105" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderDecrease.RepeatDoubleCrochetTogether" line-rate="1" branch-rate="0.8">
+      <classes>
+        <class name="RepeatDoubleCrochetTogether.tsx" filename="components\RenderDecrease\RepeatDoubleCrochetTogether\RepeatDoubleCrochetTogether.tsx" line-rate="1" branch-rate="0.8">
+          <methods>
+            <method name="(anonymous_0)" hits="10" signature="()V">
+              <lines>
+                <line number="29" hits="10"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="4" branch="false"/>
+            <line number="36" hits="10" branch="false"/>
+            <line number="37" hits="10" branch="false"/>
+            <line number="38" hits="10" branch="false"/>
+            <line number="39" hits="10" branch="false"/>
+            <line number="40" hits="10" branch="false"/>
+            <line number="41" hits="10" branch="false"/>
+            <line number="42" hits="10" branch="false"/>
+            <line number="43" hits="10" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderDecrease.ThreeSingleCrochetTogether" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="ThreeSingleCrochetTogether.tsx" filename="components\RenderDecrease\ThreeSingleCrochetTogether\ThreeSingleCrochetTogether.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="23" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="23" hits="2" branch="false"/>
+            <line number="29" hits="2" branch="false"/>
+            <line number="30" hits="2" branch="false"/>
+            <line number="31" hits="2" branch="false"/>
+            <line number="32" hits="2" branch="false"/>
+            <line number="34" hits="2" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderDecrease.TwoDoubleCrochetTogether" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="TwoDoubleCrochetTogether.tsx" filename="components\RenderDecrease\TwoDoubleCrochetTogether\TwoDoubleCrochetTogether.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="25" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="25" hits="2" branch="false"/>
+            <line number="31" hits="2" branch="false"/>
+            <line number="32" hits="2" branch="false"/>
+            <line number="33" hits="2" branch="false"/>
+            <line number="34" hits="2" branch="false"/>
+            <line number="36" hits="2" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderDecrease.TwoSingleCrochetTogether" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="TwoSingleCrochetTogether.tsx" filename="components\RenderDecrease\TwoSingleCrochetTogether\TwoSingleCrochetTogether.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="23" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="23" hits="1" branch="false"/>
+            <line number="29" hits="1" branch="false"/>
+            <line number="30" hits="1" branch="false"/>
+            <line number="31" hits="1" branch="false"/>
+            <line number="32" hits="1" branch="false"/>
+            <line number="33" hits="1" branch="false"/>
+            <line number="35" hits="1" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="index.tsx" filename="components\RenderEntity\index.tsx" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.Chain" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="Chain.tsx" filename="components\RenderEntity\Chain\Chain.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="17" signature="()V">
+              <lines>
+                <line number="42" hits="17"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="42" hits="41" branch="false"/>
+            <line number="51" hits="17" branch="false"/>
+            <line number="52" hits="17" branch="false"/>
+            <line number="53" hits="17" branch="false"/>
+            <line number="54" hits="17" branch="false"/>
+            <line number="55" hits="17" branch="false"/>
+            <line number="56" hits="17" branch="false"/>
+            <line number="61" hits="17" branch="false"/>
+            <line number="66" hits="17" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.DoubleCrochet" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="DoubleCrochet.tsx" filename="components\RenderEntity\DoubleCrochet\DoubleCrochet.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="99" signature="()V">
+              <lines>
+                <line number="32" hits="99"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="32" hits="43" branch="false"/>
+            <line number="40" hits="99" branch="false"/>
+            <line number="41" hits="99" branch="false"/>
+            <line number="42" hits="99" branch="false"/>
+            <line number="43" hits="99" branch="false"/>
+            <line number="44" hits="99" branch="false"/>
+            <line number="45" hits="99" branch="false"/>
+            <line number="46" hits="99" branch="false"/>
+            <line number="51" hits="99" branch="false"/>
+            <line number="56" hits="99" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.DoubleTrebleCrochet" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="DoubleTrebleCrochet.tsx" filename="components\RenderEntity\DoubleTrebleCrochet\DoubleTrebleCrochet.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="19" signature="()V">
+              <lines>
+                <line number="43" hits="19"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="43" hits="43" branch="false"/>
+            <line number="52" hits="19" branch="false"/>
+            <line number="53" hits="19" branch="false"/>
+            <line number="54" hits="19" branch="false"/>
+            <line number="55" hits="19" branch="false"/>
+            <line number="56" hits="19" branch="false"/>
+            <line number="57" hits="19" branch="false"/>
+            <line number="58" hits="19" branch="false"/>
+            <line number="59" hits="19" branch="false"/>
+            <line number="64" hits="19" branch="false"/>
+            <line number="69" hits="19" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.HalfDoubleCrochet" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="HalfDoubleCrochet.tsx" filename="components\RenderEntity\HalfDoubleCrochet\HalfDoubleCrochet.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="15" signature="()V">
+              <lines>
+                <line number="28" hits="15"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="28" hits="41" branch="false"/>
+            <line number="35" hits="15" branch="false"/>
+            <line number="36" hits="15" branch="false"/>
+            <line number="37" hits="15" branch="false"/>
+            <line number="38" hits="15" branch="false"/>
+            <line number="39" hits="15" branch="false"/>
+            <line number="43" hits="15" branch="false"/>
+            <line number="48" hits="15" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.SingleCrochet" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="SingleCrochet.tsx" filename="components\RenderEntity\SingleCrochet\SingleCrochet.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="47" signature="()V">
+              <lines>
+                <line number="35" hits="47"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="35" hits="42" branch="false"/>
+            <line number="43" hits="47" branch="false"/>
+            <line number="44" hits="47" branch="false"/>
+            <line number="45" hits="47" branch="false"/>
+            <line number="46" hits="47" branch="false"/>
+            <line number="47" hits="47" branch="false"/>
+            <line number="48" hits="47" branch="false"/>
+            <line number="53" hits="47" branch="false"/>
+            <line number="58" hits="47" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.SlipSnitch" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="SlipSnitch.tsx" filename="components\RenderEntity\SlipSnitch\SlipSnitch.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="18" signature="()V">
+              <lines>
+                <line number="43" hits="18"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="43" hits="41" branch="false"/>
+            <line number="52" hits="18" branch="false"/>
+            <line number="53" hits="18" branch="false"/>
+            <line number="54" hits="18" branch="false"/>
+            <line number="55" hits="18" branch="false"/>
+            <line number="56" hits="18" branch="false"/>
+            <line number="57" hits="18" branch="false"/>
+            <line number="62" hits="18" branch="false"/>
+            <line number="66" hits="18" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderEntity.TrebleCrochet" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="TrebleCrochet.tsx" filename="components\RenderEntity\TrebleCrochet\TrebleCrochet.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="20" signature="()V">
+              <lines>
+                <line number="36" hits="20"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="36" hits="43" branch="false"/>
+            <line number="45" hits="20" branch="false"/>
+            <line number="46" hits="20" branch="false"/>
+            <line number="47" hits="20" branch="false"/>
+            <line number="48" hits="20" branch="false"/>
+            <line number="49" hits="20" branch="false"/>
+            <line number="50" hits="20" branch="false"/>
+            <line number="51" hits="20" branch="false"/>
+            <line number="52" hits="20" branch="false"/>
+            <line number="57" hits="20" branch="false"/>
+            <line number="62" hits="20" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderIncrease" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="index.tsx" filename="components\RenderIncrease\index.tsx" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderIncrease.RepeatDoubleCrochetOneStitch" line-rate="1" branch-rate="0.8">
+      <classes>
+        <class name="RepeatDoubleCrochetOneStitch.tsx" filename="components\RenderIncrease\RepeatDoubleCrochetOneStitch\RepeatDoubleCrochetOneStitch.tsx" line-rate="1" branch-rate="0.8">
+          <methods>
+            <method name="(anonymous_0)" hits="14" signature="()V">
+              <lines>
+                <line number="29" hits="14"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="19" branch="false"/>
+            <line number="36" hits="14" branch="false"/>
+            <line number="37" hits="14" branch="false"/>
+            <line number="38" hits="14" branch="false"/>
+            <line number="39" hits="14" branch="false"/>
+            <line number="40" hits="14" branch="false"/>
+            <line number="41" hits="14" branch="false"/>
+            <line number="42" hits="14" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderIncrease.ThreeSingleCrochetOneStitch" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="ThreeSingleCrochetOneStitch.tsx" filename="components\RenderIncrease\ThreeSingleCrochetOneStitch\ThreeSingleCrochetOneStitch.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="4" signature="()V">
+              <lines>
+                <line number="30" hits="4"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="30" hits="16" branch="false"/>
+            <line number="37" hits="4" branch="false"/>
+            <line number="38" hits="4" branch="false"/>
+            <line number="39" hits="4" branch="false"/>
+            <line number="40" hits="4" branch="false"/>
+            <line number="41" hits="4" branch="false"/>
+            <line number="42" hits="4" branch="false"/>
+            <line number="44" hits="4" branch="false"/>
+            <line number="45" hits="4" branch="false"/>
+            <line number="50" hits="4" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderIncrease.TwoDoubleCrochetOneStitch" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="TwoDoubleCrochetOneStitch.tsx" filename="components\RenderIncrease\TwoDoubleCrochetOneStitch\TwoDoubleCrochetOneStitch.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="3" signature="()V">
+              <lines>
+                <line number="31" hits="3"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="31" hits="16" branch="false"/>
+            <line number="39" hits="3" branch="false"/>
+            <line number="40" hits="3" branch="false"/>
+            <line number="41" hits="3" branch="false"/>
+            <line number="42" hits="3" branch="false"/>
+            <line number="43" hits="3" branch="false"/>
+            <line number="44" hits="3" branch="false"/>
+            <line number="45" hits="3" branch="false"/>
+            <line number="46" hits="3" branch="false"/>
+            <line number="47" hits="3" branch="false"/>
+            <line number="51" hits="3" branch="false"/>
+            <line number="53" hits="3" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderIncrease.TwoSingleCrochetOneStitch" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="TwoSingleCrochetOneStitch.tsx" filename="components\RenderIncrease\TwoSingleCrochetOneStitch\TwoSingleCrochetOneStitch.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="4" signature="()V">
+              <lines>
+                <line number="30" hits="4"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="30" hits="15" branch="false"/>
+            <line number="38" hits="4" branch="false"/>
+            <line number="39" hits="4" branch="false"/>
+            <line number="40" hits="4" branch="false"/>
+            <line number="41" hits="4" branch="false"/>
+            <line number="43" hits="4" branch="false"/>
+            <line number="44" hits="4" branch="false"/>
+            <line number="49" hits="4" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderVariation" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="index.tsx" filename="components\RenderVariation\index.tsx" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderVariation.BackLoopOnly" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="BackLoopOnly.tsx" filename="components\RenderVariation\BackLoopOnly\BackLoopOnly.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="11" signature="()V">
+              <lines>
+                <line number="34" hits="11"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="34" hits="17" branch="false"/>
+            <line number="43" hits="11" branch="false"/>
+            <line number="44" hits="11" branch="false"/>
+            <line number="45" hits="11" branch="false"/>
+            <line number="46" hits="11" branch="false"/>
+            <line number="47" hits="11" branch="false"/>
+            <line number="48" hits="11" branch="false"/>
+            <line number="49" hits="11" branch="false"/>
+            <line number="53" hits="11" branch="false"/>
+            <line number="57" hits="11" branch="false"/>
+            <line number="62" hits="11" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderVariation.BackPost" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="BackPost.tsx" filename="components\RenderVariation\BackPost\BackPost.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="9" signature="()V">
+              <lines>
+                <line number="38" hits="9"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="38" hits="17" branch="false"/>
+            <line number="48" hits="9" branch="false"/>
+            <line number="49" hits="9" branch="false"/>
+            <line number="50" hits="9" branch="false"/>
+            <line number="51" hits="9" branch="false"/>
+            <line number="52" hits="9" branch="false"/>
+            <line number="53" hits="9" branch="false"/>
+            <line number="54" hits="9" branch="false"/>
+            <line number="55" hits="9" branch="false"/>
+            <line number="56" hits="9" branch="false"/>
+            <line number="60" hits="9" branch="false"/>
+            <line number="65" hits="9" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderVariation.FrontLoopOnly" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="FrontLoopOnly.tsx" filename="components\RenderVariation\FrontLoopOnly\FrontLoopOnly.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="12" signature="()V">
+              <lines>
+                <line number="30" hits="12"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="30" hits="17" branch="false"/>
+            <line number="38" hits="12" branch="false"/>
+            <line number="39" hits="12" branch="false"/>
+            <line number="40" hits="12" branch="false"/>
+            <line number="41" hits="12" branch="false"/>
+            <line number="42" hits="12" branch="false"/>
+            <line number="43" hits="12" branch="false"/>
+            <line number="44" hits="12" branch="false"/>
+            <line number="49" hits="12" branch="false"/>
+            <line number="53" hits="12" branch="false"/>
+            <line number="58" hits="12" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="RenderVariation.FrontPost" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="FrontPost.tsx" filename="components\RenderVariation\FrontPost\FrontPost.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="10" signature="()V">
+              <lines>
+                <line number="38" hits="10"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="38" hits="17" branch="false"/>
+            <line number="48" hits="10" branch="false"/>
+            <line number="49" hits="10" branch="false"/>
+            <line number="50" hits="10" branch="false"/>
+            <line number="51" hits="10" branch="false"/>
+            <line number="52" hits="10" branch="false"/>
+            <line number="53" hits="10" branch="false"/>
+            <line number="54" hits="10" branch="false"/>
+            <line number="55" hits="10" branch="false"/>
+            <line number="56" hits="10" branch="false"/>
+            <line number="60" hits="10" branch="false"/>
+            <line number="65" hits="10" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="ShortcutKey" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="ShortcutKey.tsx" filename="components\ShortcutKey\ShortcutKey.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="16" signature="()V">
+              <lines>
+                <line number="51" hits="16"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="40" hits="11" branch="false"/>
+            <line number="51" hits="11" branch="false"/>
+            <line number="60" hits="16" branch="false"/>
+            <line number="79" hits="16" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="ToolBar" line-rate="0.6923" branch-rate="0.5832999999999999">
+      <classes>
+        <class name="ToolBar.tsx" filename="components\ToolBar\ToolBar.tsx" line-rate="0.6923" branch-rate="0.5832999999999999">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="55" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="57" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="68" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="14" signature="()V">
+              <lines>
+                <line number="98" hits="14"/>
+              </lines>
+            </method>
+            <method name="(anonymous_4)" hits="14" signature="()V">
+              <lines>
+                <line number="100" hits="14"/>
+              </lines>
+            </method>
+            <method name="(anonymous_5)" hits="0" signature="()V">
+              <lines>
+                <line number="115" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="55" hits="2" branch="false"/>
+            <line number="57" hits="0" branch="true" condition-coverage="0% (0/1)"/>
+            <line number="66" hits="2" branch="false"/>
+            <line number="68" hits="2" branch="false"/>
+            <line number="69" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="70" hits="0" branch="false"/>
+            <line number="73" hits="2" branch="false"/>
+            <line number="74" hits="2" branch="false"/>
+            <line number="75" hits="2" branch="false"/>
+            <line number="85" hits="2" branch="false"/>
+            <line number="99" hits="14" branch="false"/>
+            <line number="101" hits="14" branch="false"/>
+            <line number="115" hits="0" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="hooks" line-rate="0.8148000000000001" branch-rate="0.8665999999999999">
+      <classes>
+        <class name="index.tsx" filename="components\hooks\index.tsx" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+        <class name="usePressKey.tsx" filename="components\hooks\usePressKey.tsx" line-rate="0.7692" branch-rate="0.7777">
+          <methods>
+            <method name="(anonymous_0)" hits="13" signature="()V">
+              <lines>
+                <line number="3" hits="13"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="13" signature="()V">
+              <lines>
+                <line number="6" hits="13"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="12" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="0" signature="()V">
+              <lines>
+                <line number="15" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_4)" hits="13" signature="()V">
+              <lines>
+                <line number="22" hits="13"/>
+              </lines>
+            </method>
+            <method name="(anonymous_5)" hits="5" signature="()V">
+              <lines>
+                <line number="29" hits="5"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="10" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="5" hits="13" branch="false"/>
+            <line number="6" hits="13" branch="false"/>
+            <line number="7" hits="13" branch="false"/>
+            <line number="11" hits="13" branch="false"/>
+            <line number="13" hits="0" branch="false"/>
+            <line number="15" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="16" hits="0" branch="false"/>
+            <line number="22" hits="13" branch="false"/>
+            <line number="24" hits="13" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="26" hits="13" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="29" hits="13" branch="false"/>
+            <line number="30" hits="5" branch="true" condition-coverage="100% (2/2)"/>
+          </lines>
+        </class>
+        <class name="useScroll.tsx" filename="components\hooks\useScroll.tsx" line-rate="0.8" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="3" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="2" signature="()V">
+              <lines>
+                <line number="6" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="11" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="2" signature="()V">
+              <lines>
+                <line number="17" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="8" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="5" hits="2" branch="false"/>
+            <line number="6" hits="2" branch="false"/>
+            <line number="7" hits="2" branch="false"/>
+            <line number="11" hits="2" branch="false"/>
+            <line number="12" hits="0" branch="false"/>
+            <line number="14" hits="0" branch="false"/>
+            <line number="17" hits="2" branch="false"/>
+            <line number="19" hits="2" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="21" hits="2" branch="true" condition-coverage="100% (2/2)"/>
+          </lines>
+        </class>
+        <class name="useToggle.tsx" filename="components\hooks\useToggle.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="13" signature="()V">
+              <lines>
+                <line number="6" hits="13"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="11" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="11" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="10" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="8" hits="13" branch="false"/>
+            <line number="11" hits="13" branch="false"/>
+            <line number="12" hits="13" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
