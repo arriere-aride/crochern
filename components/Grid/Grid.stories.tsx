@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Grid } from "./Grid";
 
 const meta: Meta<typeof Grid> = {
-  title: "Crochet/Info/Grid",
+  title: "Crochet/Atoms/Info/Grid",
   component: Grid,
   tags: ["autodocs"],
   argTypes: {},

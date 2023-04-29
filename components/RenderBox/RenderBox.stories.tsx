@@ -24,7 +24,7 @@ import {
 } from "../RenderIncrease";
 
 const meta: Meta<typeof RenderBox> = {
-  title: "Crochet/RenderBox",
+  title: "Crochet/Atoms/RenderBox",
   component: RenderBox,
   tags: ["autodocs"],
   argTypes: {

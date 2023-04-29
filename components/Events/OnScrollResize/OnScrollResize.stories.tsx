@@ -5,7 +5,7 @@ import { DoubleCrochet } from "@/components/RenderEntity";
 import { within } from "@storybook/testing-library";
 
 const meta: Meta<typeof OnScrollResize> = {
-  title: "Crochet/Events/OnScrollResize",
+  title: "Crochet/Atoms/Events/OnScrollResize",
   component: OnScrollResize,
   tags: ["autodocs"],
   argTypes: {},

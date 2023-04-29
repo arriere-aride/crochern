@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PressKey } from "./PressKey";
 
 const meta: Meta<typeof PressKey> = {
-  title: "Crochet/Info/PressKey",
+  title: "Crochet/Atoms/Info/PressKey",
   component: PressKey,
   tags: ["autodocs"],
   argTypes: {},

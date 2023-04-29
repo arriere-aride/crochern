@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { BackPost } from "./BackPost";
 
 const meta: Meta<typeof BackPost> = {
-  title: "Crochet/RenderVariation/BackPost",
+  title: "Crochet/Atoms/RenderVariation/BackPost",
   component: BackPost,
   tags: ["autodocs"],
   argTypes: {

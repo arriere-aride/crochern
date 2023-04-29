@@ -6,7 +6,7 @@ import { ShortcutKey } from "../ShortcutKey/ShortcutKey";
 import { userEvent, waitFor, within } from "@storybook/testing-library";
 
 const meta: Meta<typeof CommandBar> = {
-  title: "Crochet/Bar/CommandBar",
+  title: "Crochet/Components/Bar/CommandBar",
   component: CommandBar,
   tags: ["autodocs"],
 };

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RepeatDoubleCrochetOneStitch } from "./RepeatDoubleCrochetOneStitch";
 
 const meta: Meta<typeof RepeatDoubleCrochetOneStitch> = {
-  title: "Crochet/RenderIncrease/RepeatDoubleCrochetOneStitch",
+  title: "Crochet/Atoms/RenderIncrease/RepeatDoubleCrochetOneStitch",
   component: RepeatDoubleCrochetOneStitch,
   tags: ["autodocs"],
   argTypes: {},

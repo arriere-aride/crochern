@@ -4,7 +4,7 @@ import { ResizeEntity } from "@@/components/Actions";
 import { SingleCrochet } from "@/components/RenderEntity";
 
 const meta: Meta<typeof ResizeEntity> = {
-  title: "Crochet/Actions/ResizeEntity",
+  title: "Crochet/Atoms/Actions/ResizeEntity",
   component: ResizeEntity,
   tags: ["autodocs"],
   decorators: [

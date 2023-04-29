@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { TwoDoubleCrochetTogether } from "./TwoDoubleCrochetTogether";
 
 const meta: Meta<typeof TwoDoubleCrochetTogether> = {
-  title: "Crochet/RenderDecrease/TwoDoubleCrochetTogether",
+  title: "Crochet/Atoms/RenderDecrease/TwoDoubleCrochetTogether",
   component: TwoDoubleCrochetTogether,
   tags: ["autodocs"],
   argTypes: {},

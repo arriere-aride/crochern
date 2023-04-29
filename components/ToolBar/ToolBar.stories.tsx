@@ -13,7 +13,7 @@ import {
 } from "../RenderEntity";
 
 const meta: Meta<typeof ToolBar> = {
-  title: "Crochet/Bar/ToolBar",
+  title: "Crochet/Components/Bar/ToolBar",
   component: ToolBar,
   tags: ["autodocs"],
   decorators: [

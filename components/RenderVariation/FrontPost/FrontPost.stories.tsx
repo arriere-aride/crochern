@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FrontPost } from "./FrontPost";
 
 const meta: Meta<typeof FrontPost> = {
-  title: "Crochet/RenderVariation/FrontPost",
+  title: "Crochet/Atoms/RenderVariation/FrontPost",
   component: FrontPost,
   tags: ["autodocs"],
   argTypes: {

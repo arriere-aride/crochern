@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SlipSnitch } from "./SlipSnitch";
 
 const meta: Meta<typeof SlipSnitch> = {
-  title: "Crochet/RenderEntity/SlipSnitch",
+  title: "Crochet/Atoms/RenderEntity/SlipSnitch",
   component: SlipSnitch,
   tags: ["autodocs"],
   argTypes: {

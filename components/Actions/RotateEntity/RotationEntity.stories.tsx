@@ -4,7 +4,7 @@ import { RotateEntity } from "@@/components/Actions";
 import { SingleCrochet } from "@/components/RenderEntity";
 
 const meta: Meta<typeof RotateEntity> = {
-  title: "Crochet/Actions/RotateEntity",
+  title: "Crochet/Atoms/Actions/RotateEntity",
   component: RotateEntity,
   tags: ["autodocs"],
   decorators: [

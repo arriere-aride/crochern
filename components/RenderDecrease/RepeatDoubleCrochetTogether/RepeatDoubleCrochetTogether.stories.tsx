@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RepeatDoubleCrochetTogether } from "./RepeatDoubleCrochetTogether";
 
 const meta: Meta<typeof RepeatDoubleCrochetTogether> = {
-  title: "Crochet/RenderDecrease/RepeatDoubleCrochetTogether",
+  title: "Crochet/Atoms/RenderDecrease/RepeatDoubleCrochetTogether",
   component: RepeatDoubleCrochetTogether,
   tags: ["autodocs"],
   argTypes: {},

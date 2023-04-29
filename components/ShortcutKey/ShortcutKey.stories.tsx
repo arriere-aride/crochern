@@ -4,7 +4,7 @@ import { userEvent, within } from "@storybook/testing-library";
 import { ShortcutKey } from "./ShortcutKey";
 
 const meta: Meta<typeof ShortcutKey> = {
-  title: "Crochet/Info/ShortcutKey",
+  title: "Crochet/Atoms/Info/ShortcutKey",
   component: ShortcutKey,
   tags: ["autodocs"],
   argTypes: {
