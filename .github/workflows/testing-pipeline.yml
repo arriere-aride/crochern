@@ -15,3 +15,6 @@ jobs:
   call-chromatic:
     needs: call-playwright
     uses: ./.github/workflows/chromatic.yml
+    with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
