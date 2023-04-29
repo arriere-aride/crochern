@@ -1,6 +1,6 @@
 import { ResizeEntity } from "@/components/Actions";
 import { useScroll } from "@/components/hooks";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 interface OnScrollResize {
   /**
@@ -32,8 +32,8 @@ export const OnScrollResize = ({
   });
 
   return (
-    <Fragment data-testid="on-scroll-resize">
+    <svg data-testid="on-scroll-resize">
       <ResizeEntity scale={scale} entity={entity} />
-    </Fragment>
+    </svg>
   );
 };
