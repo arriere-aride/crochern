@@ -74,7 +74,7 @@ export const ToolBar = ({
   const cellSize = `${toolSize + padding}px`;
   const Anchor = styled.a`
     display: inline-flex;
-    height: ${toolSize}px;
+    height: ${toolSize + padding}px;
     cursor: pointer;
     padding: ${padding}px;
     &:hover svg svg * {
