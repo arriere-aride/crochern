@@ -7,7 +7,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import { usePressKey, useToggle } from "../hooks";
 import styled from "@emotion/styled";
 
-interface ToolBar {
+export interface ToolBar {
   /**
    * What tools to use
    */

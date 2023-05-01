@@ -2,7 +2,7 @@ import * as React from "react";
 import { useScroll } from "../hooks";
 
 type unit = number | string;
-interface Grid {
+export interface Grid {
   /**
    * Cell is the most little atom in grid
    */
@@ -52,7 +52,7 @@ const Grid = ({
   grid = {
     strokeWidth: 0.5,
     stroke: "gray",
-    width: 800,
+    width: "100%",
     height: 800,
   },
   baseScale = 1,
