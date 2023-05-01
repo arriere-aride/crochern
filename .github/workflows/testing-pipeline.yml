@@ -1,6 +1,6 @@
 name: Testing pipeline
 on:
-  push: 
+  push:
     branches:
       - main
   workflow_dispatch:
@@ -16,5 +16,5 @@ jobs:
     needs: call-playwright
     uses: ./.github/workflows/chromatic.yml
     with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+      projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
