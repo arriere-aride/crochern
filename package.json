@@ -8,6 +8,7 @@
     "start": "next start",
     "test:unit": "vitest --reporter dot",
     "test:unit:cover": "vitest run --coverage",
+    "test:unit:run": "vitest run",
     "test:e2e": "npx playwright test",
     "lint": "next lint",
     "sb": "storybook dev -p 6006",
