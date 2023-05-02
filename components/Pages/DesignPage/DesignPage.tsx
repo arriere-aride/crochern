@@ -10,8 +10,6 @@ import {
 import { Box } from "rebass";
 import styled from "@emotion/styled";
 import store from "@/stores/EntityMoveStore";
-import { ActionTypes, stash } from "@/stores/EntityMoveReducer";
-import { seedMemoryEntity } from "@/seeds/EntityMove.seed";
 
 interface DesignPage {
   toolBarProps: ToolBarProps;
