@@ -2,6 +2,7 @@
 module.exports = {
   // Type check TypeScript files
   "**/*.(ts|tsx)": () => "npx tsc --noEmit",
+  "*.{js,ts,jsx,tsx}": "vitest related --run",
 
   // Lint then format TypeScript and JavaScript files
   "**/*.(ts|tsx|js)": (filenames) => [
