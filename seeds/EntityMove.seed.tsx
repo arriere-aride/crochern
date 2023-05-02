@@ -11,7 +11,7 @@ import {
   ActionTypes,
   ArchivedEntity,
   InMemoryEntity,
-} from "@@/components/stores/EntityMove";
+} from "@@/stores/EntityMove";
 import { faker } from "@faker-js/faker";
 const entities = [
   { label: "Slip Snitch", entity: <SlipSnitch /> },

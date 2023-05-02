@@ -18,7 +18,8 @@
     "paths": {
       "@/*": ["./*"],
       "@@/components/*": ["./components/*"],
-      "@@/seeds/*": ["./seeds/*"]
+      "@@/seeds/*": ["./seeds/*"],
+      "@@/stores/*": ["./stores/*"]
     }
   },
   "include": [
