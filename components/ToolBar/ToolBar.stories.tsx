@@ -3,14 +3,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ToolBar } from "./ToolBar";
 import {
-  Chain,
-  SingleCrochet,
-  HalfDoubleCrochet,
-  DoubleCrochet,
-  TrebleCrochet,
-  DoubleTrebleCrochet,
-  SlipSnitch,
-} from "../RenderEntity";
+  OnToolBarEntityClick,
+  tools,
+} from "@@/components/Events/OnToolBarEntityClick/OnToolBarEntityClick";
 
 const meta: Meta<typeof ToolBar> = {
   title: "Crochet/Components/Bar/ToolBar",
@@ -37,14 +32,10 @@ type Story = StoryObj<typeof ToolBar>;
 
 export const Default: Story = {
   args: {
-    tools: [
-      { label: "Slip Snitch", entity: <SlipSnitch /> },
-      { label: "Single Crochet", entity: <SingleCrochet /> },
-      { label: "Chain", entity: <Chain /> },
-      { label: "Half Double Crochet", entity: <HalfDoubleCrochet /> },
-      { label: "Double Crochet", entity: <DoubleCrochet /> },
-      { label: "Treble Crochet", entity: <TrebleCrochet /> },
-      { label: "Double Treble Crochet", entity: <DoubleTrebleCrochet /> },
-    ],
+    tools,
   },
+};
+
+export const WithStore: Story = {
+  args: { tools, handleClick: OnToolBarEntityClick },
 };

@@ -33,14 +33,14 @@ export interface ToolBar {
    */
   padding?: number;
   /**
-   * dispatch onClick event
+   * dispatch onClick event on entity
    * @param props any
    * @returns any
    */
-  onClick?: ({ e, index, ...props }: any) => any;
+  handleClick?: ({ e, index }: any) => any | void /**
   /**
    * What key to use in order to toggle
-   */
+   */;
   toggleKey?: string;
   /**
    * What visibility by default?
@@ -54,7 +54,7 @@ export interface ToolBar {
  */
 export const ToolBar = ({
   tools = [],
-  onClick = () => true,
+  handleClick = () => true,
   backgroundColor = "#484848",
   fillColor = "#7F7F80",
   borderColor = "#008C9E",
@@ -109,10 +109,12 @@ export const ToolBar = ({
               >
                 {tool.label}
               </Tooltip>
-              <Anchor className={`anchor-${index}`}>
+              <Anchor
+                className={`anchor-${index}`}
+                onClick={(e: any) => handleClick({ e, index })}
+              >
                 <svg width="100%" height="100%">
                   {cloneElement(entity as any, {
-                    onClick: (e: any) => onClick({ e, index }),
                     fillColor,
                     backgroundColor,
                     size: toolSize - padding,
