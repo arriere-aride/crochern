@@ -35,7 +35,6 @@ export const DesignPage = ({
   gridProps,
   entityControlBarProps,
 }: DesignPage) => {
-  store.subscribe(() => console.log(store.getState()));
   return (
     <Box
       sx={{
