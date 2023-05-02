@@ -1,2 +1,5 @@
 export { OnScrollResize } from "./OnScrollResize/OnScrollResize";
-export { OnToolBarEntityClick } from "./OnToolBarEntityClick/OnToolBarEntityClick";
+export {
+  OnToolBarEntityClick,
+  tools,
+} from "./OnToolBarEntityClick/OnToolBarEntityClick";

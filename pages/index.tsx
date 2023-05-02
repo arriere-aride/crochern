@@ -3,17 +3,12 @@ import Image from "next/image";
 import { Grid } from "@@/components/Grid/Grid";
 import Link from "next/link";
 import { ToolBar } from "@/components/ToolBar/ToolBar";
-import {
-  SlipSnitch,
-  SingleCrochet,
-  Chain,
-  HalfDoubleCrochet,
-  DoubleCrochet,
-  TrebleCrochet,
-  DoubleTrebleCrochet,
-} from "@/components/RenderEntity";
+import { OnToolBarEntityClick, tools } from "@/components/Events";
+import store from "@@/stores/EntityMoveStore";
 
 export default function Home() {
+  store.subscribe(() => console.log(store.getState()));
+
   return (
     <>
       <Head>
@@ -44,20 +39,7 @@ export default function Home() {
           />
         </div>
         <div className="w-[28px] absolute z-20 h-full bg-[#484848] ">
-          <ToolBar
-            tools={[
-              { label: "Slip Snitch", entity: <SlipSnitch /> },
-              { label: "Single Crochet", entity: <SingleCrochet /> },
-              { label: "Chain", entity: <Chain /> },
-              { label: "Half Double Crochet", entity: <HalfDoubleCrochet /> },
-              { label: "Double Crochet", entity: <DoubleCrochet /> },
-              { label: "Treble Crochet", entity: <TrebleCrochet /> },
-              {
-                label: "Double Treble Crochet",
-                entity: <DoubleTrebleCrochet />,
-              },
-            ]}
-          />
+          <ToolBar tools={tools} handleClick={OnToolBarEntityClick} />
         </div>
         <div className="flex items-center justify-center h-full mx-2 z-10 relative">
           <div className="w-[960px] ml-[28px] lg:mx-auto h-{700px} md:shadow-sm md:shadow-[#C3A963] grid md:grid-cols-2 gap-0">
