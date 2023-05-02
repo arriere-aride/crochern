@@ -4,7 +4,7 @@
  * Given an entity move from ``point A`` to ``point B``
  *  - __stash__: Select entity from ``point A`` -> put it to stash & log entity stashing
  *  - __unstash__: Select entity to ``point B`` -> put it to ``point B`` & log entity unstashing
- *  - __log__: add to history array, permits undo && redo actions (not implemented yet)
+ *  - __log__: add to history array, permits undo && redo action (not implemented yet)
  */
 
 export interface InMemoryEntity {
@@ -39,21 +39,21 @@ export const initialState = {
   history: [],
 };
 
-function stash(entity: InMemoryEntity, state: State): State {
+export function stash(entity: InMemoryEntity, state: State): State {
   const stateWithLog = log(state.memory, state, {
     action: ActionTypes.STASH,
   });
   return { ...stateWithLog, memory: [entity] };
 }
 
-function unstash(state: State): State {
+export function unstash(state: State): State {
   const stateWithLog = log(state.memory, state, {
     action: ActionTypes.UNSTASH,
   });
   return { ...stateWithLog, memory: [] };
 }
 
-function log(
+export function log(
   entity: InMemoryEntity | InMemoryEntity[],
   state: State,
   ...details: any
@@ -66,18 +66,18 @@ function log(
   return { ...state, history: [...state.history, archivedEntity] };
 }
 
-interface Reducer {
-  state?: State;
-  actions?: { type: ActionTypes; payload?: any };
+export interface Action {
+  type: ActionTypes;
+  entity?: any;
 }
 
-export default function reducer(
-  state: Reducer["state"] = initialState,
-  actions: Reducer["actions"] = { type: ActionTypes.NOTHING }
+export function reducer(
+  state: State = initialState,
+  action: Action = { type: ActionTypes.NOTHING }
 ): State {
-  switch (actions.type) {
+  switch (action.type) {
     case ActionTypes.STASH:
-      return stash(actions.payload.entity, state);
+      return stash(action.entity, state);
     case ActionTypes.UNSTASH:
       return unstash(state);
     default:

@@ -9,6 +9,9 @@ import {
 } from "@/components/EntityControlBar/EntityControlBar";
 import { Box } from "rebass";
 import styled from "@emotion/styled";
+import store from "@/stores/EntityMoveStore";
+import { ActionTypes, stash } from "@/stores/EntityMoveReducer";
+import { seedMemoryEntity } from "@/seeds/EntityMove.seed";
 
 interface DesignPage {
   toolBarProps: ToolBarProps;
@@ -34,6 +37,7 @@ export const DesignPage = ({
   gridProps,
   entityControlBarProps,
 }: DesignPage) => {
+  store.subscribe(() => console.log(store.getState()));
   return (
     <Box
       sx={{

@@ -3,12 +3,13 @@ import {
   seedLogEntity,
   seedMemoryEntity,
 } from "@@/seeds/EntityMove.seed";
-import reducer, {
+import {
+  reducer,
   initialState,
   ActionTypes,
   InMemoryEntity,
   State,
-} from "./EntityMove";
+} from "./EntityMoveReducer";
 import { expect, test } from "vitest";
 
 interface TestSpec {
@@ -45,7 +46,7 @@ const tests: TestSpec[] = [
     actual: getMemoryLength(
       reducer(initialState, {
         type: ActionTypes.STASH,
-        payload: { entity: stashEntity },
+        entity: stashEntity,
       })
     ),
     expected: 1,
@@ -70,7 +71,7 @@ const tests: TestSpec[] = [
     actual: getHistoryLength(
       reducer(initialState, {
         type: ActionTypes.STASH,
-        payload: { entity: stashEntity },
+        entity: stashEntity,
       })
     ),
     expected: 1,
@@ -81,7 +82,7 @@ const tests: TestSpec[] = [
     actual: getHistoryLength(
       reducer(stateWithHistory, {
         type: ActionTypes.UNSTASH,
-        payload: { entity: stashEntity },
+        entity: stashEntity,
       })
     ),
     expected: 2,
