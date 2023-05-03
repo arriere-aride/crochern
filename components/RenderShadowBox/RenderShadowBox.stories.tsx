@@ -1,12 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { RenderShadowBox } from "./RenderShadowBox";
-import { SlipSnitch, TrebleCrochet } from "../RenderEntity";
+import { SingleCrochet, SlipSnitch, TrebleCrochet } from "../RenderEntity";
 
 const meta: Meta<typeof RenderShadowBox> = {
   title: "Crochet/Atoms/RenderShadowBox",
   component: RenderShadowBox,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div style={{ width: "512px", height: "512px" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
@@ -20,5 +27,17 @@ export const WithSlipSnitch: Story = {
 export const WithTrebleCrochet: Story = {
   args: {
     entity: <TrebleCrochet />,
+  },
+};
+
+export const WithGrid: Story = {
+  args: {
+    entity: <SingleCrochet />,
+    grid: {
+      x: 50,
+      y: 50,
+      width: 150,
+      height: 150,
+    },
   },
 };

@@ -26,6 +26,7 @@ type Story = StoryObj<typeof DesignPage>;
 
 export const Default: Story = {
   args: {
+    gridProps: { baseScale: 2 },
     toolBarProps: {
       tools,
       handleClick: OnToolBarEntityClick,

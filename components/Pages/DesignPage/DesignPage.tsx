@@ -10,7 +10,7 @@ import {
   EntityControlBar as EntityControlBarProps,
   EntityControlBar,
 } from "@/components/EntityControlBar/EntityControlBar";
-import store from "@/stores/EntityMoveStore";
+import { useEffect, useState } from "react";
 import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
 
 interface DesignPage {
@@ -31,6 +31,12 @@ const GridContainer = styled.div`
 `;
 
 const EntityControlBarContainer = styled.div``;
+interface Rect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
 
 export const DesignPage = ({
   toolBarProps,
@@ -39,6 +45,17 @@ export const DesignPage = ({
 }: DesignPage) => {
   const stash = useSelector((state: any) => state.memory.length > 0);
   const current = useSelector((state: any) => state.memory[0]);
+  const gridId = "design-grid-id";
+  const [currentGridProps, setCurrentGridProps] = useState<Rect | null>(null);
+
+  useEffect(() => {
+    const element = document.querySelector(`#${gridId}`);
+
+    if (element != null) {
+      setCurrentGridProps(element.getBoundingClientRect());
+    }
+  }, []);
+
   return (
     <Box
       sx={{
@@ -47,10 +64,11 @@ export const DesignPage = ({
         overflow: "none",
       }}
     >
-      {current?.entity && (
+      {current?.entity && currentGridProps && (
         <RenderShadowBox
           active={stash && current.entity}
           entity={current.entity}
+          grid={currentGridProps}
         />
       )}
       <div>
@@ -59,7 +77,7 @@ export const DesignPage = ({
         </ToolBarContainer>
       </div>
       <GridContainer>
-        <Grid {...gridProps} />
+        <Grid {...gridProps} id={gridId} />
       </GridContainer>
       <EntityControlBarContainer>
         <EntityControlBar {...entityControlBarProps} />

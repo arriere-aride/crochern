@@ -28,6 +28,15 @@ interface RenderShadowBox {
    */
   entity?: React.ReactNode | JSX.Element;
   /**
+   * What are grid props
+   */
+  grid?: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+  /**
    * Is feacture activated
    */
   active: boolean;
@@ -57,6 +66,15 @@ const useMousePosition = () => {
   return mousePosition;
 };
 
+const AABB = (
+  point: { x: number; y: number },
+  box: { x: number; y: number; width: number; height: number }
+): boolean => {
+  const X = point.x >= box.x && point.x <= box.width + box.x;
+  const Y = point.y >= box.y && point.y <= box.height + box.y;
+  return X && Y;
+};
+
 /** Render entity on the grid before click. */
 const RenderShadowBox = ({
   size = 20,
@@ -75,9 +93,17 @@ const RenderShadowBox = ({
     },
   },
   entity,
+  grid,
   active,
 }: RenderShadowBox): JSX.Element => {
   const currentPosition = useMousePosition();
+
+  if (grid != null && AABB(currentPosition, grid) === false) {
+    return <></>;
+  }
+  if (active === false || entity == null) {
+    return <></>;
+  }
 
   const StashBoxRenderSvg = styled.svg`
     border: ${theme?.svg.strokeWidth}px solid ${theme?.svg.strokeColor};
@@ -100,10 +126,6 @@ const RenderShadowBox = ({
     left: 0;
     bottom: 0;
   `;
-
-  if (active === false || entity == null) {
-    return <></>;
-  }
 
   return (
     <StashBoxRenderDocument>

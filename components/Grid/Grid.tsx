@@ -4,6 +4,10 @@ import { useScroll } from "../hooks";
 type unit = number | string;
 export interface Grid {
   /**
+   *  Which id svg container have
+   */
+  id?: string;
+  /**
    * Cell is the most little atom in grid
    */
   cell?: {
@@ -39,6 +43,7 @@ export interface Grid {
 }
 
 const Grid = ({
+  id = "grid-id",
   cell = {
     strokeWidth: 0.5,
     stroke: "gray",
@@ -67,7 +72,7 @@ const Grid = ({
     });
   });
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" {...grid}>
+    <svg xmlns="http://www.w3.org/2000/svg" {...grid} id={id}>
       <g transform={`scale(${scale})`}>
         <defs>
           <pattern
