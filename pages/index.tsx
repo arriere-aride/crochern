@@ -4,7 +4,6 @@ import { Grid } from "@@/components/Grid/Grid";
 import Link from "next/link";
 import { ToolBar } from "@/components/ToolBar/ToolBar";
 import { OnToolBarEntityClick, tools } from "@/components/Events";
-import store from "@@/stores/EntityMoveStore";
 import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
 import { useSelector } from "react-redux";
 
