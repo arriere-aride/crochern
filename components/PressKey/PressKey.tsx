@@ -13,7 +13,6 @@ const PressKey = ({ keyName }: PressKey): JSX.Element => {
   const [key, setKey] = React.useState<string>(keyName);
 
   const onKeyPress = (event: any) => {
-    console.log(`key pressed: ${event.key}`);
     setKey(event.key);
     toggle();
   };
