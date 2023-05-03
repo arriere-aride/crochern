@@ -9,6 +9,7 @@ import {
 } from "@/components/RenderEntity";
 import { ActionTypes } from "@/stores/EntityMoveReducer";
 import store from "@/stores/EntityMoveStore";
+import styled from "@emotion/styled";
 
 // @TODO move to data/ToolBarTools/
 export const tools = [
@@ -20,6 +21,13 @@ export const tools = [
   { label: "Treble Crochet", entity: <TrebleCrochet /> },
   { label: "Double Treble Crochet", entity: <DoubleTrebleCrochet /> },
 ];
+
+const StashBox = styled.svg`
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1px solid red;
+`;
 
 export function OnToolBarEntityClick({
   index = 0,

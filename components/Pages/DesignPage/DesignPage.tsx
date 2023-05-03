@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { Box } from "rebass";
+import styled from "@emotion/styled";
 import {
   type ToolBar as ToolBarProps,
   ToolBar,
@@ -7,9 +10,8 @@ import {
   EntityControlBar as EntityControlBarProps,
   EntityControlBar,
 } from "@/components/EntityControlBar/EntityControlBar";
-import { Box } from "rebass";
-import styled from "@emotion/styled";
 import store from "@/stores/EntityMoveStore";
+import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
 
 interface DesignPage {
   toolBarProps: ToolBarProps;
@@ -35,6 +37,8 @@ export const DesignPage = ({
   gridProps,
   entityControlBarProps,
 }: DesignPage) => {
+  const stash = useSelector((state: any) => state.memory.length > 0);
+  const current = useSelector((state: any) => state.memory[0]);
   return (
     <Box
       sx={{
@@ -43,6 +47,12 @@ export const DesignPage = ({
         overflow: "none",
       }}
     >
+      {current?.entity && (
+        <RenderShadowBox
+          active={stash && current.entity}
+          entity={current.entity}
+        />
+      )}
       <div>
         <ToolBarContainer>
           <ToolBar {...toolBarProps} />

@@ -5,9 +5,12 @@ import Link from "next/link";
 import { ToolBar } from "@/components/ToolBar/ToolBar";
 import { OnToolBarEntityClick, tools } from "@/components/Events";
 import store from "@@/stores/EntityMoveStore";
+import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  store.subscribe(() => console.log(store.getState()));
+  const stash = useSelector((state: any) => state.memory.length > 0);
+  const current = useSelector((state: any) => state.memory[0]);
 
   return (
     <>
@@ -17,6 +20,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {current?.entity && (
+        <RenderShadowBox
+          active={stash && current.entity}
+          entity={current.entity}
+        />
+      )}
       <main className="h-screen w-screen bg-gradient-to-b from-[#758918] to-[#9E9A41] ">
         <div className="absolute h-full w-full m-0 z-0">
           <Grid
