@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useScroll } from "../hooks";
+import { useScroll, useToggle } from "../hooks";
 
 type unit = number | string;
 export interface Grid {
@@ -66,11 +66,14 @@ const Grid = ({
   const [scale, setScale] = React.useState<number>(baseScale);
 
   useScroll((event: any) => {
-    setScale((previousScale) => {
-      previousScale += event.deltaY * -0.01;
-      return Math.min(Math.max(1, previousScale), maxScale);
-    });
+    if (event.ctrlKey) {
+      setScale((previousScale) => {
+        previousScale += event.deltaY * -0.01;
+        return Math.min(Math.max(1, previousScale), maxScale);
+      });
+    }
   });
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" {...grid} id={id}>
       <g transform={`scale(${scale})`}>

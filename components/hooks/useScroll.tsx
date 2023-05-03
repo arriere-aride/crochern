@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 
-export const useScroll = (callback: any, node = null) => {
+export const useScroll = (callback: any, node = null, passive = false) => {
   // implement the callback ref pattern
   const callbackRef = useRef(callback);
   useLayoutEffect(() => {
@@ -18,6 +18,7 @@ export const useScroll = (callback: any, node = null) => {
     // target is either the provided node or the document
     const targetNode = node ?? document;
     // attach the event listener
-    targetNode && targetNode.addEventListener("wheel", handleScroll);
-  }, [handleScroll, node]);
+    targetNode &&
+      targetNode.addEventListener("wheel", handleScroll, { passive });
+  }, [handleScroll, node, passive]);
 };
