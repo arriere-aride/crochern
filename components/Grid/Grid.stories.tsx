@@ -53,3 +53,13 @@ export const GridFourtyRatio: Story = {
     },
   },
 };
+const getCursorPosition = (event: any) => {
+  event.preventDefault();
+  const [x, y] = [event.clientX, event.clientY];
+  console.log(JSON.stringify({ x, y }));
+};
+export const WithClickEvent: Story = {
+  args: {
+    onGridClick: getCursorPosition,
+  },
+};

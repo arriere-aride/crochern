@@ -40,6 +40,10 @@ export interface Grid {
    * What scale can it max
    */
   maxScale?: number;
+  /**
+   * What to do on Grid click
+   */
+  onGridClick?: (values: any) => any;
 }
 
 const Grid = ({
@@ -62,6 +66,7 @@ const Grid = ({
   },
   baseScale = 1,
   maxScale = 12,
+  onGridClick,
 }: Grid) => {
   const [scale, setScale] = React.useState<number>(baseScale);
 
@@ -75,7 +80,12 @@ const Grid = ({
   });
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" {...grid} id={id}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      {...grid}
+      id={id}
+      onClick={onGridClick}
+    >
       <g transform={`scale(${scale})`}>
         <defs>
           <pattern
