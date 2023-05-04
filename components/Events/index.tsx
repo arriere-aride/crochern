@@ -3,3 +3,4 @@ export {
   OnToolBarEntityClick,
   tools,
 } from "./OnToolBarEntityClick/OnToolBarEntityClick";
+export { OnStashBoxRenderClick } from "./OnStashBoxRenderClick/OnStashBoxRenderClick";

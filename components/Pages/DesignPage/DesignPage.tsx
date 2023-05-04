@@ -12,6 +12,8 @@ import {
 } from "@/components/EntityControlBar/EntityControlBar";
 import { useEffect, useState } from "react";
 import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
+import { OnStashBoxRenderClick } from "@/components/Events";
+import store from "@/stores/EntityMoveStore";
 
 interface DesignPage {
   toolBarProps: ToolBarProps;
@@ -48,6 +50,8 @@ export const DesignPage = ({
   const gridId = "design-grid-id";
   const [currentGridProps, setCurrentGridProps] = useState<Rect | null>(null);
 
+  store.subscribe(() => console.log(store.getState()));
+
   useEffect(() => {
     const element = document.querySelector(`#${gridId}`);
 
@@ -69,6 +73,7 @@ export const DesignPage = ({
           active={stash && current.entity}
           entity={current.entity}
           grid={currentGridProps}
+          onDocumentClick={(e) => OnStashBoxRenderClick({ e })}
         />
       )}
       <div>

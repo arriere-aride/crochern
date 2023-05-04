@@ -40,6 +40,10 @@ interface RenderShadowBox {
    * Is feacture activated
    */
   active: boolean;
+  /**
+   * What to do on document click
+   */
+  onDocumentClick?: (values: any) => any;
 }
 
 const useMousePosition = () => {
@@ -95,6 +99,7 @@ const RenderShadowBox = ({
   entity,
   grid,
   active,
+  onDocumentClick,
 }: RenderShadowBox): JSX.Element => {
   const currentPosition = useMousePosition();
 
@@ -128,7 +133,7 @@ const RenderShadowBox = ({
   `;
 
   return (
-    <StashBoxRenderDocument>
+    <StashBoxRenderDocument onClick={onDocumentClick}>
       <StashBoxRenderContainer>
         <StashBoxRenderSvg>
           {React.Children.map(entity, (child) => {
