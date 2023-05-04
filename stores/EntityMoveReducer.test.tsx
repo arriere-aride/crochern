@@ -1,7 +1,9 @@
 import {
   SeedMemoryEntity,
+  SeedTargetEntity,
   seedLogEntity,
   seedMemoryEntity,
+  seedTargetEntity,
 } from "@@/seeds/EntityMove.seed";
 import {
   reducer,
@@ -25,12 +27,20 @@ const stateWithHistory: State = {
   ...initialState,
   history: seedLogEntity() as State["history"],
 };
+const stateWithMemory: State = {
+  ...initialState,
+  memory: [seedMemoryEntity()] as State["memory"],
+};
+const targetEntity: SeedTargetEntity = seedTargetEntity();
 
 function getMemoryLength(state: State) {
   return state.memory.length;
 }
 function getHistoryLength(state: State) {
   return state.history.length;
+}
+function getTargetLength(state: State) {
+  return state.target.length;
 }
 
 const tests: TestSpec[] = [
@@ -86,6 +96,17 @@ const tests: TestSpec[] = [
       })
     ),
     expected: 2,
+  },
+  {
+    given: "PUSH: add entity to target",
+    should: "put entity to target",
+    actual: getTargetLength(
+      reducer(stateWithMemory, {
+        type: ActionTypes.PUSH,
+        entity: stashEntity,
+      })
+    ),
+    expected: 1,
   },
 ];
 

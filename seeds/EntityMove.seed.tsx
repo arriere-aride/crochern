@@ -11,6 +11,7 @@ import {
   ActionTypes,
   ArchivedEntity,
   InMemoryEntity,
+  TargetEntity,
 } from "@/stores/EntityMoveReducer";
 import { faker } from "@faker-js/faker";
 const entities = [
@@ -24,7 +25,8 @@ const entities = [
 ];
 
 export type SeedMemoryEntity = InMemoryEntity | InMemoryEntity[];
-export type SeedLogEntity = ArchivedEntity | ArchivedEntity[];
+export type SeedLogEntity = ArchivedEntity[];
+export type SeedTargetEntity = TargetEntity[];
 
 export function seedMemoryEntity(count?: number): SeedMemoryEntity {
   const observerDate = faker.date.past();
@@ -32,8 +34,6 @@ export function seedMemoryEntity(count?: number): SeedMemoryEntity {
     _id: faker.datatype.uuid(),
     label: faker.helpers.arrayElement(entities).label,
     entity: faker.helpers.arrayElement(entities).entity,
-    position: { x: 0, y: 0 },
-    inGrid: false,
     createdAt: observerDate,
     updatedAt: observerDate,
   });
@@ -66,6 +66,20 @@ export function seedLogEntity(
     data: seedMemoryEntity(entityCount) as SeedMemoryEntity,
     archivedAt: faker.date.recent(),
     details: seedDetails(),
+  });
+  return Array(count).fill(entity());
+}
+
+export function seedTargetEntity(
+  count: number = 1,
+  entityCount: number = 1
+): SeedTargetEntity {
+  const entity = () => ({
+    data: seedMemoryEntity(entityCount) as SeedMemoryEntity,
+    position: {
+      x: faker.address.latitude(90, 1, 1),
+      y: faker.address.longitude(180, 1, 1),
+    },
   });
   return Array(count).fill(entity());
 }

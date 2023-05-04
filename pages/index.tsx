@@ -3,13 +3,32 @@ import Image from "next/image";
 import { Grid } from "@@/components/Grid/Grid";
 import Link from "next/link";
 import { ToolBar } from "@/components/ToolBar/ToolBar";
-import { OnToolBarEntityClick, tools } from "@/components/Events";
+import {
+  OnStashBoxRenderClick,
+  OnToolBarEntityClick,
+  tools,
+} from "@/components/Events";
 import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import store from "@/stores/EntityMoveStore";
 
 export default function Home() {
   const stash = useSelector((state: any) => state.memory.length > 0);
   const current = useSelector((state: any) => state.memory[0]);
+  const gridId = "design-grid-id";
+  const [currentGridProps, setCurrentGridProps] = useState<DOMRect | null>(
+    null
+  );
+
+  useEffect(() => {
+    const element = document.querySelector(`#${gridId}`);
+    if (element != null) {
+      setCurrentGridProps(element.getBoundingClientRect());
+    }
+  }, []);
+
+  store.subscribe(() => console.log(store.getState()));
 
   return (
     <>
@@ -19,12 +38,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {current?.entity && (
-        <RenderShadowBox
-          active={stash && current.entity}
-          entity={current.entity}
-        />
-      )}
+
       <main className="h-screen w-screen bg-gradient-to-b from-[#758918] to-[#9E9A41] ">
         <div className="absolute h-full w-full m-0 z-0">
           <Grid
@@ -44,12 +58,23 @@ export default function Home() {
               stroke: "#9E9A41",
               size: 64,
             }}
+            id={gridId}
           />
         </div>
         <div className="w-[28px] absolute z-20 h-full bg-[#484848] ">
           <ToolBar tools={tools} handleClick={OnToolBarEntityClick} />
         </div>
         <div className="flex items-center justify-center h-full mx-2 z-10 relative">
+          <div className="absolute h-full w-full m-0 z-30">
+            {current?.entity && currentGridProps && (
+              <RenderShadowBox
+                active={stash && current.entity}
+                entity={current.entity}
+                grid={currentGridProps}
+                onDocumentClick={OnStashBoxRenderClick}
+              />
+            )}
+          </div>
           <div className="w-[960px] ml-[28px] lg:mx-auto h-{700px} md:shadow-sm md:shadow-[#C3A963] grid md:grid-cols-2 gap-0">
             <div className="col-span-1">
               <Image

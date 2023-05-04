@@ -27,6 +27,6 @@ export const Default: Story = {
   args: {
     fillColor: "#1a1a1a",
     radius: { rx: 16, ry: 8 },
-    position: { cx: 50, cy: 50 },
+    position: { x: 50, y: 50 },
   },
 };

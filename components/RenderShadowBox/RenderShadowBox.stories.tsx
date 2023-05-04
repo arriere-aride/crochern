@@ -38,6 +38,11 @@ export const WithGrid: Story = {
       y: 50,
       width: 150,
       height: 150,
+      top: 10,
+      left: 10,
+      bottom: 10,
+      right: 10,
+      toJSON: () => true,
     },
   },
 };

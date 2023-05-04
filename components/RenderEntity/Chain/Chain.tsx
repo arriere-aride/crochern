@@ -33,8 +33,8 @@ interface Chain {
    * Where to position
    */
   position?: {
-    cx: number;
-    cy: number;
+    x: number;
+    y: number;
   };
 }
 
@@ -45,14 +45,14 @@ export const Chain = ({
   padding = 0,
   radius = { rx: 8, ry: 4 },
   size = 16,
-  position = { cx: 0, cy: 0 },
+  position = { x: 0, y: 0 },
   strokeWidth = 0,
 }: Chain) => {
   const id: number = Math.floor(Math.random() * 100);
   const { rx, ry } = radius;
   const halfSize = Math.floor(size / 2);
-  const { cx: x, cy: y } = position;
-  const center = { x: x + halfSize, y: y + halfSize };
+  const { x, y } = position;
+  const center = { x: halfSize, y: halfSize };
   const box = {
     min: { x: x + padding, y: y + padding },
     max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },

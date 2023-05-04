@@ -1,5 +1,7 @@
+import store from "@/stores/EntityMoveStore";
 import styled from "@emotion/styled";
 import React from "react";
+import { useSelector } from "react-redux";
 
 interface RenderShadowBox {
   /**
@@ -30,12 +32,7 @@ interface RenderShadowBox {
   /**
    * What are grid props
    */
-  grid?: {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-  };
+  grid?: DOMRect;
   /**
    * Is feacture activated
    */
@@ -46,12 +43,12 @@ interface RenderShadowBox {
   onDocumentClick?: (values: any) => any;
 }
 
+// hooks/useMousePosition
 const useMousePosition = () => {
   const [mousePosition, setMousePosition] = React.useState({
     x: 0,
     y: 0,
   });
-
   React.useEffect(() => {
     const updateMousePosition = (ev: any) => {
       setMousePosition({
@@ -59,14 +56,11 @@ const useMousePosition = () => {
         y: ev.clientY - 8,
       });
     };
-
     window.addEventListener("mousemove", updateMousePosition);
-
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
   }, []);
-
   return mousePosition;
 };
 
@@ -110,11 +104,16 @@ const RenderShadowBox = ({
     return <></>;
   }
 
-  const StashBoxRenderSvg = styled.svg`
+  const entityPosition = {
+    x: grid ? currentPosition.x - grid.left : currentPosition.x,
+    y: grid ? currentPosition.y - grid.top : currentPosition.y,
+  };
+
+  const ShadowBoxRenderSvg = styled.svg`
     border: ${theme?.svg.strokeWidth}px solid ${theme?.svg.strokeColor};
     background-color: ${theme?.svg.fillColor};
   `;
-  const StashBoxRenderContainer = styled.div`
+  const ShadowBoxRenderContainer = styled.div`
     position: absolute;
     top: ${currentPosition.y}px;
     left: ${currentPosition.x}px;
@@ -124,7 +123,7 @@ const RenderShadowBox = ({
       ${theme?.container.strokeColor};
     background-color: ${theme?.container.fillColor};
   `;
-  const StashBoxRenderDocument = styled.div`
+  const ShadowBoxRenderDocument = styled.div`
     position: absolute;
     top: 0;
     right: 0;
@@ -133,15 +132,21 @@ const RenderShadowBox = ({
   `;
 
   return (
-    <StashBoxRenderDocument onClick={onDocumentClick}>
-      <StashBoxRenderContainer>
-        <StashBoxRenderSvg>
+    <ShadowBoxRenderDocument
+      onClick={(e) => {
+        if (onDocumentClick != null) {
+          onDocumentClick({ e, position: entityPosition });
+        }
+      }}
+    >
+      <ShadowBoxRenderContainer>
+        <ShadowBoxRenderSvg>
           {React.Children.map(entity, (child) => {
             return React.cloneElement(child as any, { ...theme.entity });
           })}
-        </StashBoxRenderSvg>
-      </StashBoxRenderContainer>
-    </StashBoxRenderDocument>
+        </ShadowBoxRenderSvg>
+      </ShadowBoxRenderContainer>
+    </ShadowBoxRenderDocument>
   );
 };
 export { RenderShadowBox };

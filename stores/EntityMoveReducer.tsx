@@ -11,8 +11,6 @@ export interface InMemoryEntity {
   _id: string;
   label: string;
   entity: JSX.Element | React.ReactNode;
-  position: { x: number; y: number };
-  inGrid: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -21,10 +19,14 @@ export interface ArchivedEntity extends InMemoryEntity {
   archivedAt: Date;
   details?: any;
 }
+export interface TargetEntity extends InMemoryEntity {
+  position: { x: number; y: number };
+}
 
 export interface State {
   memory: InMemoryEntity[];
   history: ArchivedEntity[];
+  target: TargetEntity[];
 }
 
 export enum ActionTypes {
@@ -32,11 +34,13 @@ export enum ActionTypes {
   UNSTASH = "UNSTASH",
   NOTHING = "NOTHING",
   FLUSH = "FLUSH",
+  PUSH = "PUSH",
 }
 
 export const initialState = {
   memory: [],
   history: [],
+  target: [],
 };
 
 export function stash(entity: InMemoryEntity, state: State): State {
@@ -51,6 +55,14 @@ export function unstash(state: State): State {
     action: ActionTypes.UNSTASH,
   });
   return { ...stateWithLog, memory: [] };
+}
+
+export function push(position: { x: number; y: number }, state: State): State {
+  const newTarget = state.memory.map((memory) => ({
+    ...memory,
+    position,
+  }));
+  return { ...state, target: [...state.target, ...newTarget] };
 }
 
 export function log(
@@ -69,6 +81,7 @@ export function log(
 export interface Action {
   type: ActionTypes;
   entity?: any;
+  position?: any;
 }
 
 export function reducer(
@@ -80,6 +93,8 @@ export function reducer(
       return stash(action.entity, state);
     case ActionTypes.UNSTASH:
       return unstash(state);
+    case ActionTypes.PUSH:
+      return push(action.position, state);
     default:
       return state;
   }

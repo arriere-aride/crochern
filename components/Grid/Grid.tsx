@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useScroll, useToggle } from "../hooks";
+import { useSelector } from "react-redux";
+import store from "@/stores/EntityMoveStore";
 
 type unit = number | string;
 export interface Grid {
@@ -69,7 +71,7 @@ const Grid = ({
   onGridClick,
 }: Grid) => {
   const [scale, setScale] = React.useState<number>(baseScale);
-
+  const targets = useSelector((state: any) => state.target);
   useScroll((event: any) => {
     if (event.ctrlKey) {
       setScale((previousScale) => {
@@ -86,6 +88,16 @@ const Grid = ({
       id={id}
       onClick={onGridClick}
     >
+      {targets?.length > 0 &&
+        targets.map(({ entity, position }: any) => {
+          return React.Children.map(entity, (child) => {
+            return (
+              <svg x={position.x} y={position.y}>
+                {React.cloneElement(child)}
+              </svg>
+            );
+          });
+        })}
       <g transform={`scale(${scale})`}>
         <defs>
           <pattern
