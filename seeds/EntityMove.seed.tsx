@@ -24,11 +24,11 @@ const entities = [
   { label: "Double Treble Crochet", entity: <DoubleTrebleCrochet /> },
 ];
 
-export type SeedMemoryEntity = InMemoryEntity | InMemoryEntity[];
+export type SeedMemoryEntity = InMemoryEntity[];
 export type SeedLogEntity = ArchivedEntity[];
 export type SeedTargetEntity = TargetEntity[];
 
-export function seedMemoryEntity(count?: number): SeedMemoryEntity {
+export function seedMemoryEntity(count: number = 1): SeedMemoryEntity {
   const observerDate = faker.date.past();
   const entity = () => ({
     _id: faker.datatype.uuid(),
@@ -37,16 +37,12 @@ export function seedMemoryEntity(count?: number): SeedMemoryEntity {
     createdAt: observerDate,
     updatedAt: observerDate,
   });
-  if (count == null || count < 1) {
-    return entity();
-  }
-  return Array(count).fill(entity());
+  return Array(count)
+    .fill({})
+    .map(() => entity());
 }
 
-export function seedLogEntity(
-  count: number = 1,
-  entityCount: number = 1
-): SeedLogEntity {
+export function seedLogEntity(count: number = 1): SeedLogEntity {
   function seedDetails() {
     const hasDetails = Math.trunc(Math.random() * 2);
     if (hasDetails) {
@@ -63,23 +59,24 @@ export function seedLogEntity(
     return {};
   }
   const entity = () => ({
-    data: seedMemoryEntity(entityCount) as SeedMemoryEntity,
+    ...seedMemoryEntity()[0],
     archivedAt: faker.date.recent(),
     details: seedDetails(),
   });
-  return Array(count).fill(entity());
+  return Array(count)
+    .fill({})
+    .map(() => entity());
 }
 
-export function seedTargetEntity(
-  count: number = 1,
-  entityCount: number = 1
-): SeedTargetEntity {
+export function seedTargetEntity(count: number = 1): SeedTargetEntity {
   const entity = () => ({
-    data: seedMemoryEntity(entityCount) as SeedMemoryEntity,
+    ...seedMemoryEntity()[0],
     position: {
-      x: faker.address.latitude(90, 1, 1),
-      y: faker.address.longitude(180, 1, 1),
+      x: Number(faker.address.latitude(90, 1, 1)),
+      y: Number(faker.address.longitude(180, 1, 1)),
     },
   });
-  return Array(count).fill(entity());
+  return Array(count)
+    .fill({})
+    .map(() => entity());
 }
