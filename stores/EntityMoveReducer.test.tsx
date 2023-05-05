@@ -29,9 +29,8 @@ const stateWithHistory: State = {
 };
 const stateWithMemory: State = {
   ...initialState,
-  memory: [seedMemoryEntity()] as State["memory"],
+  memory: seedMemoryEntity() as State["memory"],
 };
-const targetEntity: SeedTargetEntity = seedTargetEntity();
 
 function getMemoryLength(state: State): number {
   return state.memory.length;
@@ -68,7 +67,7 @@ const tests: TestSpec[] = [
       reducer(
         {
           ...initialState,
-          memory: [stashEntity as InMemoryEntity],
+          memory: stashEntity,
         },
         { type: ActionTypes.UNSTASH }
       )
