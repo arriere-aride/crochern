@@ -1,10 +1,11 @@
 /**
- * EntityMove.tsx
+ * EntityMoveReducer.tsx
  * Manage an entity movement through a stash
  * Given an entity move from ``point A`` to ``point B``
  *  - __stash__: Select entity from ``point A`` -> put it to stash & log entity stashing
- *  - __unstash__: Select entity to ``point B`` -> put it to ``point B`` & log entity unstashing
+ *  - __unstash__: Remove entity from stash
  *  - __log__: add to history array, permits undo && redo action (not implemented yet)
+ *  - __push__: Select entity to ``point B`` -> put it to ``point B`` & log entity unstashing
  */
 
 export interface InMemoryEntity {
