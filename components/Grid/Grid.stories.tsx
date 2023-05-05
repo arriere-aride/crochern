@@ -1,12 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Grid } from "./Grid";
+import store from "@/stores/EntityMoveStore";
+import { Provider } from "react-redux";
 
 const meta: Meta<typeof Grid> = {
   title: "Crochet/Atoms/Grid",
   component: Grid,
   tags: ["autodocs"],
   argTypes: {},
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+  ],
 };
 
 export default meta;
