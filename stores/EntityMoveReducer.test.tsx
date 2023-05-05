@@ -33,13 +33,13 @@ const stateWithMemory: State = {
 };
 const targetEntity: SeedTargetEntity = seedTargetEntity();
 
-function getMemoryLength(state: State) {
+function getMemoryLength(state: State): number {
   return state.memory.length;
 }
-function getHistoryLength(state: State) {
+function getHistoryLength(state: State): number {
   return state.history.length;
 }
-function getTargetLength(state: State) {
+function getTargetLength(state: State): number {
   return state.target.length;
 }
 
