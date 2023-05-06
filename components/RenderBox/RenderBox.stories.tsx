@@ -1,27 +1,31 @@
-import type { Meta, StoryObj } from "@storybook/react";
+/* eslint-disable max-lines */
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
-import { RenderBox } from "./RenderBox";
 import {
+  Chain,
   DoubleCrochet,
+  DoubleTrebleCrochet,
+  HalfDoubleCrochet,
   SingleCrochet,
   SlipSnitch,
-  Chain,
-  HalfDoubleCrochet,
   TrebleCrochet,
-  DoubleTrebleCrochet,
 } from "../RenderEntity";
+import { RenderBox } from "./RenderBox";
 
+import {
+  ThreeSingleCrochetOneStitch,
+  TwoDoubleCrochetOneStitch,
+  TwoSingleCrochetOneStitch,
+} from "../RenderIncrease";
 import {
   BackLoopOnly,
   BackPost,
   FrontLoopOnly,
   FrontPost,
 } from "../RenderVariation";
-import {
-  ThreeSingleCrochetOneStitch,
-  TwoDoubleCrochetOneStitch,
-  TwoSingleCrochetOneStitch,
-} from "../RenderIncrease";
 
 const meta: Meta<typeof RenderBox> = {
   title: "Crochet/Atoms/RenderBox",
@@ -109,20 +113,23 @@ export const WithBackPost: Story = {
   },
 };
 
-export const WithTwoSingleCrochetOneStitch: Story = {
-  args: {
-    entity: <TwoSingleCrochetOneStitch />,
-  },
-};
+export const WithTwoSingleCrochetOneStitch: Story =
+  {
+    args: {
+      entity: <TwoSingleCrochetOneStitch />,
+    },
+  };
 
-export const WithThreeSingleCrochetOneStitch: Story = {
-  args: {
-    entity: <ThreeSingleCrochetOneStitch />,
-  },
-};
+export const WithThreeSingleCrochetOneStitch: Story =
+  {
+    args: {
+      entity: <ThreeSingleCrochetOneStitch />,
+    },
+  };
 
-export const WithTwoDoubleCrochetOneStitch: Story = {
-  args: {
-    entity: <TwoDoubleCrochetOneStitch />,
-  },
-};
+export const WithTwoDoubleCrochetOneStitch: Story =
+  {
+    args: {
+      entity: <TwoDoubleCrochetOneStitch />,
+    },
+  };
