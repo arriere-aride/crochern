@@ -1,18 +1,16 @@
+/* eslint-disable max-lines */
 import {
   SeedMemoryEntity,
-  SeedTargetEntity,
   seedLogEntity,
   seedMemoryEntity,
-  seedTargetEntity,
-} from "@@/seeds/EntityMove.seed";
-import {
-  reducer,
-  initialState,
-  ActionTypes,
-  InMemoryEntity,
-  State,
-} from "./EntityMoveReducer";
+} from "@/seeds/EntityMove.seed";
 import { expect, test } from "vitest";
+import {
+  ActionTypes,
+  State,
+  initialState,
+  reducer,
+} from "./EntityMoveReducer";
 
 interface TestSpec {
   given: string;
@@ -22,7 +20,8 @@ interface TestSpec {
   withCustomCheck?: (a: any, b: any) => any;
 }
 
-const stashEntity: SeedMemoryEntity = seedMemoryEntity();
+const stashEntity: SeedMemoryEntity =
+  seedMemoryEntity();
 const stateWithHistory: State = {
   ...initialState,
   history: seedLogEntity() as State["history"],
@@ -50,7 +49,8 @@ const tests: TestSpec[] = [
     expected: initialState,
   },
   {
-    given: "STASH:initial State and Entity as argument",
+    given:
+      "STASH:initial State and Entity as argument",
     should: "return state with stash",
     actual: getMemoryLength(
       reducer(initialState, {
@@ -75,7 +75,8 @@ const tests: TestSpec[] = [
     expected: 0,
   },
   {
-    given: "STASH/LOG:initial State and Entity as argument",
+    given:
+      "STASH/LOG:initial State and Entity as argument",
     should: "log the stash action",
     actual: getHistoryLength(
       reducer(initialState, {
@@ -109,11 +110,17 @@ const tests: TestSpec[] = [
   },
 ];
 
-test.each(tests)("Given %s, it should %s", (current: TestSpec) => {
-  const { actual, expected } = current;
-  if (current.withCustomCheck != null) {
-    return current.withCustomCheck(actual, expected);
-  } else {
-    expect(actual).toBe(expected);
+test.each(tests)(
+  "Given %s, it should %s",
+  (current: TestSpec) => {
+    const { actual, expected } = current;
+    if (current.withCustomCheck != null) {
+      return current.withCustomCheck(
+        actual,
+        expected
+      );
+    } else {
+      expect(actual).toBe(expected);
+    }
   }
-});
+);

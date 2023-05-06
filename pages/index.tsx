@@ -1,41 +1,55 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Grid } from "@@/components/Grid/Grid";
-import Link from "next/link";
-import { ToolBar } from "@/components/ToolBar/ToolBar";
+/* eslint-disable max-lines */
 import {
+  Grid,
   OnStashBoxRenderClick,
   OnToolBarEntityClick,
-  tools,
-} from "@/components/Events";
-import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
-import { useSelector } from "react-redux";
+  RenderShadowBox,
+  ToolBar,
+} from "@/components";
+import { tools } from "@/data";
+import { SelectTargetEntity } from "@/selectors";
+import { Store } from "@/stores";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import store from "@/stores/EntityMoveStore";
+import { useSelector } from "react-redux";
 
 export default function Home() {
-  const stash = useSelector((state: any) => state.memory.length > 0);
-  const current = useSelector((state: any) => state.memory[0]);
-  const gridId = "design-grid-id";
-  const [currentGridProps, setCurrentGridProps] = useState<DOMRect | null>(
-    null
+  const hasStash = useSelector(
+    (state: Store) =>
+      state.moves.memory.length > 0
   );
+  const current = SelectTargetEntity()[0];
+  const gridId = "design-grid-id";
+  const [currentGridProps, setCurrentGridProps] =
+    useState<DOMRect | null>(null);
 
   useEffect(() => {
-    const element = document.querySelector(`#${gridId}`);
+    const element = document.querySelector(
+      `#${gridId}`
+    );
     if (element != null) {
-      setCurrentGridProps(element.getBoundingClientRect());
+      setCurrentGridProps(
+        element.getBoundingClientRect()
+      );
     }
   }, []);
-
-  store.subscribe(() => console.log(store.getState()));
 
   return (
     <>
       <Head>
-        <title>Crochern - Crochet Pattern Maker</title>
-        <meta name="description" content="make pattern of crochet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+          Crochern - Crochet Pattern Maker
+        </title>
+        <meta
+          name="description"
+          content="make pattern of crochet"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -62,18 +76,27 @@ export default function Home() {
           />
         </div>
         <div className="w-[28px] absolute z-20 h-full bg-[#484848] ">
-          <ToolBar tools={tools} handleClick={OnToolBarEntityClick} />
+          <ToolBar
+            tools={tools}
+            handleClick={OnToolBarEntityClick}
+          />
         </div>
         <div className="flex items-center justify-center h-full mx-2 z-10 relative">
           <div className="absolute h-full w-full m-0 z-30">
-            {current?.entity && currentGridProps && (
-              <RenderShadowBox
-                active={stash && current.entity}
-                entity={current.entity}
-                grid={currentGridProps}
-                onDocumentClick={OnStashBoxRenderClick}
-              />
-            )}
+            {current?.entity &&
+              currentGridProps && (
+                <RenderShadowBox
+                  active={
+                    hasStash &&
+                    current.entity != null
+                  }
+                  currentEntity={current}
+                  grid={currentGridProps}
+                  onDocumentClick={
+                    OnStashBoxRenderClick
+                  }
+                />
+              )}
           </div>
           <div className="w-[960px] ml-[28px] lg:mx-auto h-{700px} md:shadow-sm md:shadow-[#C3A963] grid md:grid-cols-2 gap-0">
             <div className="col-span-1">
@@ -88,9 +111,15 @@ export default function Home() {
             <div className="col-span-1 md:bg-[#F8FAB1] text-[#373722] ">
               <div className="flex items-center justify-center h-full">
                 <div>
-                  <h1 className="font-bold text-6xl">CROCHERN</h1>
-                  <h2 className="text-4xl">Crochet Pattern Maker</h2>
-                  <p className="italic text-right">Coming soon</p>
+                  <h1 className="font-bold text-6xl">
+                    CROCHERN
+                  </h1>
+                  <h2 className="text-4xl">
+                    Crochet Pattern Maker
+                  </h2>
+                  <p className="italic text-right">
+                    Coming soon
+                  </p>
                   <div className="flex items-center justify-center gap-3">
                     <Link href="https://github.com/arriere-aride/crochern">
                       <svg
@@ -119,7 +148,10 @@ export default function Home() {
                           ></path>
                         </defs>
                         <g>
-                          <mask id="mask-2" fill="white">
+                          <mask
+                            id="mask-2"
+                            fill="white"
+                          >
                             <use xlinkHref="#path-1"></use>
                           </mask>
                           <use

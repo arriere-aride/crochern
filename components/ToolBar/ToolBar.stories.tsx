@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-key */
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
+import { tools } from "@/data";
+import { OnToolBarEntityClick } from "@@/components/Events/OnToolBarEntityClick/OnToolBarEntityClick";
 import { ToolBar } from "./ToolBar";
-import {
-  OnToolBarEntityClick,
-  tools,
-} from "@@/components/Events/OnToolBarEntityClick/OnToolBarEntityClick";
 
 const meta: Meta<typeof ToolBar> = {
   title: "Crochet/Components/Bar/ToolBar",
@@ -37,5 +38,8 @@ export const Default: Story = {
 };
 
 export const WithStore: Story = {
-  args: { tools, handleClick: OnToolBarEntityClick },
+  args: {
+    tools,
+    handleClick: OnToolBarEntityClick,
+  },
 };

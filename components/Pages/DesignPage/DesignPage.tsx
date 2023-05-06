@@ -1,55 +1,42 @@
-import { useSelector } from "react-redux";
-import { Box } from "rebass";
-import styled from "@emotion/styled";
 import {
-  type ToolBar as ToolBarProps,
-  ToolBar,
-} from "@/components/ToolBar/ToolBar";
-import { type Grid as GridProps, Grid } from "@/components/Grid/Grid";
-import {
-  EntityControlBar as EntityControlBarProps,
   EntityControlBar,
-} from "@/components/EntityControlBar/EntityControlBar";
+  Grid,
+  OnStashBoxRenderClick,
+  RenderShadowBox,
+  ToolBar,
+} from "@/components";
+import { SelectMemoryEntity } from "@/selectors";
+import { InMemoryEntity } from "@/stores/EntityMoveReducer";
 import { useEffect, useState } from "react";
-import { RenderShadowBox } from "@/components/RenderShadowBox/RenderShadowBox";
-import { OnStashBoxRenderClick } from "@/components/Events";
-
-interface DesignPage {
-  toolBarProps: ToolBarProps;
-  gridProps: GridProps;
-  entityControlBarProps: EntityControlBarProps;
-}
-
-const ToolBarContainer = styled.div`
-  width: 28px;
-  position: absolute;
-  z-index: 20;
-  height: 100vh;
-  background-color: #484848;
-`;
-const GridContainer = styled.div`
-  grid-column: span 3;
-`;
-
-const EntityControlBarContainer = styled.div``;
+import { Box } from "rebass";
+import { type DesignPage as IDesignPage } from "./DesignPage.d";
+import {
+  EntityControlBarContainer,
+  GridContainer,
+  ToolBarContainer,
+} from "./DesignPage.styled";
 
 export const DesignPage = ({
   toolBarProps,
   gridProps,
   entityControlBarProps,
-}: DesignPage) => {
-  const stash = useSelector((state: any) => state.memory.length > 0);
-  const current = useSelector((state: any) => state.memory[0]);
+}: IDesignPage) => {
+  const hasStash: boolean =
+    SelectMemoryEntity().length > 0;
+  const current: InMemoryEntity =
+    SelectMemoryEntity()[0];
   const gridId = "design-grid-id";
-  const [currentGridProps, setCurrentGridProps] = useState<DOMRect | null>(
-    null
-  );
+  const [currentGridProps, setCurrentGridProps] =
+    useState<DOMRect | null>(null);
 
   useEffect(() => {
-    const element = document.querySelector(`#${gridId}`);
-
+    const element = document.querySelector(
+      `#${gridId}`
+    );
     if (element != null) {
-      setCurrentGridProps(element.getBoundingClientRect());
+      setCurrentGridProps(
+        element.getBoundingClientRect()
+      );
     }
   }, []);
 
@@ -57,14 +44,17 @@ export const DesignPage = ({
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(28px, 6fr))",
+        gridTemplateColumns:
+          "repeat(auto-fit, minmax(28px, 6fr))",
         overflow: "none",
       }}
     >
-      {current?.entity && currentGridProps && (
+      {current && currentGridProps && (
         <RenderShadowBox
-          active={stash && current.entity}
-          entity={current.entity}
+          active={
+            hasStash && current.entity != null
+          }
+          currentEntity={current}
           grid={currentGridProps}
           onDocumentClick={OnStashBoxRenderClick}
         />
@@ -78,7 +68,9 @@ export const DesignPage = ({
         <Grid {...gridProps} id={gridId} />
       </GridContainer>
       <EntityControlBarContainer>
-        <EntityControlBar {...entityControlBarProps} />
+        <EntityControlBar
+          {...entityControlBarProps}
+        />
       </EntityControlBarContainer>
     </Box>
   );

@@ -1,90 +1,18 @@
-import React, { Fragment } from "react";
+import {
+  usePressKey,
+  useToggle,
+} from "@@/components/hooks";
+import { Fragment } from "react";
 import { AiOutlineCaretRight } from "react-icons/ai";
-import styled from "@emotion/styled";
-import { usePressKey, useToggle } from "@@/components/hooks";
-
-const CommandBarContainer = styled.div`
-  position: relative;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 3px;
-  width: 100%;
-  max-width: 480px;
-`;
-const CommandBarCaret = styled.div`
-  position: absolute;
-  left: 4px;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-`;
-
-const CommandBarInputGroup = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-`;
-
-const CommandBarInput = styled.input`
-  padding-left: 24px;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  text-transform: uppercase;
-  outline: thick double;
-  font-weight: 700;
-`;
-const CommandBarShortCut = styled.div`
-  position: absolute;
-  right: 6px;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  justify-items: end;
-  align-items: center;
-`;
-
-interface CommandBar {
-  /**
-   * How large it should be?
-   */
-  size?: "small" | "medium" | "large";
-  /**
-   * What caret color to use
-   */
-  caretColor?: string;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * What border color to use
-   */
-  borderColor?: string;
-  /**
-   * What content color to use
-   */
-  contentColor?: string;
-  /**
-   * Display keyboard key shortcut
-   */
-  shortcutKey: JSX.Element;
-  /**
-   * What placeholder to use
-   */
-  placeholder?: string;
-  /**
-   * What key to use in order to toggle
-   */
-  toggleKey?: string;
-  /**
-   * What visibility by default?
-   */
-  isVisible?: boolean;
-}
+import { type CommandBar as ICommandBar } from "./CommandBar.d";
+import {
+  CommandBarCaret,
+  CommandBarContainer,
+  CommandBarInput,
+  CommandBarInputGroup,
+  CommandBarShortCut,
+  commandBarInputSizes,
+} from "./CommandBar.styled";
 
 /**
  * Like [Alfred](https://www.alfredapp.com/),
@@ -101,25 +29,9 @@ export const CommandBar = ({
   placeholder = "",
   toggleKey = "F1",
   isVisible = false,
-}: CommandBar): JSX.Element => {
-  const commandBarInputSizes = {
-    small: {
-      fontSize: "12px",
-      paddingTop: "10px",
-      paddingBottom: "10px",
-    },
-    medium: {
-      fontSize: "14px",
-      paddingTop: "11px",
-      paddingBottom: "11px",
-    },
-    large: {
-      fontSize: "16px",
-      paddingTop: "12px",
-      paddingBottom: "12px",
-    },
-  };
-  const [visible, setVisible] = useToggle(isVisible);
+}: ICommandBar): JSX.Element => {
+  const [visible, setVisible] =
+    useToggle(isVisible);
   const onKeyPress = (event: any) => {
     setVisible();
   };
@@ -133,10 +45,14 @@ export const CommandBar = ({
         style={{
           backgroundColor,
           borderColor,
-          visibility: visible ? "visible" : "hidden",
+          visibility: visible
+            ? "visible"
+            : "hidden",
         }}
       >
-        <CommandBarCaret style={{ color: caretColor }}>
+        <CommandBarCaret
+          style={{ color: caretColor }}
+        >
           <AiOutlineCaretRight />
         </CommandBarCaret>
         <CommandBarInputGroup>
@@ -152,7 +68,9 @@ export const CommandBar = ({
             placeholder={placeholder}
           />
         </CommandBarInputGroup>
-        <CommandBarShortCut>{shortcutKey}</CommandBarShortCut>
+        <CommandBarShortCut>
+          {shortcutKey}
+        </CommandBarShortCut>
       </CommandBarContainer>
     </Fragment>
   );

@@ -1,7 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
+import { seedMemoryEntity } from "@/seeds/EntityMove.seed";
 import { RenderShadowBox } from "./RenderShadowBox";
-import { SingleCrochet, SlipSnitch, TrebleCrochet } from "../RenderEntity";
 
 const meta: Meta<typeof RenderShadowBox> = {
   title: "Crochet/Atoms/RenderShadowBox",
@@ -9,7 +12,12 @@ const meta: Meta<typeof RenderShadowBox> = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div style={{ width: "512px", height: "512px" }}>
+      <div
+        style={{
+          width: "512px",
+          height: "512px",
+        }}
+      >
         <Story />
       </div>
     ),
@@ -21,18 +29,18 @@ type Story = StoryObj<typeof RenderShadowBox>;
 
 export const WithSlipSnitch: Story = {
   args: {
-    entity: <SlipSnitch />,
+    currentEntity: seedMemoryEntity()[0],
   },
 };
 export const WithTrebleCrochet: Story = {
   args: {
-    entity: <TrebleCrochet />,
+    currentEntity: seedMemoryEntity()[0],
   },
 };
 
 export const WithGrid: Story = {
   args: {
-    entity: <SingleCrochet />,
+    currentEntity: seedMemoryEntity()[0],
     grid: {
       x: 50,
       y: 50,

@@ -1,51 +1,31 @@
+import { tools } from "@/data";
+import store from "@/stores";
 import {
-  SlipSnitch,
-  SingleCrochet,
-  Chain,
-  HalfDoubleCrochet,
-  DoubleCrochet,
-  TrebleCrochet,
-  DoubleTrebleCrochet,
-} from "@/components/RenderEntity";
-import { ActionTypes } from "@/stores/EntityMoveReducer";
-import store from "@/stores/EntityMoveStore";
-import styled from "@emotion/styled";
+  ActionTypes,
+  TargetEntity,
+} from "@/stores/EntityMoveReducer";
 
-// @TODO move to data/ToolBarTools/
-export const tools = [
-  { label: "Slip Snitch", entity: <SlipSnitch /> },
-  { label: "Single Crochet", entity: <SingleCrochet /> },
-  { label: "Chain", entity: <Chain /> },
-  { label: "Half Double Crochet", entity: <HalfDoubleCrochet /> },
-  { label: "Double Crochet", entity: <DoubleCrochet /> },
-  { label: "Treble Crochet", entity: <TrebleCrochet /> },
-  { label: "Double Treble Crochet", entity: <DoubleTrebleCrochet /> },
-];
-
-const StashBox = styled.svg`
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  border: 1px solid red;
-`;
+export interface OnToolBarEntityClick {
+  index: number;
+  e: React.MouseEvent<HTMLElement>;
+}
 
 export function OnToolBarEntityClick({
   index = 0,
   e,
-}: {
-  e: any;
-  index: number;
-}): any {
+}: OnToolBarEntityClick): boolean {
   e.preventDefault();
-  const movableEntity = {
+  const movableEntity: TargetEntity = {
     entity: tools[index].entity,
     _id: index.toString(),
     label: tools[index].label,
     position: { x: e.screenX, y: e.screenY },
-    inGrid: false,
     createdAt: new Date(),
     updatedAt: new Date(),
   };
-  store.dispatch({ type: ActionTypes.STASH, entity: movableEntity });
+  store.dispatch({
+    type: ActionTypes.STASH,
+    entity: movableEntity,
+  });
   return true;
 }

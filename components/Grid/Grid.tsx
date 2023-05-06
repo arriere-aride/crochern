@@ -1,52 +1,11 @@
+import {
+  GridCell,
+  RenderTargetBox,
+  useScroll,
+} from "@/components";
+import { SelectTargetEntity } from "@/selectors";
 import * as React from "react";
-import { useScroll, useToggle } from "../hooks";
-import { useSelector } from "react-redux";
-import store from "@/stores/EntityMoveStore";
-
-type unit = number | string;
-export interface Grid {
-  /**
-   *  Which id svg container have
-   */
-  id?: string;
-  /**
-   * Cell is the most little atom in grid
-   */
-  cell?: {
-    size: unit;
-    stroke: string;
-    strokeWidth: unit;
-  };
-  /**
-   * Separator separates cell
-   */
-  separator?: {
-    size: unit;
-    stroke: string;
-    strokeWidth: unit;
-  };
-  /**
-   * Grid container
-   */
-  grid?: {
-    stroke: string;
-    strokeWidth: unit;
-    width: unit;
-    height: unit;
-  };
-  /**
-   * What scale to use
-   */
-  baseScale?: number;
-  /**
-   * What scale can it max
-   */
-  maxScale?: number;
-  /**
-   * What to do on Grid click
-   */
-  onGridClick?: (values: any) => any;
-}
+import { type Grid as IGrid } from "./Grid.d";
 
 const Grid = ({
   id = "grid-id",
@@ -69,14 +28,19 @@ const Grid = ({
   baseScale = 1,
   maxScale = 12,
   onGridClick,
-}: Grid) => {
-  const [scale, setScale] = React.useState<number>(baseScale);
-  const targets = useSelector((state: any) => state.target);
+  onTargetEntityClick,
+}: IGrid) => {
+  const [scale, setScale] =
+    React.useState<number>(baseScale);
+  const targets = SelectTargetEntity();
   useScroll((event: any) => {
     if (event.ctrlKey) {
       setScale((previousScale) => {
         previousScale += event.deltaY * -0.01;
-        return Math.min(Math.max(1, previousScale), maxScale);
+        return Math.min(
+          Math.max(1, previousScale),
+          maxScale
+        );
       });
     }
   });
@@ -88,51 +52,24 @@ const Grid = ({
       id={id}
       onClick={onGridClick}
     >
-      {targets?.length > 0 &&
-        targets.map(({ entity, position }: any) => {
-          return React.Children.map(entity, (child) => {
-            return (
-              <svg x={position.x} y={position.y}>
-                {React.cloneElement(child)}
-              </svg>
-            );
-          });
-        })}
       <g transform={`scale(${scale})`}>
         <defs>
-          <pattern
-            id="a"
-            width={cell.size}
-            height={cell.size}
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              fill="none"
-              stroke={cell.stroke}
-              strokeWidth={cell.strokeWidth}
-              d={`M${cell.size} 0H0v${cell.size}`}
-            />
-          </pattern>
-          <pattern
-            id="b"
-            width={separator.size}
-            height={separator.size}
-            patternUnits="userSpaceOnUse"
-          >
-            <path
-              fill="url(#a)"
-              d={`M0 0h${separator.size}v${separator.size}H0z`}
-            />
-            <path
-              fill="none"
-              stroke={separator.stroke}
-              strokeWidth={separator.strokeWidth}
-              d={`M${separator.size} 0H0v${separator.size}`}
-            />
-          </pattern>
+          <GridCell {...cell} id="b" />
+          <GridCell {...separator} id="c" />
         </defs>
-        <rect width="100%" height="100%" fill="url(#b)" />
+        {["b", "c"].map((id: string) => (
+          <rect
+            key={`grid-rect-${id}`}
+            width="100%"
+            height="100%"
+            fill={`url(#${id})`}
+          />
+        ))}
       </g>
+      <RenderTargetBox
+        targets={targets}
+        onTargetEntityClick={onTargetEntityClick}
+      />
     </svg>
   );
 };

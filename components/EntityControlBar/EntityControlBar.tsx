@@ -1,43 +1,8 @@
-import { Box, Flex } from "rebass";
-
-export interface EntityControlBar {
-  theme?: any;
-  // theme?: { [index: string]: any };
-  entity?: {
-    name: string;
-    props: {
-      x: number;
-      y: number;
-      rotation: number;
-      color: string;
-      size: number;
-      scale: number;
-    };
-  };
-}
-
-const EntityControlItem = ({
-  property,
-  value,
-  theme,
-}: {
-  property: string;
-  value: any;
-  theme: any;
-}) => {
-  return (
-    <Box width={1 / 2}>
-      <Flex flexWrap="wrap" mx={2}>
-        <Box width={1 / 2} justifyContent={"center"}>
-          <span style={theme.property}>{property}</span>
-        </Box>
-        <Box width={1 / 2} justifyContent={"center"}>
-          <span style={theme.value}>{value}</span>
-        </Box>
-      </Flex>
-    </Box>
-  );
-};
+import store, { Store } from "@/stores";
+import { useSelector } from "react-redux";
+import { Flex } from "rebass";
+import { EntityControlItem } from "../EntityControlItem/EntityControlItem";
+import { type EntityControlBar as IEntityControlBar } from "./EntityControlBar.d";
 
 export const EntityControlBar = ({
   theme = {
@@ -49,37 +14,43 @@ export const EntityControlBar = ({
       color: "#b1b1b1",
     },
   },
-  entity = {
-    name: "Chain",
-    props: {
-      x: 0,
-      y: 0,
-      rotation: 0,
-      color: "#1a1a1a",
-      size: 16,
-      scale: 1,
-    },
-  },
-}) => {
+}: IEntityControlBar) => {
+  store.subscribe(() =>
+    console.log(store.getState())
+  );
+  const entity = useSelector(
+    (state: Store) => state.selection.selection[0]
+  );
+  if (entity == null) {
+    return <></>;
+  }
   return (
-    <Flex flexWrap="wrap" mx={2}>
-      <EntityControlItem theme={theme} value={entity.props.x} property="X" />
-      <EntityControlItem theme={theme} value={entity.props.y} property="Y" />
+    <Flex flexWrap="wrap">
       <EntityControlItem
         theme={theme}
-        value={entity.props.size}
+        value={Math.floor(entity.position.x)}
+        property="X"
+      />
+      <EntityControlItem
+        theme={theme}
+        value={Math.floor(entity.position.y)}
+        property="Y"
+      />
+      {/* <EntityControlItem
+        theme={theme}
+        value={entity.size}
         property="SIZE"
       />
       <EntityControlItem
         theme={theme}
-        value={entity.props.rotation}
+        value={entity.rotation}
         property="ROTATION"
       />
       <EntityControlItem
         theme={theme}
-        value={entity.props.scale}
+        value={entity.scale}
         property="SCALE"
-      />
+      /> */}
     </Flex>
   );
 };

@@ -1,8 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
+/* eslint-disable max-lines */
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
-import { Grid } from "./Grid";
-import store from "@/stores/EntityMoveStore";
+import { SelectTargetEntity } from "@/selectors";
+import SelectGridEntity from "@/selectors/SelectGridEntity";
+import store from "@/stores";
+import { ActionTypes } from "@/stores/EntitySelectionReducer";
 import { Provider } from "react-redux";
+import { Grid } from "./Grid";
 
 const meta: Meta<typeof Grid> = {
   title: "Crochet/Atoms/Grid",
@@ -66,8 +73,20 @@ const getCursorPosition = (event: any) => {
   event.preventDefault();
   const [x, y] = [event.clientX, event.clientY];
 };
+const OnTargetEntityClick = (id: string) => {
+  const targets = SelectTargetEntity();
+  const entity = SelectGridEntity({
+    id,
+    list: targets,
+  });
+  store.dispatch({
+    type: ActionTypes.SELECT,
+    entity,
+  });
+};
 export const WithClickEvent: Story = {
   args: {
     onGridClick: getCursorPosition,
+    onTargetEntityClick: OnTargetEntityClick,
   },
 };

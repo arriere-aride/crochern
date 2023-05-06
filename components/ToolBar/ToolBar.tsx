@@ -1,52 +1,12 @@
-/* eslint-disable react/jsx-key */
-import React, { Children, Fragment, cloneElement } from "react";
-import { Box } from "rebass";
-import { Tooltip } from "react-tooltip";
+import { ToolBarItem } from "@/components";
+import {
+  usePressKey,
+  useToggle,
+} from "@/components/hooks";
 import "react-tooltip/dist/react-tooltip.css";
-
-import { usePressKey, useToggle } from "../hooks";
-import styled from "@emotion/styled";
-
-export interface ToolBar {
-  /**
-   * What tools to use
-   */
-  tools?: { entity: JSX.Element | React.ReactNode; label: string }[];
-  /**
-   * Which size each tool have
-   */
-  toolSize?: number;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * What content color to use
-   */
-  fillColor?: string;
-  /**
-   * What border color to use
-   */
-  borderColor?: string;
-  /**
-   * Which padding to use?
-   */
-  padding?: number;
-  /**
-   * dispatch onClick event on entity
-   * @param props any
-   * @returns any
-   */
-  handleClick?: ({ e, index }: any) => any | void /**
-  /**
-   * What key to use in order to toggle
-   */;
-  toggleKey?: string;
-  /**
-   * What visibility by default?
-   */
-  isVisible?: boolean;
-}
+import { Box } from "rebass";
+import { type ToolBar as IToolBar } from "./ToolBar.d";
+import { toolBarStyle } from "./ToolBar.styled";
 
 /**
  *  Like [adobe photoshop](https://www.adobe.com/fr/products/photoshop.html),
@@ -62,68 +22,41 @@ export const ToolBar = ({
   padding = 4,
   toggleKey,
   isVisible = true,
-}: ToolBar): JSX.Element => {
-  const [visible, setVisible] = useToggle(isVisible);
+}: IToolBar): JSX.Element => {
+  const [visible, setVisible] =
+    useToggle(isVisible);
 
   const onKeyPress = (_: any) => {
     if (toggleKey != null) {
       setVisible();
     }
   };
-  usePressKey([toggleKey?.toString()], onKeyPress);
-  const cellSize = `${toolSize + padding}px`;
-  const Anchor = styled.a`
-    display: inline-flex;
-    height: ${toolSize + padding}px;
-    cursor: pointer;
-    padding: ${padding}px;
-    &:hover svg svg * {
-      fill: #f0df87;
-      stroke: #f0df87;
-    }
-  `;
+  usePressKey(
+    [toggleKey?.toString()],
+    onKeyPress
+  );
+
   return (
     <Box
-      sx={{
-        display: "grid",
-        gridGap: 2,
-        gridTemplateColumns: `repeat(auto-fit, minmax(${cellSize}, 1fr))`,
-        gridAutoRows: cellSize,
+      sx={toolBarStyle({
         backgroundColor,
         borderColor,
-        color: fillColor,
-        visibility: visible ? "visible" : "hidden",
-      }}
+        fillColor,
+        cellSize: toolSize + padding,
+        visible,
+      })}
     >
       {tools.map((tool, index: number) => (
-        <div key={`toolBar-tool-${index}`} style={{ height: toolSize }}>
-          {Children.map(tool.entity, (entity) => (
-            <div
-              key={`toolBar-tool-entity-${index}`}
-              style={{ height: toolSize }}
-            >
-              <Tooltip
-                anchorSelect={`.anchor-${index}`}
-                place="right"
-                style={{ backgroundColor }}
-              >
-                {tool.label}
-              </Tooltip>
-              <Anchor
-                className={`anchor-${index}`}
-                onClick={(e: any) => handleClick({ e, index })}
-              >
-                <svg width="100%" height="100%">
-                  {cloneElement(entity as any, {
-                    fillColor,
-                    backgroundColor,
-                    size: toolSize - padding,
-                  })}
-                </svg>
-              </Anchor>
-            </div>
-          ))}
-        </div>
+        // eslint-disable-next-line react/jsx-key
+        <ToolBarItem
+          index={index}
+          size={toolSize}
+          item={tool}
+          backgroundColor={backgroundColor}
+          padding={padding}
+          fillColor={fillColor}
+          handleClick={handleClick}
+        />
       ))}
     </Box>
   );
