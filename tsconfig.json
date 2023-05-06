@@ -17,9 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@@/components/*": ["./components/*"],
-      "@@/seeds/*": ["./seeds/*"],
-      "@@/stores/*": ["./stores/*"]
+      "@@/components/*": ["./components/*"]
     }
   },
   "include": [
