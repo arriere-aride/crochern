@@ -1,3 +1,9 @@
 {
-  "extends": ["next", "plugin:storybook/recommended"]
+  "extends": ["next", "plugin:storybook/recommended"],
+  "rules": {
+    "max-lines": [
+      "error",
+      { "max": 80, "skipBlankLines": true, "skipComments": true, "IIFEs": true }
+    ]
+  }
 }
