@@ -6,7 +6,6 @@ export * from "@/components/Events";
 export * from "@/components/Grid/Grid";
 export * from "@/components/GridCell/GridCell";
 export * from "@/components/Pages";
-export * from "@/components/PressKey/PressKey";
 export * from "@/components/RenderBox/RenderBox";
 export * from "@/components/RenderDecrease";
 export * from "@/components/RenderEntity";

@@ -1,9 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { expect } from "@storybook/jest";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
+import { ShortcutKey } from "@/components";
+import {
+  userEvent,
+  within,
+} from "@storybook/testing-library";
 import { CommandBar } from "./CommandBar";
-import { ShortcutKey } from "../ShortcutKey/ShortcutKey";
-import { userEvent, waitFor, within } from "@storybook/testing-library";
 
 const meta: Meta<typeof CommandBar> = {
   title: "Crochet/Components/Bar/CommandBar",
@@ -22,10 +28,13 @@ export const Default: Story = {
 
     expect(bar).not.toBeVisible();
 
-    await step("user press toggle key", async () => {
-      await userEvent.keyboard(`{${key}}`);
-      await bar.focus();
-    });
+    await step(
+      "user press toggle key",
+      async () => {
+        await userEvent.keyboard(`{${key}}`);
+        await bar.focus();
+      }
+    );
 
     // issue with testing a keyEvent, not testable
     // await waitFor(() => expect(bar).toBeVisible());
@@ -46,7 +55,10 @@ export const WithShortKey: Story = {
     isVisible: true,
     shortcutKey: (
       <>
-        <ShortcutKey label="R" size="extra-small" />
+        <ShortcutKey
+          label="R"
+          size="extra-small"
+        />
       </>
     ),
   },
