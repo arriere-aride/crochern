@@ -1,5 +1,4 @@
-import { State, TargetEntity } from "@/stores/EntityMoveReducer";
-import { useSelector } from "react-redux";
+import { TargetEntity } from "@/stores/EntityMoveReducer";
 
 interface SelectGridEntity {
   id: string;
@@ -9,5 +8,7 @@ export default function SelectGridEntity({
   id,
   list,
 }: SelectGridEntity): TargetEntity | undefined {
-  return list.find(({ _id }: { _id: string }) => _id === id);
+  return list.find(
+    ({ _id }: { _id: string }) => _id === id
+  );
 }
