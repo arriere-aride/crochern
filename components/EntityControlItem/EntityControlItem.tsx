@@ -1,9 +1,9 @@
 import { Box, Flex } from "rebass";
 
 export const EntityControlItem = ({
-  property,
-  value,
-  theme,
+  property = "prop",
+  value = "value",
+  theme = {},
 }: {
   property: string;
   value: any;
@@ -15,7 +15,7 @@ export const EntityControlItem = ({
         width={1 / 2}
         justifyContent={"center"}
       >
-        <span style={theme.property}>
+        <span style={theme?.property}>
           {property}
         </span>
       </Box>
@@ -23,7 +23,7 @@ export const EntityControlItem = ({
         width={1 / 2}
         justifyContent={"center"}
       >
-        <span style={theme.value}>{value}</span>
+        <span style={theme?.value}>{value}</span>
       </Box>
     </Flex>
   </Box>
