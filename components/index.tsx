@@ -12,6 +12,7 @@ export * from "@/components/RenderDecrease";
 export * from "@/components/RenderEntity";
 export * from "@/components/RenderIncrease";
 export * from "@/components/RenderShadowBox/RenderShadowBox";
+export * from "@/components/RenderSnapBox/RenderSnapBox";
 export * from "@/components/RenderTargetBox/RenderTargetBox";
 export * from "@/components/RenderVariation";
 export * from "@/components/ShortcutKey/ShortcutKey";
