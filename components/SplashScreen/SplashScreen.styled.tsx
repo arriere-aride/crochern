@@ -5,6 +5,7 @@ export const SplashScreenContainer = styled.div`
   gap: 0;
   margin-left: 28px;
   height: 700px;
+  position: relative;
   @media (min-width: 768px) {
     width: 960px;
     grid-template-columns: repeat(
@@ -37,6 +38,15 @@ export const SplashScreenRight = styled.div`
     background: #f8fab1;
   }
 `;
+export const SplashScreenClose = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
+
 export const Center = styled.div`
   display: flex;
   justify-content: center;

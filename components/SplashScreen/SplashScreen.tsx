@@ -1,14 +1,11 @@
-/**
- *  Like [adobe photoshop](https://www.adobe.com/fr/products/photoshop.html),
- *  a splash screen is shown while loadings are made.
- */
 import {
   GithubIcon,
   StoryBookIcon,
 } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
-import { type SplashScreen as ISplashScreen } from "./SplashScreen.d";
+import { RxCross2 as CloseIcon } from "react-icons/rx";
+import { SplashScreen as ISplashScreen } from "./SplashScreen.d";
 import {
   Center,
   CenteredIcons,
@@ -16,19 +13,28 @@ import {
   H1,
   H2,
   ImageStyle,
+  SplashScreenClose,
   SplashScreenContainer,
   SplashScreenLeft,
   SplashScreenRight,
 } from "./SplashScreen.styled";
 
+/**
+ *  Like [adobe photoshop](https://www.adobe.com/fr/products/photoshop.html),
+ *  a splash screen is shown while loadings are made.
+ */
 export const SplashScreen = ({
   image = {
     src: "/cover.jpg",
     alt: "",
   },
+  onClick = () => true,
 }: ISplashScreen): JSX.Element => {
   return (
     <SplashScreenContainer>
+      <SplashScreenClose onClick={onClick}>
+        <CloseIcon />
+      </SplashScreenClose>
       <SplashScreenLeft>
         <Image
           src={image.src}

@@ -3,4 +3,5 @@ export interface SplashScreen {
     src: string;
     alt: string;
   };
+  onClick?: (values: any) => any;
 }

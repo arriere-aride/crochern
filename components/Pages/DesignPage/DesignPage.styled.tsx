@@ -27,12 +27,16 @@ export const GridContainer = styled.div`
 export const EntityControlBarContainer = styled.div``;
 
 export const SplashScreenContainer = styled.div`
+  display: ${({
+    visible,
+  }: {
+    visible: boolean;
+  }) => (visible ? "flex" : "none")};
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
 `;

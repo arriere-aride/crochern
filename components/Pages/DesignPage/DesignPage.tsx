@@ -5,6 +5,7 @@ import {
   RenderShadowBox,
   SplashScreen,
   ToolBar,
+  useToggle,
 } from "@/components";
 import { SelectMemoryEntity } from "@/selectors";
 import { InMemoryEntity } from "@/stores/EntityMoveReducer";
@@ -43,11 +44,16 @@ export const DesignPage = ({
       );
     }
   }, []);
+  const [visible, toggleVisible] =
+    useToggle(true);
 
   return (
     <Box sx={DesignPageStyle}>
-      <SplashScreenContainer>
-        <SplashScreen {...splashScreenProps} />
+      <SplashScreenContainer visible={visible}>
+        <SplashScreen
+          {...splashScreenProps}
+          onClick={toggleVisible}
+        />
       </SplashScreenContainer>
 
       {current && currentGridProps && (
