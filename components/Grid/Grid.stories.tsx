@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 import type {
   Meta,
   StoryObj,
@@ -49,28 +48,7 @@ export const GridFourRatio: Story = {
     },
   },
 };
-export const GridFourtyRatio: Story = {
-  args: {
-    grid: {
-      strokeWidth: 0.5,
-      stroke: "gray",
-      width: 400,
-      height: 400,
-    },
-    cell: {
-      strokeWidth: 0.5,
-      stroke: "lightblue",
-      size: 40,
-    },
-    separator: {
-      strokeWidth: 1,
-      stroke: "gray",
-      size: 400,
-    },
-  },
-};
 const getCursorPosition = (event: any) => {
-  event.preventDefault();
   const [x, y] = [event.clientX, event.clientY];
 };
 const OnTargetEntityClick = (id: string) => {

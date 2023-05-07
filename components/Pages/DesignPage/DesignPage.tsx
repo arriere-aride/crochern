@@ -3,6 +3,7 @@ import {
   Grid,
   OnStashBoxRenderClick,
   RenderShadowBox,
+  SplashScreen,
   ToolBar,
 } from "@/components";
 import { SelectMemoryEntity } from "@/selectors";
@@ -11,8 +12,10 @@ import { useEffect, useState } from "react";
 import { Box } from "rebass";
 import { type DesignPage as IDesignPage } from "./DesignPage.d";
 import {
+  DesignPageStyle,
   EntityControlBarContainer,
   GridContainer,
+  SplashScreenContainer,
   ToolBarContainer,
 } from "./DesignPage.styled";
 
@@ -20,6 +23,7 @@ export const DesignPage = ({
   toolBarProps,
   gridProps,
   entityControlBarProps,
+  splashScreenProps,
 }: IDesignPage) => {
   const hasStash: boolean =
     SelectMemoryEntity().length > 0;
@@ -41,14 +45,11 @@ export const DesignPage = ({
   }, []);
 
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns:
-          "repeat(auto-fit, minmax(28px, 6fr))",
-        overflow: "none",
-      }}
-    >
+    <Box sx={DesignPageStyle}>
+      <SplashScreenContainer>
+        <SplashScreen {...splashScreenProps} />
+      </SplashScreenContainer>
+
       {current && currentGridProps && (
         <RenderShadowBox
           active={

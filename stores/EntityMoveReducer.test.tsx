@@ -1,47 +1,11 @@
-/* eslint-disable max-lines */
-import {
-  SeedMemoryEntity,
-  seedLogEntity,
-  seedMemoryEntity,
-} from "@/seeds/EntityMove.seed";
-import { expect, test } from "vitest";
+import * as setup from "@/setupTest";
 import {
   ActionTypes,
-  State,
   initialState,
   reducer,
 } from "./EntityMoveReducer";
 
-interface TestSpec {
-  given: string;
-  should: string;
-  actual: any;
-  expected: any;
-  withCustomCheck?: (a: any, b: any) => any;
-}
-
-const stashEntity: SeedMemoryEntity =
-  seedMemoryEntity();
-const stateWithHistory: State = {
-  ...initialState,
-  history: seedLogEntity() as State["history"],
-};
-const stateWithMemory: State = {
-  ...initialState,
-  memory: seedMemoryEntity() as State["memory"],
-};
-
-function getMemoryLength(state: State): number {
-  return state.memory.length;
-}
-function getHistoryLength(state: State): number {
-  return state.history.length;
-}
-function getTargetLength(state: State): number {
-  return state.target.length;
-}
-
-const tests: TestSpec[] = [
+const tests: setup.TestSpec[] = [
   {
     given: "no arguments",
     should: "return initial State",
@@ -52,10 +16,10 @@ const tests: TestSpec[] = [
     given:
       "STASH:initial State and Entity as argument",
     should: "return state with stash",
-    actual: getMemoryLength(
+    actual: setup.getMemoryLength(
       reducer(initialState, {
         type: ActionTypes.STASH,
-        entity: stashEntity,
+        entity: setup.stashEntity,
       })
     ),
     expected: 1,
@@ -63,11 +27,11 @@ const tests: TestSpec[] = [
   {
     given: "UNSTASH:stash not empty",
     should: "return empty stash",
-    actual: getMemoryLength(
+    actual: setup.getMemoryLength(
       reducer(
         {
           ...initialState,
-          memory: stashEntity,
+          memory: setup.stashEntity,
         },
         { type: ActionTypes.UNSTASH }
       )
@@ -78,10 +42,10 @@ const tests: TestSpec[] = [
     given:
       "STASH/LOG:initial State and Entity as argument",
     should: "log the stash action",
-    actual: getHistoryLength(
+    actual: setup.getHistoryLength(
       reducer(initialState, {
         type: ActionTypes.STASH,
-        entity: stashEntity,
+        entity: setup.stashEntity,
       })
     ),
     expected: 1,
@@ -89,10 +53,10 @@ const tests: TestSpec[] = [
   {
     given: "UNSTASH/LOG:stash not empty",
     should: "log the unstash action",
-    actual: getHistoryLength(
-      reducer(stateWithHistory, {
+    actual: setup.getHistoryLength(
+      reducer(setup.stateWithHistory, {
         type: ActionTypes.UNSTASH,
-        entity: stashEntity,
+        entity: setup.stashEntity,
       })
     ),
     expected: 2,
@@ -100,27 +64,14 @@ const tests: TestSpec[] = [
   {
     given: "PUSH: add entity to target",
     should: "put entity to target",
-    actual: getTargetLength(
-      reducer(stateWithMemory, {
+    actual: setup.getTargetLength(
+      reducer(setup.stateWithMemory, {
         type: ActionTypes.PUSH,
-        entity: stashEntity,
+        entity: setup.stashEntity,
       })
     ),
     expected: 1,
   },
 ];
 
-test.each(tests)(
-  "Given %s, it should %s",
-  (current: TestSpec) => {
-    const { actual, expected } = current;
-    if (current.withCustomCheck != null) {
-      return current.withCustomCheck(
-        actual,
-        expected
-      );
-    } else {
-      expect(actual).toBe(expected);
-    }
-  }
-);
+setup.runTest(tests);

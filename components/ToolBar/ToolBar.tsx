@@ -47,8 +47,8 @@ export const ToolBar = ({
       })}
     >
       {tools.map((tool, index: number) => (
-        // eslint-disable-next-line react/jsx-key
         <ToolBarItem
+          key={`toolbar-item-${index}`}
           index={index}
           size={toolSize}
           item={tool}

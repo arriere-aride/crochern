@@ -4,7 +4,7 @@ interface RenderBox {
   /**
    * Box size, will also scale entity inside
    */
-  size: number;
+  size?: number;
   /**
    * What stroke width to use
    */
@@ -12,11 +12,11 @@ interface RenderBox {
   /**
    * What fill color to use
    */
-  fillColor: string;
+  fillColor?: string;
   /**
    * What radius corners circle to use
    */
-  radius: number;
+  radius?: number;
   /**
    * What entity to render
    */
@@ -24,11 +24,11 @@ interface RenderBox {
   /**
    * What padding entity should have
    */
-  padding: number;
+  padding?: number;
   /**
    * What position it have on the grid
    */
-  position: { x: number; y: number };
+  position?: { x: number; y: number };
 }
 
 const RenderBox = ({
@@ -41,16 +41,31 @@ const RenderBox = ({
   entity,
 }: RenderBox): JSX.Element => {
   const corners: { cx: number; cy: number }[] = [
-    { cx: position.x + radius, cy: position.y + radius },
-    { cx: size - radius, cy: position.y + radius },
+    {
+      cx: position.x + radius,
+      cy: position.y + radius,
+    },
+    {
+      cx: size - radius,
+      cy: position.y + radius,
+    },
     { cx: size - radius, cy: size - radius },
-    { cx: position.x + radius, cy: size - radius },
+    {
+      cx: position.x + radius,
+      cy: size - radius,
+    },
   ];
   const paths: string[] = [
-    `M ${position.x} ${position.y + radius} H ${size}`,
-    `M ${size - radius} ${position.y + radius} V ${size - radius}`,
+    `M ${position.x} ${
+      position.y + radius
+    } H ${size}`,
+    `M ${size - radius} ${
+      position.y + radius
+    } V ${size - radius}`,
     `M ${position.x} ${size - radius} H ${size}`,
-    `M ${position.x + radius} ${size - radius} V ${position.y + radius}`,
+    `M ${position.x + radius} ${
+      size - radius
+    } V ${position.y + radius}`,
   ];
   return (
     <g strokeWidth={1}>

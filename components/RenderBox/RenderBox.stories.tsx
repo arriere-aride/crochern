@@ -1,31 +1,11 @@
-/* eslint-disable max-lines */
 import type {
   Meta,
   StoryObj,
 } from "@storybook/react";
 
-import {
-  Chain,
-  DoubleCrochet,
-  DoubleTrebleCrochet,
-  HalfDoubleCrochet,
-  SingleCrochet,
-  SlipSnitch,
-  TrebleCrochet,
-} from "../RenderEntity";
 import { RenderBox } from "./RenderBox";
 
-import {
-  ThreeSingleCrochetOneStitch,
-  TwoDoubleCrochetOneStitch,
-  TwoSingleCrochetOneStitch,
-} from "../RenderIncrease";
-import {
-  BackLoopOnly,
-  BackPost,
-  FrontLoopOnly,
-  FrontPost,
-} from "../RenderVariation";
+import { tools } from "@/data";
 
 const meta: Meta<typeof RenderBox> = {
   title: "Crochet/Atoms/RenderBox",
@@ -36,100 +16,23 @@ const meta: Meta<typeof RenderBox> = {
       control: "color",
     },
   },
-  decorators: [
-    (Story) => (
-      <svg width="32" height="32">
-        <Story />
-      </svg>
-    ),
-  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof RenderBox>;
 
-export const WithSlipSnitch: Story = {
-  args: {
-    entity: <SlipSnitch />,
+export const Default: Story = {
+  render: () => {
+    return (
+      <>
+        {tools.map(({ entity }, index) => (
+          <div key={`with-entities-${index}`}>
+            <svg width="32" height="32">
+              <RenderBox entity={entity} />
+            </svg>
+          </div>
+        ))}
+      </>
+    );
   },
 };
-
-export const WithChain: Story = {
-  args: {
-    entity: <Chain />,
-  },
-};
-
-export const WithSingleCrochet: Story = {
-  args: {
-    entity: <SingleCrochet />,
-  },
-};
-export const WithHalfDoubleCrochet: Story = {
-  args: {
-    entity: <HalfDoubleCrochet />,
-  },
-};
-
-export const WithDoubleCrochet: Story = {
-  args: {
-    entity: <DoubleCrochet />,
-  },
-};
-
-export const WithTrebleCrochet: Story = {
-  args: {
-    entity: <TrebleCrochet />,
-  },
-};
-
-export const WithDoubleTrebleCrochet: Story = {
-  args: {
-    entity: <DoubleTrebleCrochet />,
-  },
-};
-
-export const WithFrontLoopOnly: Story = {
-  args: {
-    entity: <FrontLoopOnly />,
-  },
-};
-
-export const WithBackLoopOnly: Story = {
-  args: {
-    entity: <BackLoopOnly />,
-  },
-};
-
-export const WithFrontPost: Story = {
-  args: {
-    entity: <FrontPost />,
-  },
-};
-
-export const WithBackPost: Story = {
-  args: {
-    entity: <BackPost />,
-  },
-};
-
-export const WithTwoSingleCrochetOneStitch: Story =
-  {
-    args: {
-      entity: <TwoSingleCrochetOneStitch />,
-    },
-  };
-
-export const WithThreeSingleCrochetOneStitch: Story =
-  {
-    args: {
-      entity: <ThreeSingleCrochetOneStitch />,
-    },
-  };
-
-export const WithTwoDoubleCrochetOneStitch: Story =
-  {
-    args: {
-      entity: <TwoDoubleCrochetOneStitch />,
-    },
-  };
