@@ -1,8 +1,11 @@
-import styled from "@emotion/styled";
+import { AABB } from "@/validators";
 import { useMousePosition } from "../hooks";
-
-const Container = styled.svg``;
-const Rect = styled.rect``;
+import {
+  SnapBoxDocument,
+  SnapBoxRect,
+  SnapBoxRenderContainer,
+  SnapBoxSvgContainer,
+} from "./RenderSnapBox.styled";
 
 export const RenderSnapBox = ({
   grid,
@@ -22,30 +25,32 @@ export const RenderSnapBox = ({
   };
 }): JSX.Element => {
   const currentPosition = useMousePosition();
-  const { strokeColor, strokeWidth, fillColor } =
-    theme;
-
   const [x, y] = [
-    Math.round(
-      (currentPosition.x - cellSize) / cellSize
-    ) * cellSize,
-
-    Math.round(
-      (currentPosition.y - cellSize) / cellSize
-    ) * cellSize,
+    Math.round(currentPosition.x / cellSize) *
+      cellSize,
+    Math.round(currentPosition.y / cellSize) *
+      cellSize,
   ];
+  const hideBox =
+    grid != null && !AABB(currentPosition, grid);
 
   return (
-    <Container>
-      <Rect
-        x={x}
-        y={y}
-        width={cellSize}
-        height={cellSize}
-        stroke={strokeColor}
-        fill={fillColor}
-        strokeWidth={strokeWidth}
-      />
-    </Container>
+    <SnapBoxDocument>
+      <SnapBoxRenderContainer
+        currentPosition={{ x, y }}
+        size={cellSize}
+      >
+        <SnapBoxSvgContainer size={cellSize}>
+          {!hideBox && (
+            <SnapBoxRect
+              size={cellSize}
+              stroke={theme.strokeColor}
+              fill={theme.fillColor}
+              strokeWidth={theme.strokeWidth}
+            />
+          )}
+        </SnapBoxSvgContainer>
+      </SnapBoxRenderContainer>
+    </SnapBoxDocument>
   );
 };
