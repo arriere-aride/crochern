@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { RenderPreFill } from "./RenderPreFill";
 
 const meta: Meta<typeof RenderPreFill> = {
-  title: "Crochet/Pages/RenderPreFill",
+  title: "Crochet/Components/RenderPreFill",
   component: RenderPreFill,
   tags: ["autodocs"],
   decorators: [
