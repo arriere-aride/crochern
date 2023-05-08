@@ -25,17 +25,17 @@ export interface RenderShadowBox {
   /**
    * What entity to render
    */
-  currentEntity?: InMemoryEntity;
+  currentEntity: InMemoryEntity;
   /**
    * What are grid props
    */
   grid?: DOMRect;
   /**
-   * Is feacture activated
-   */
-  active: boolean;
-  /**
    * What to do on document click
    */
   onDocumentClick?: (values: any) => any;
+  /**
+   * What position to have
+   */
+  currentPosition: { x: number; y: number };
 }

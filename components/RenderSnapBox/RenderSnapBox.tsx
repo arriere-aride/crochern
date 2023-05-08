@@ -1,5 +1,4 @@
 import { AABB } from "@/validators";
-import { useMousePosition } from "../hooks";
 import {
   SnapBoxDocument,
   SnapBoxRect,
@@ -10,36 +9,29 @@ import {
 export const RenderSnapBox = ({
   grid,
   cellSize = 16,
-  padding = 6,
   theme = {
     strokeColor: "#f0df87",
     strokeWidth: 1,
     fillColor: "transparent",
   },
+  currentPosition,
 }: {
   grid: DOMRect;
   cellSize?: number;
-  padding?: number;
   theme?: {
     strokeColor: string;
     strokeWidth: number;
     fillColor: string;
   };
+  currentPosition: { x: number; y: number };
 }): JSX.Element => {
-  const currentPosition = useMousePosition();
-  const [x, y] = [
-    Math.round(currentPosition.x / cellSize) *
-      cellSize,
-    Math.round(currentPosition.y / cellSize) *
-      cellSize,
-  ];
   const hideBox =
     grid != null && !AABB(currentPosition, grid);
 
   return (
     <SnapBoxDocument>
       <SnapBoxRenderContainer
-        currentPosition={{ x: x, y }}
+        currentPosition={currentPosition}
         size={cellSize}
       >
         <SnapBoxSvgContainer size={cellSize}>

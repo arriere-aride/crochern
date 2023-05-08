@@ -1,4 +1,3 @@
-import { useMousePosition } from "@/components/hooks";
 import { AABB } from "@/validators";
 import React from "react";
 import { type RenderShadowBox as IRenderShadowBox } from "./RenderShadowBox.d";
@@ -23,17 +22,14 @@ export const RenderShadowBox = ({
       fillColor: "#565656",
     },
   },
+  currentPosition,
   currentEntity,
   grid,
-  active,
+
   onDocumentClick,
 }: IRenderShadowBox): JSX.Element => {
-  const currentPosition = useMousePosition();
   const hideBox =
-    (grid != null &&
-      !AABB(currentPosition, grid)) ||
-    !active ||
-    currentEntity == null;
+    grid != null && !AABB(currentPosition, grid);
 
   if (hideBox) {
     return <></>;
