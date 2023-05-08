@@ -1,79 +1,67 @@
 import { DoubleCrochet } from "@@/components/RenderEntity";
-import React from "react";
+import { RepeatDoubleCrochetOneStitch as IRepeatDoubleCrochetOneStitch } from "./RepeatDoubleCrochetOneStitch.d";
 
-interface RepeatDoubleCrochetOneStitch {
-  /**
-   * How much repeat
-   */
-  repeat?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
-
-  /**
-   * Where to position both dc
-   */
-  position?: {
-    x: number;
-    y: number;
-  };
-
-  /**
-   * Line size
-   */
-  size?: number;
-}
-
-/** Render {repeat} Double Crochet in One Stitch  ({repeat} Brides dans la même Maille) */
+/** Render {repeat} Double Crochet in One Stitch
+ * ({repeat} Brides dans la même Maille)
+ */
 export const RepeatDoubleCrochetOneStitch = ({
-  fillColor = "#1a1a1a",
+  theme = {
+    fillColor: "#1a1a1a",
+    strokeWidth: 2,
+  },
   position = { x: 50, y: 50 },
   size = 16,
   repeat = 3,
-  ...props
-}: RepeatDoubleCrochetOneStitch) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  padding = 2,
+}: IRepeatDoubleCrochetOneStitch) => {
   const { x, y } = position;
-  const rotate = [`rotate(${65})`, `rotate(0)`, `rotate(-${65})`];
+
   const halfSize = Math.floor(size / 2);
   const quarterSize = Math.floor(size / 4);
-  const padding = 2;
+
+  const RepeatDoubleCrochetList = [
+    {
+      rotate: `rotate(${65})`,
+      x: x + padding,
+      y,
+    },
+    {
+      rotate: `rotate(0)`,
+      x: x - quarterSize,
+      y: y - quarterSize,
+    },
+    {
+      rotate: `rotate(-${65})`,
+      x: x - halfSize - padding,
+      y,
+    },
+  ];
   return (
     <g>
-      <svg x={x + padding} y={y}>
-        <g
-          key={`render-item-dcoc-1-${id}`}
-          stroke={fillColor}
-          strokeWidth={2}
-          transform={rotate[0]}
-          style={{ transformOrigin: "center", transformBox: "fill-box" }}
-        >
-          <DoubleCrochet size={16} rotation={15} />
-        </g>
-      </svg>
-      <svg x={x - quarterSize} y={y - quarterSize}>
-        <g
-          key={`render-item-dcoc-2-${id}`}
-          stroke={fillColor}
-          strokeWidth={2}
-          transform={rotate[1]}
-          style={{ transformOrigin: "center", transformBox: "fill-box" }}
-        >
-          <DoubleCrochet size={16} rotation={15} />
-        </g>
-      </svg>
-      <svg x={x - halfSize - padding} y={y}>
-        <g
-          key={`render-item-dcoc-3-${id}`}
-          stroke={fillColor}
-          strokeWidth={2}
-          transform={rotate[2]}
-          style={{ transformOrigin: "center", transformBox: "fill-box" }}
-        >
-          <DoubleCrochet size={16} rotation={15} />
-        </g>
-      </svg>
+      {RepeatDoubleCrochetList.map(
+        (
+          { rotate, x, y }: any,
+          index: number
+        ) => (
+          <svg x={x} y={y} key={index}>
+            <g
+              key={`render-item-dcoc${index}`}
+              {...theme}
+              transform={rotate}
+              style={{
+                transformOrigin: "center",
+                transformBox: "fill-box",
+              }}
+            >
+              <DoubleCrochet
+                size={16}
+                rotation={15}
+              />
+            </g>
+          </svg>
+        )
+      )}
+
       {repeat >= 4 && (
         <svg x={x - quarterSize} y={y - halfSize}>
           <circle
@@ -84,7 +72,12 @@ export const RepeatDoubleCrochetOneStitch = ({
             stroke="white"
             strokeWidth={1}
           />
-          <text x={repeat < 10 ? 47 : 43} y={52} fontSize="12px" fill="white">
+          <text
+            x={repeat < 10 ? 47 : 43}
+            y={52}
+            fontSize="12px"
+            fill="white"
+          >
             {repeat}
           </text>
         </svg>

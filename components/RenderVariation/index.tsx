@@ -1,4 +1,4 @@
-export { FrontLoopOnly } from "./FrontLoopOnly/FrontLoopOnly";
 export { BackLoopOnly } from "./BackLoopOnly/BackLoopOnly";
-export { FrontPost } from "./FrontPost/FrontPost";
 export { BackPost } from "./BackPost/BackPost";
+export { FrontLoopOnly } from "./FrontLoopOnly/FrontLoopOnly";
+export { FrontPost } from "./FrontPost/FrontPost";

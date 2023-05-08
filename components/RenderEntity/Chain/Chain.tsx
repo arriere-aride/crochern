@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import React from "react";
 
 interface Chain {
   /**
@@ -48,14 +47,19 @@ export const Chain = ({
   position = { x: 0, y: 0 },
   strokeWidth = 0,
 }: Chain) => {
-  const id: number = Math.floor(Math.random() * 100);
+  const id: number = Math.floor(
+    Math.random() * 100
+  );
   const { rx, ry } = radius;
   const halfSize = Math.floor(size / 2);
   const { x, y } = position;
   const center = { x: halfSize, y: halfSize };
   const box = {
     min: { x: x + padding, y: y + padding },
-    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
   };
 
   const ChainContainer = styled.svg`
@@ -64,9 +68,22 @@ export const Chain = ({
   `;
 
   return (
-    <ChainContainer x={x} y={y} width={box.max.x} height={box.max.y}>
-      <g id={`render-item-ch--${id}`} strokeWidth={strokeWidth}>
-        <ellipse cx={center.x} cy={center.y} rx={rx} ry={ry} />
+    <ChainContainer
+      x={x}
+      y={y}
+      width={box.max.x}
+      height={box.max.y}
+    >
+      <g
+        id={`render-item-ch--${id}`}
+        strokeWidth={strokeWidth}
+      >
+        <ellipse
+          cx={center.x}
+          cy={center.y}
+          rx={rx}
+          ry={ry}
+        />
       </g>
     </ChainContainer>
   );

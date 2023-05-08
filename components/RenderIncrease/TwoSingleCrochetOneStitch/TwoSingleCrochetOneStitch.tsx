@@ -1,5 +1,3 @@
-import React from "react";
-
 interface TwoSingleCrochetOneStitch {
   /**
    * What fill color to use
@@ -33,21 +31,32 @@ export const TwoSingleCrochetOneStitch = ({
   padding = 1,
   size = 16,
   strokeWidth = 2,
-  ...props
 }: TwoSingleCrochetOneStitch) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  const id: string = Math.floor(
+    Math.random() * 100
+  ).toString();
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
   const doubleStrokeWidth = strokeWidth * 2;
 
-  const center = { x: x + halfSize, y: y + halfSize };
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
   const box = {
     min: { x: x + padding, y: y + padding },
-    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
   };
 
   return (
-    <g id={`render-item-tscoc--${id}`} stroke={fillColor} strokeWidth={2}>
+    <g
+      id={`render-item-tscoc--${id}`}
+      stroke={fillColor}
+      strokeWidth={2}
+    >
       <g
         id={`render-item-tscoc-sc--${id}`}
         stroke={fillColor}
@@ -66,9 +75,15 @@ export const TwoSingleCrochetOneStitch = ({
           y2={box.max.y - doubleStrokeWidth}
         />
       </g>
-      <g id={`render-item-tscoc-container--${id}`}>
-        <path d={`M ${center.x} ${box.max.y} ${box.min.x} ${center.y} `} />
-        <path d={`M ${center.x} ${box.max.y} ${box.max.x} ${center.y} `} />
+      <g
+        id={`render-item-tscoc-container--${id}`}
+      >
+        <path
+          d={`M ${center.x} ${box.max.y} ${box.min.x} ${center.y} `}
+        />
+        <path
+          d={`M ${center.x} ${box.max.y} ${box.max.x} ${center.y} `}
+        />
       </g>
     </g>
   );

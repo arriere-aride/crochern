@@ -1,9 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
 import { RepeatDoubleCrochetTogether } from "./RepeatDoubleCrochetTogether";
 
-const meta: Meta<typeof RepeatDoubleCrochetTogether> = {
-  title: "Crochet/Atoms/RenderDecrease/RepeatDoubleCrochetTogether",
+const meta: Meta<
+  typeof RepeatDoubleCrochetTogether
+> = {
+  title:
+    "Crochet/Atoms/RenderDecrease/RepeatDoubleCrochetTogether",
   component: RepeatDoubleCrochetTogether,
   tags: ["autodocs"],
   argTypes: {},
@@ -17,9 +23,17 @@ const meta: Meta<typeof RepeatDoubleCrochetTogether> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof RepeatDoubleCrochetTogether>;
+type Story = StoryObj<
+  typeof RepeatDoubleCrochetTogether
+>;
 
 export const Default: Story = {};
-export const WithFour: Story = { args: { repeat: 4 } };
-export const WithFive: Story = { args: { repeat: 5 } };
-export const WithNine: Story = { args: { repeat: 9 } };
+export const WithFour: Story = {
+  args: { repeat: 4 },
+};
+export const WithFive: Story = {
+  args: { repeat: 5 },
+};
+export const WithNine: Story = {
+  args: { repeat: 9 },
+};

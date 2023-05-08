@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 
 interface ShortcutKey {
@@ -17,7 +16,11 @@ interface ShortcutKey {
   /**
    * How large it should be?
    */
-  size?: "extra-small" | "small" | "medium" | "large";
+  size?:
+    | "extra-small"
+    | "small"
+    | "medium"
+    | "large";
   /**
    * Key content
    */

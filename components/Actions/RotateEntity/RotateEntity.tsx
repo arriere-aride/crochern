@@ -24,7 +24,10 @@ export const RotateEntity = ({
     <Fragment>
       <g
         transform={`rotate(${rotation})`}
-        style={{ transformOrigin: "center", transformBox: "fill-box" }}
+        style={{
+          transformOrigin: "center",
+          transformBox: "fill-box",
+        }}
       >
         {entity}
       </g>

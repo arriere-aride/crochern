@@ -1,9 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
 import { FrontLoopOnly } from "./FrontLoopOnly";
 
 const meta: Meta<typeof FrontLoopOnly> = {
-  title: "Crochet/Atoms/RenderVariation/FrontLoopOnly",
+  title:
+    "Crochet/Atoms/RenderVariation/FrontLoopOnly",
   component: FrontLoopOnly,
   tags: ["autodocs"],
   argTypes: {

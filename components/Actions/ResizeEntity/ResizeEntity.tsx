@@ -1,4 +1,8 @@
-import { Fragment, Children, cloneElement } from "react";
+import {
+  Children,
+  Fragment,
+  cloneElement,
+} from "react";
 
 interface ResizeEntity {
   /**

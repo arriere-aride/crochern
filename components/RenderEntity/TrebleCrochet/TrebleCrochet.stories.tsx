@@ -1,9 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
 import { TrebleCrochet } from "./TrebleCrochet";
 
 const meta: Meta<typeof TrebleCrochet> = {
-  title: "Crochet/Atoms/RenderEntity/TrebleCrochet",
+  title:
+    "Crochet/Atoms/RenderEntity/TrebleCrochet",
   component: TrebleCrochet,
   tags: ["autodocs"],
   argTypes: {},

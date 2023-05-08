@@ -1,7 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
-import { ResizeEntity } from "@@/components/Actions";
 import { SingleCrochet } from "@/components/RenderEntity";
+import { ResizeEntity } from "@@/components/Actions";
 
 const meta: Meta<typeof ResizeEntity> = {
   title: "Crochet/Atoms/Actions/ResizeEntity",

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import React from "react";
 
 interface SlipSnitch {
   /**
@@ -49,14 +48,22 @@ export const SlipSnitch = ({
   position = { cx: 0, cy: 0 },
   strokeWidth = 0,
 }: SlipSnitch) => {
-  const id: number = Math.floor(Math.random() * 100);
+  const id: number = Math.floor(
+    Math.random() * 100
+  );
   const r = Math.floor(radius / 2);
   const halfSize = Math.floor(size / 2);
   const { cx: x, cy: y } = position;
-  const center = { x: x + halfSize, y: y + halfSize };
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
   const box = {
     min: { x: x + padding, y: y + padding },
-    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
   };
 
   const SlipSnitchContainer = styled.svg`
@@ -64,9 +71,21 @@ export const SlipSnitch = ({
     fill: ${fillColor};
   `;
   return (
-    <SlipSnitchContainer x={x} y={y} width={box.max.x} height={box.max.y}>
-      <g id={`render-item-slst--${id}`} strokeWidth={strokeWidth}>
-        <circle cx={center.x} cy={center.y} r={r} />
+    <SlipSnitchContainer
+      x={x}
+      y={y}
+      width={box.max.x}
+      height={box.max.y}
+    >
+      <g
+        id={`render-item-slst--${id}`}
+        strokeWidth={strokeWidth}
+      >
+        <circle
+          cx={center.x}
+          cy={center.y}
+          r={r}
+        />
       </g>
     </SlipSnitchContainer>
   );

@@ -1,7 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
-import { OnScrollResize } from "./OnScrollResize";
 import { DoubleCrochet } from "@/components/RenderEntity";
+import { OnScrollResize } from "./OnScrollResize";
 
 const meta: Meta<typeof OnScrollResize> = {
   title: "Crochet/Atoms/Events/OnScrollResize",

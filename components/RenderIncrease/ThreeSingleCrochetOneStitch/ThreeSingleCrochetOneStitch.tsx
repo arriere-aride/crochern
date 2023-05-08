@@ -1,5 +1,3 @@
-import React from "react";
-
 interface ThreeSingleCrochetOneStitch {
   /**
    * What fill color to use
@@ -34,21 +32,33 @@ export const ThreeSingleCrochetOneStitch = ({
   size = 16,
   strokeWidth = 2,
 }: ThreeSingleCrochetOneStitch) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  const id: string = Math.floor(
+    Math.random() * 100
+  ).toString();
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
   const doubleStrokeWidth = strokeWidth * 2;
   const tripleStrokeWidth = strokeWidth * 3;
   const quadStrokeWidth = strokeWidth * 4;
 
-  const center = { x: x + halfSize, y: y + halfSize };
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
   const box = {
     min: { x: x + padding, y: y + padding },
-    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
   };
 
   return (
-    <g id={`render-item-thscoc--${id}`} stroke={fillColor} strokeWidth={2}>
+    <g
+      id={`render-item-thscoc--${id}`}
+      stroke={fillColor}
+      strokeWidth={2}
+    >
       <g
         id={`render-item-thscoc-sc--${id}`}
         stroke={fillColor}
@@ -67,11 +77,19 @@ export const ThreeSingleCrochetOneStitch = ({
           y2={box.max.y - quadStrokeWidth}
         />
       </g>
-      <g id={`render-item-thscoc-container--${id}`}>
-        <path d={`M ${center.x} ${box.max.y} ${box.min.x} ${center.y} `} />
-        <path d={`M ${center.x} ${box.max.y} ${box.max.x} ${center.y} `} />
+      <g
+        id={`render-item-thscoc-container--${id}`}
+      >
         <path
-          d={`M ${center.x} ${box.max.y} V ${box.max.y - tripleStrokeWidth}`}
+          d={`M ${center.x} ${box.max.y} ${box.min.x} ${center.y} `}
+        />
+        <path
+          d={`M ${center.x} ${box.max.y} ${box.max.x} ${center.y} `}
+        />
+        <path
+          d={`M ${center.x} ${box.max.y} V ${
+            box.max.y - tripleStrokeWidth
+          }`}
         />
       </g>
     </g>

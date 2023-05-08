@@ -22,18 +22,25 @@ export const OnScrollResize = ({
   baseScale = 1,
   maxScale = 12,
 }: OnScrollResize) => {
-  const [scale, setScale] = useState<number>(baseScale);
+  const [scale, setScale] =
+    useState<number>(baseScale);
 
   useScroll((event: any) => {
     setScale((previousScale) => {
       previousScale += event.deltaY * -0.01;
-      return Math.min(Math.max(1, previousScale), maxScale);
+      return Math.min(
+        Math.max(1, previousScale),
+        maxScale
+      );
     });
   });
 
   return (
     <svg data-testid="on-scroll-resize">
-      <ResizeEntity scale={scale} entity={entity} />
+      <ResizeEntity
+        scale={scale}
+        entity={entity}
+      />
     </svg>
   );
 };

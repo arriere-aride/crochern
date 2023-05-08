@@ -1,9 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
 import { ThreeSingleCrochetOneStitch } from "./ThreeSingleCrochetOneStitch";
 
-const meta: Meta<typeof ThreeSingleCrochetOneStitch> = {
-  title: "Crochet/Atoms/RenderIncrease/ThreeSingleCrochetOneStitch",
+const meta: Meta<
+  typeof ThreeSingleCrochetOneStitch
+> = {
+  title:
+    "Crochet/Atoms/RenderIncrease/ThreeSingleCrochetOneStitch",
   component: ThreeSingleCrochetOneStitch,
   tags: ["autodocs"],
   argTypes: {
@@ -21,6 +27,8 @@ const meta: Meta<typeof ThreeSingleCrochetOneStitch> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ThreeSingleCrochetOneStitch>;
+type Story = StoryObj<
+  typeof ThreeSingleCrochetOneStitch
+>;
 
 export const Default: Story = {};

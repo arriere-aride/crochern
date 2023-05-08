@@ -1,5 +1,4 @@
 import { DoubleCrochet } from "@@/components/RenderEntity";
-import React from "react";
 
 interface TwoDoubleCrochetTogether {
   /**
@@ -26,11 +25,15 @@ export const TwoDoubleCrochetTogether = ({
   fillColor = "#1a1a1a",
   position = { x: 50, y: 50 },
   size = 16,
-  ...props
 }: TwoDoubleCrochetTogether) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  const id: string = Math.floor(
+    Math.random() * 100
+  ).toString();
   const { x, y } = position;
-  const rotate = [`rotate(${135})`, `rotate(-${135})`];
+  const rotate = [
+    `rotate(${135})`,
+    `rotate(-${135})`,
+  ];
   const tierceSize = Math.floor(size / 3);
 
   return (
@@ -41,9 +44,15 @@ export const TwoDoubleCrochetTogether = ({
           stroke={fillColor}
           strokeWidth={2}
           transform={rotate[0]}
-          style={{ transformOrigin: "center", transformBox: "fill-box" }}
+          style={{
+            transformOrigin: "center",
+            transformBox: "fill-box",
+          }}
         >
-          <DoubleCrochet size={16} rotation={15} />
+          <DoubleCrochet
+            size={16}
+            rotation={15}
+          />
         </g>
       </svg>
       <svg x={x - tierceSize} y={y}>
@@ -52,9 +61,15 @@ export const TwoDoubleCrochetTogether = ({
           stroke={fillColor}
           strokeWidth={2}
           transform={rotate[1]}
-          style={{ transformOrigin: "center", transformBox: "fill-box" }}
+          style={{
+            transformOrigin: "center",
+            transformBox: "fill-box",
+          }}
         >
-          <DoubleCrochet size={16} rotation={15} />
+          <DoubleCrochet
+            size={16}
+            rotation={15}
+          />
         </g>
       </svg>
     </g>

@@ -1,9 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {
+  Meta,
+  StoryObj,
+} from "@storybook/react";
 
 import { BackLoopOnly } from "./BackLoopOnly";
 
 const meta: Meta<typeof BackLoopOnly> = {
-  title: "Crochet/Atoms/RenderVariation/BackLoopOnly",
+  title:
+    "Crochet/Atoms/RenderVariation/BackLoopOnly",
   component: BackLoopOnly,
   tags: ["autodocs"],
   argTypes: {

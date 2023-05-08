@@ -1,32 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
-
-interface DoubleCrochet {
-  /**
-   * What stroke width to set
-   */
-  strokeWidth?: number;
-  /**
-   * What position it have
-   */
-  position?: { x: number; y: number };
-  /**
-   * Line size
-   */
-  size?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
-  /**
-   * What angle to set
-   */
-  rotation?: number;
-  /**
-   * What padding to set
-   */
-  padding?: number;
-}
+import { type DoubleCrochet as IDoubleCrochet } from "./DoubleCrochet.d";
 
 /** Render Double crochet (bride) */
 export const DoubleCrochet = ({
@@ -36,16 +9,24 @@ export const DoubleCrochet = ({
   rotation = 0,
   padding = 1,
   strokeWidth = 2,
-}: DoubleCrochet) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+}: IDoubleCrochet) => {
+  const id: string = Math.floor(
+    Math.random() * 100
+  ).toString();
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
   const fifthSize = Math.floor(size / 5);
   const rotate = `rotate(${rotation})`;
-  const center = { x: x + halfSize, y: y + halfSize };
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
   const box = {
     min: { x: x + padding, y: y + padding },
-    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
   };
 
   const DoubleCrochetContainer = styled.svg`
@@ -54,8 +35,16 @@ export const DoubleCrochet = ({
   `;
 
   return (
-    <DoubleCrochetContainer x={x} y={y} width={box.max.x} height={box.max.y}>
-      <g id={`render-item-dc--${id}`} strokeWidth={strokeWidth}>
+    <DoubleCrochetContainer
+      x={x}
+      y={y}
+      width={box.max.x}
+      height={box.max.y}
+    >
+      <g
+        id={`render-item-dc--${id}`}
+        strokeWidth={strokeWidth}
+      >
         <line
           strokeWidth={strokeWidth}
           x1={center.x}
@@ -73,7 +62,10 @@ export const DoubleCrochet = ({
         <g
           id={`render-item-dc-bar--${id}`}
           transform={rotate}
-          style={{ transformOrigin: "center", transformBox: "fill-box" }}
+          style={{
+            transformOrigin: "center",
+            transformBox: "fill-box",
+          }}
         >
           <line
             strokeWidth={strokeWidth}

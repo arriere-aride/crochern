@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import React from "react";
 
 interface HalfDoubleCrochet {
   /**
@@ -32,13 +31,21 @@ export const HalfDoubleCrochet = ({
   fillColor = "#1a1a1a",
   strokeWidth = 2,
 }: HalfDoubleCrochet) => {
-  const id: string = Math.floor(Math.random() * 100).toString();
+  const id: string = Math.floor(
+    Math.random() * 100
+  ).toString();
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
-  const center = { x: x + halfSize, y: y + halfSize };
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
   const box = {
     min: { x: x + padding, y: y + padding },
-    max: { x: center.x + halfSize - padding, y: center.y + halfSize - padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
   };
   const HalfDoubleCrochetContainer = styled.svg`
     stroke: ${fillColor};
@@ -52,7 +59,10 @@ export const HalfDoubleCrochet = ({
       width={box.max.x}
       height={box.max.y}
     >
-      <g id={`render-item-hdc--${id}`} strokeWidth={strokeWidth}>
+      <g
+        id={`render-item-hdc--${id}`}
+        strokeWidth={strokeWidth}
+      >
         <line
           strokeWidth={2}
           x1={center.x}
