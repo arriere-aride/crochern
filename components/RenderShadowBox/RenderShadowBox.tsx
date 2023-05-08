@@ -17,15 +17,16 @@ export const RenderShadowBox = ({
     svg: {
       fillColor: "inherit",
       strokeColor: "inherit",
+      strokeWidth: "1px",
     },
     entity: {
       fillColor: "#565656",
     },
   },
+  padding = 4,
   currentPosition,
   currentEntity,
   grid,
-
   onDocumentClick,
 }: IRenderShadowBox): JSX.Element => {
   const hideBox =
@@ -55,10 +56,16 @@ export const RenderShadowBox = ({
       }
     >
       <ShadowBoxRenderContainer
-        currentPosition={currentPosition}
+        currentPosition={{
+          ...currentPosition,
+          x: currentPosition.x + padding,
+        }}
         size={size}
       >
-        <ShadowBoxRenderSvg {...theme}>
+        <ShadowBoxRenderSvg
+          {...theme}
+          size={size}
+        >
           {React.Children.map(
             currentEntity.entity,
             (child) => {

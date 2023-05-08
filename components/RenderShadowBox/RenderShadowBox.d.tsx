@@ -38,4 +38,8 @@ export interface RenderShadowBox {
    * What position to have
    */
   currentPosition: { x: number; y: number };
+  /**
+   * What padding to have
+   */
+  padding?: number;
 }

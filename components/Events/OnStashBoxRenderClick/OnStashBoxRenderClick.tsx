@@ -10,7 +10,6 @@ export const OnStashBoxRenderClick = ({
   e,
   position,
 }: OnStashBoxRenderClick) => {
-  const [x, y] = [e.clientX, e.clientY];
   store.dispatch({
     type: ActionTypes.PUSH,
     position,

@@ -49,14 +49,12 @@ export const DesignPage = ({
           onClick={toggleVisible}
         />
       </SplashScreenContainer>
-
       <RenderPreFill
         grid={currentGridProps}
         OnStashBoxRenderClick={
           OnStashBoxRenderClick
         }
       />
-
       <div>
         <ToolBarContainer>
           <ToolBar {...toolBarProps} />

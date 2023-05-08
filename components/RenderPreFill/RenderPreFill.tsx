@@ -31,14 +31,15 @@ export const RenderPreFill = ({
     ];
     return (
       <Fragment>
-        <RenderSnapBox
-          grid={grid}
-          currentPosition={{ x, y }}
-        />
         <RenderShadowBox
           currentPosition={{ x, y }}
           currentEntity={current}
           grid={grid}
+          // onDocumentClick={OnStashBoxRenderClick}
+        />
+        <RenderSnapBox
+          grid={grid}
+          currentPosition={{ x, y }}
           onDocumentClick={OnStashBoxRenderClick}
         />
       </Fragment>

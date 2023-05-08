@@ -8,4 +8,5 @@ export interface RenderSnapBox {
   };
   padding?: number;
   currentPosition: { x: number; y: number };
+  onDocumentClick?: (values: any) => any;
 }
