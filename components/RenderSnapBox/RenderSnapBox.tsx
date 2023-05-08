@@ -10,6 +10,7 @@ import {
 export const RenderSnapBox = ({
   grid,
   cellSize = 16,
+  padding = 6,
   theme = {
     strokeColor: "#f0df87",
     strokeWidth: 1,
@@ -18,10 +19,11 @@ export const RenderSnapBox = ({
 }: {
   grid: DOMRect;
   cellSize?: number;
-  theme: {
-    strokeColor?: string;
-    strokeWidth?: number;
-    fillColor?: string;
+  padding?: number;
+  theme?: {
+    strokeColor: string;
+    strokeWidth: number;
+    fillColor: string;
   };
 }): JSX.Element => {
   const currentPosition = useMousePosition();
@@ -37,7 +39,7 @@ export const RenderSnapBox = ({
   return (
     <SnapBoxDocument>
       <SnapBoxRenderContainer
-        currentPosition={{ x, y }}
+        currentPosition={{ x: x, y }}
         size={cellSize}
       >
         <SnapBoxSvgContainer size={cellSize}>

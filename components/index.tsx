@@ -11,6 +11,7 @@ export * from "@/components/RenderBox/RenderBox";
 export * from "@/components/RenderDecrease";
 export * from "@/components/RenderEntity";
 export * from "@/components/RenderIncrease";
+export * from "@/components/RenderPreFill/RenderPreFill";
 export * from "@/components/RenderShadowBox/RenderShadowBox";
 export * from "@/components/RenderSnapBox/RenderSnapBox";
 export * from "@/components/RenderTargetBox/RenderTargetBox";
