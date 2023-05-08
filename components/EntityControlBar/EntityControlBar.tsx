@@ -1,4 +1,4 @@
-import store, { Store } from "@/stores";
+import { Store } from "@/stores";
 import { useSelector } from "react-redux";
 import { Flex } from "rebass";
 import { EntityControlItem } from "../EntityControlItem/EntityControlItem";
@@ -6,18 +6,20 @@ import { type EntityControlBar as IEntityControlBar } from "./EntityControlBar.d
 
 export const EntityControlBar = ({
   theme = {
+    bar: {
+      backgroundColor: "#484848",
+      height: "100%",
+      paddingTop: "1rem",
+    },
     property: {
       fontWeight: 800,
-      color: "#444",
+      color: "#888",
     },
     value: {
       color: "#b1b1b1",
     },
   },
 }: IEntityControlBar) => {
-  store.subscribe(() =>
-    console.log(store.getState())
-  );
   const entity = useSelector(
     (state: Store) => state.selection.selection[0]
   );
@@ -25,7 +27,7 @@ export const EntityControlBar = ({
     return <></>;
   }
   return (
-    <Flex flexWrap="wrap">
+    <Flex flexWrap="wrap" style={theme.bar}>
       <EntityControlItem
         theme={theme}
         value={Math.floor(entity.position.x)}
@@ -36,21 +38,6 @@ export const EntityControlBar = ({
         value={Math.floor(entity.position.y)}
         property="Y"
       />
-      {/* <EntityControlItem
-        theme={theme}
-        value={entity.size}
-        property="SIZE"
-      />
-      <EntityControlItem
-        theme={theme}
-        value={entity.rotation}
-        property="ROTATION"
-      />
-      <EntityControlItem
-        theme={theme}
-        value={entity.scale}
-        property="SCALE"
-      /> */}
     </Flex>
   );
 };

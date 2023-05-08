@@ -4,6 +4,7 @@ export const DesignPageStyle = {
   display: "grid",
   gridTemplateColumns:
     "repeat(auto-fit, minmax(28px, 6fr))",
+  gap: "1rem",
   backgroundColor: "#2b2b2b",
   position: "relative",
   height: "100vh",
