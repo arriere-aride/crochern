@@ -43,13 +43,6 @@ export const RenderShadowBox = ({
       ? currentPosition.y - grid.top
       : currentPosition.y,
   ];
-  const Container = ShadowBoxRenderContainer({
-    currentPosition,
-    size,
-  });
-  const SvgContainer = ShadowBoxRenderSvg({
-    theme,
-  });
 
   return (
     <ShadowBoxRenderDocument
@@ -61,8 +54,11 @@ export const RenderShadowBox = ({
         })
       }
     >
-      <Container>
-        <SvgContainer>
+      <ShadowBoxRenderContainer
+        currentPosition={currentPosition}
+        size={size}
+      >
+        <ShadowBoxRenderSvg {...theme}>
           {React.Children.map(
             currentEntity.entity,
             (child) => {
@@ -72,8 +68,8 @@ export const RenderShadowBox = ({
               );
             }
           )}
-        </SvgContainer>
-      </Container>
+        </ShadowBoxRenderSvg>
+      </ShadowBoxRenderContainer>
     </ShadowBoxRenderDocument>
   );
 };

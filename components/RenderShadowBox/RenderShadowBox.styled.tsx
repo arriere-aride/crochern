@@ -1,35 +1,22 @@
 import styled from "@emotion/styled";
 
-interface ColoredSvg {
-  strokeWidth: number;
-  strokeColor: string;
-  fillColor: number;
-}
+export const ShadowBoxRenderSvg = styled.svg(
+  (props: any) => ({
+    border: `${props.svg.strokeWidth}px 
+  solid
+  ${props.svg.strokeColor}`,
+    backgroundColor: `${props.svg.fillColor}`,
+  })
+);
 
-export const ShadowBoxRenderSvg = ({
-  theme,
-}: {
-  theme: {
-    svg: ColoredSvg;
-  };
-}) => styled.svg`
-  border: ${theme?.svg.strokeWidth}px solid
-    ${theme?.svg.strokeColor};
-  background-color: ${theme?.svg.fillColor};
-`;
-export const ShadowBoxRenderContainer = ({
-  currentPosition,
-  size,
-}: {
-  currentPosition: { x: number; y: number };
-  size: number;
-}) => styled.div`
-  position: absolute;
-  top: ${currentPosition.y}px;
-  left: ${currentPosition.x}px;
-  width: ${size}px;
-  height: ${size}px;
-`;
+export const ShadowBoxRenderContainer =
+  styled.div((props: any) => ({
+    position: "absolute",
+    top: `${props.currentPosition.y}px`,
+    left: `${props.currentPosition.x}px`,
+    width: `${props.size}px`,
+    height: `${props.size}px`,
+  }));
 
 export const ShadowBoxRenderDocument = styled.div`
   position: absolute;
