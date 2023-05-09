@@ -1,4 +1,4 @@
-import { TargetEntity } from "@/stores/EntityMoveReducer";
+import { TargetEntity } from "@/stores";
 
 interface SelectGridEntity {
   id: string;

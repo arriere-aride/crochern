@@ -1,17 +1,13 @@
-import { TargetEntity } from "./EntityMoveReducer";
+import {
+  Action,
+  ActionTypes,
+  State,
+  TargetEntity,
+} from "./EntitySelectionReducer.d";
 
-export interface State {
-  selection: TargetEntity[];
-}
 export const initialState = {
   selection: [],
 };
-
-export enum ActionTypes {
-  NOTHING = "NOTHING",
-  SELECT = "SELECT",
-  DESELECT = "DESELECT",
-}
 
 export function select(
   entity: TargetEntity,
@@ -21,10 +17,6 @@ export function select(
 }
 export function deselect(state: State) {
   return { selection: [] };
-}
-export interface Action {
-  type: ActionTypes;
-  entity?: TargetEntity;
 }
 
 export function reducer(
@@ -42,3 +34,5 @@ export function reducer(
       return state;
   }
 }
+
+export type { State };

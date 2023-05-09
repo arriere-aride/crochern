@@ -8,35 +8,13 @@
  *  - __push__: Select entity to ``point B`` -> put it to ``point B`` & log entity unstashing
  */
 
-export interface InMemoryEntity {
-  _id: string;
-  label: string;
-  entity: JSX.Element | React.ReactNode;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface ArchivedEntity extends InMemoryEntity {
-  archivedAt: Date;
-  details?: any;
-}
-export interface TargetEntity extends InMemoryEntity {
-  position: { x: number; y: number };
-}
-
-export interface State {
-  memory: InMemoryEntity[];
-  history: ArchivedEntity[];
-  target: TargetEntity[];
-}
-
-export enum ActionTypes {
-  STASH = "STASH",
-  UNSTASH = "UNSTASH",
-  NOTHING = "NOTHING",
-  FLUSH = "FLUSH",
-  PUSH = "PUSH",
-}
+import {
+  Action,
+  ActionTypes,
+  ArchivedEntity,
+  InMemoryEntity,
+  State,
+} from "./EntityMoveReducer.d";
 
 export const initialState = {
   memory: [],
@@ -44,7 +22,10 @@ export const initialState = {
   target: [],
 };
 
-export function stash(entity: InMemoryEntity, state: State): State {
+export function stash(
+  entity: InMemoryEntity,
+  state: State
+): State {
   const stateWithLog = log(state.memory, state, {
     action: ActionTypes.STASH,
   });
@@ -58,12 +39,20 @@ export function unstash(state: State): State {
   return { ...stateWithLog, memory: [] };
 }
 
-export function push(position: { x: number; y: number }, state: State): State {
-  const newTarget = state.memory.map((memory) => ({
-    ...memory,
-    position,
-  }));
-  return { ...state, target: [...state.target, ...newTarget] };
+export function push(
+  position: { x: number; y: number },
+  state: State
+): State {
+  const newTarget = state.memory.map(
+    (memory: any) => ({
+      ...memory,
+      position,
+    })
+  );
+  return {
+    ...state,
+    target: [...state.target, ...newTarget],
+  };
 }
 
 export function log(
@@ -76,13 +65,10 @@ export function log(
     archivedAt: new Date(),
     details: details ?? {},
   };
-  return { ...state, history: [...state.history, archivedEntity] };
-}
-
-export interface Action {
-  type: ActionTypes;
-  entity?: any;
-  position?: any;
+  return {
+    ...state,
+    history: [...state.history, archivedEntity],
+  };
 }
 
 export function reducer(
@@ -100,3 +86,6 @@ export function reducer(
       return state;
   }
 }
+
+export { ActionTypes };
+export type { State };

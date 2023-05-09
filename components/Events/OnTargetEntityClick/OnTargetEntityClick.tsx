@@ -1,7 +1,8 @@
 import { SelectGridEntity } from "@/selectors";
-import store from "@/stores";
-import { TargetEntity } from "@/stores/EntityMoveReducer";
-import { ActionTypes } from "@/stores/EntitySelectionReducer";
+import store, {
+  SelectionActionTypes,
+  TargetEntity,
+} from "@/stores";
 
 const OnTargetEntityClick = ({
   id,
@@ -15,7 +16,7 @@ const OnTargetEntityClick = ({
     list: targets,
   });
   store.dispatch({
-    type: ActionTypes.SELECT,
+    type: SelectionActionTypes.SELECT,
     entity,
   });
 };

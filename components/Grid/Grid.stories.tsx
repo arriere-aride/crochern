@@ -5,8 +5,10 @@ import type {
 
 import { SelectTargetEntity } from "@/selectors";
 import SelectGridEntity from "@/selectors/SelectGridEntity";
-import store from "@/stores";
-import { ActionTypes } from "@/stores/EntitySelectionReducer";
+import store, {
+  SelectionActionTypes,
+} from "@/stores";
+
 import { Provider } from "react-redux";
 import { Grid } from "./Grid";
 
@@ -58,7 +60,7 @@ const OnTargetEntityClick = (id: string) => {
     list: targets,
   });
   store.dispatch({
-    type: ActionTypes.SELECT,
+    type: SelectionActionTypes.SELECT,
     entity,
   });
 };

@@ -1,4 +1,4 @@
-import { InMemoryEntity } from "@/stores/EntityMoveReducer";
+import { InMemoryEntity } from "@/stores";
 
 export interface RenderShadowBox {
   /**

@@ -4,7 +4,7 @@ import {
   useMousePosition,
 } from "@/components";
 import { SelectMemoryEntity } from "@/selectors";
-import { InMemoryEntity } from "@/stores/EntityMoveReducer";
+import { InMemoryEntity } from "@/stores";
 import { Fragment } from "react";
 import { type RenderPreFill as IRenderPreFill } from "./RenderPreFill.d";
 

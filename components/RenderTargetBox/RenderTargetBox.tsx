@@ -1,5 +1,4 @@
-import { Store } from "@/stores";
-import { TargetEntity } from "@/stores/EntityMoveReducer";
+import { Store, TargetEntity } from "@/stores";
 import React from "react";
 import { useSelector } from "react-redux";
 import { RenderBox } from "../RenderBox/RenderBox";

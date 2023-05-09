@@ -23,3 +23,19 @@ const rootReducer = combineReducers<Store>({
 
 const store = createStore(rootReducer);
 export default store;
+
+export { ActionTypes as MoveActionTypes } from "./EntityMoveReducer.d";
+export type {
+  ArchivedEntity,
+  InMemoryEntity,
+} from "./EntityMoveReducer.d";
+export { ActionTypes as SelectionActionTypes } from "./EntitySelectionReducer.d";
+export type { TargetEntity } from "./EntitySelectionReducer.d";
+export {
+  EntitySelectionReducer,
+  EntityMoveReducer,
+};
+export type {
+  EntitySelectionState,
+  EntityMoveState,
+};

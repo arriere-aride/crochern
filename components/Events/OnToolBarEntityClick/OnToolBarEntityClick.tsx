@@ -1,9 +1,8 @@
 import { tools } from "@/data";
-import store from "@/stores";
-import {
-  ActionTypes,
+import store, {
+  MoveActionTypes,
   TargetEntity,
-} from "@/stores/EntityMoveReducer";
+} from "@/stores";
 
 export interface OnToolBarEntityClick {
   index: number;
@@ -24,7 +23,7 @@ export function OnToolBarEntityClick({
     updatedAt: new Date(),
   };
   store.dispatch({
-    type: ActionTypes.STASH,
+    type: MoveActionTypes.STASH,
     entity: movableEntity,
   });
   return true;

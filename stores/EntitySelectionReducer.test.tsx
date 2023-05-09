@@ -1,11 +1,13 @@
 import { seedTargetEntity } from "@/seeds/EntityMove.seed";
-import { TargetEntity } from "./EntityMoveReducer";
 import {
-  ActionTypes,
   State,
   initialState,
   reducer,
 } from "./EntitySelectionReducer";
+import {
+  ActionTypes,
+  TargetEntity,
+} from "./EntitySelectionReducer.d";
 
 interface TestSpec {
   given: string;

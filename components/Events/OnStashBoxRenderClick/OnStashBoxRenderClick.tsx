@@ -1,5 +1,4 @@
-import store from "@/stores";
-import { ActionTypes } from "@/stores/EntityMoveReducer";
+import store, { MoveActionTypes } from "@/stores";
 
 interface OnStashBoxRenderClick {
   e: any;
@@ -11,8 +10,10 @@ export const OnStashBoxRenderClick = ({
   position,
 }: OnStashBoxRenderClick) => {
   store.dispatch({
-    type: ActionTypes.PUSH,
+    type: MoveActionTypes.PUSH,
     position,
   });
-  store.dispatch({ type: ActionTypes.UNSTASH });
+  store.dispatch({
+    type: MoveActionTypes.UNSTASH,
+  });
 };
