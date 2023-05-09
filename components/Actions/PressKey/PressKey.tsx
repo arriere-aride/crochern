@@ -20,7 +20,7 @@ const PressKey = ({
     toggle();
   };
 
-  usePressKey(["r"], onKeyPress);
+  usePressKey([key], onKeyPress);
   if (value) {
     return (
       <div>

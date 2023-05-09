@@ -65,8 +65,6 @@ const RenderBox = ({
             x: position.x,
             y: position.y,
           },
-          // padding,
-          // size,
           strokeWidth: theme.strokeWidth,
         })
       )}
