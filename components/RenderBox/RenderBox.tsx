@@ -3,13 +3,13 @@ import { type RenderBox as IRenderBox } from "./RenderBox.d";
 
 /* Render a box when entity is highlighted*/
 const RenderBox = ({
-  size = 26,
+  size = 18,
   theme = {
     fillColor: "#566FA6",
     strokeWidth: 2,
   },
   radius = 2,
-  padding = 4,
+  padding = 0,
   position = { x: 0, y: 0 },
   entity,
 }: IRenderBox): JSX.Element => {
@@ -65,8 +65,8 @@ const RenderBox = ({
             x: position.x,
             y: position.y,
           },
-          padding,
-          size,
+          // padding,
+          // size,
           strokeWidth: theme.strokeWidth,
         })
       )}
