@@ -18,7 +18,8 @@
     "sb:cover:cobertura": "npx nyc report --reporter=cobertura -t coverage/storybook --report-dir .",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook --coverage",
-    "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes --auto-accept-changes"
+    "chromatic": "npx chromatic --build-script-name sb:build --exit-zero-on-changes --auto-accept-changes",
+    "unlighthouse": "npx unlighthouse --site https://crochern.vercel.app/ --debug"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",

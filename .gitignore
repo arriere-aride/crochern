@@ -43,3 +43,6 @@ next-env.d.ts
 /playwright-report/
 /playwright/.cache/
 /screenshots
+
+# unlighthouse
+.unlighthouse/
