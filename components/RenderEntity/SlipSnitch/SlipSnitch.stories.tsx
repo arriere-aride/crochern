@@ -9,11 +9,6 @@ const meta: Meta<typeof SlipSnitch> = {
   title: "Crochet/Atoms/RenderEntity/SlipSnitch",
   component: SlipSnitch,
   tags: ["autodocs"],
-  argTypes: {
-    fillColor: {
-      control: "color",
-    },
-  },
   decorators: [
     (Story) => (
       <svg>
@@ -26,10 +21,4 @@ const meta: Meta<typeof SlipSnitch> = {
 export default meta;
 type Story = StoryObj<typeof SlipSnitch>;
 
-export const Default: Story = {
-  args: {
-    fillColor: "#1a1a1a",
-    radius: 8,
-    position: { cx: 50, cy: 50 },
-  },
-};
+export const Default: Story = {};

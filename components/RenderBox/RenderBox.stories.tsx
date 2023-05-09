@@ -12,8 +12,10 @@ const meta: Meta<typeof RenderBox> = {
   component: RenderBox,
   tags: ["autodocs"],
   argTypes: {
-    fillColor: {
-      control: "color",
+    theme: {
+      fillColor: {
+        control: "color",
+      },
     },
   },
 };

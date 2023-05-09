@@ -1,45 +1,18 @@
 import React from "react";
+import { type RenderBox as IRenderBox } from "./RenderBox.d";
 
-interface RenderBox {
-  /**
-   * Box size, will also scale entity inside
-   */
-  size?: number;
-  /**
-   * What stroke width to use
-   */
-  strokeWidth?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
-  /**
-   * What radius corners circle to use
-   */
-  radius?: number;
-  /**
-   * What entity to render
-   */
-  entity: React.ReactNode | JSX.Element;
-  /**
-   * What padding entity should have
-   */
-  padding?: number;
-  /**
-   * What position it have on the grid
-   */
-  position?: { x: number; y: number };
-}
-
+/* Render a box when entity is highlighted*/
 const RenderBox = ({
   size = 26,
-  fillColor = "#566FA6",
+  theme = {
+    fillColor: "#566FA6",
+    strokeWidth: 2,
+  },
   radius = 2,
   padding = 4,
-  strokeWidth = 2,
   position = { x: 0, y: 0 },
   entity,
-}: RenderBox): JSX.Element => {
+}: IRenderBox): JSX.Element => {
   const corners: { cx: number; cy: number }[] = [
     {
       cx: position.x + radius,
@@ -73,14 +46,14 @@ const RenderBox = ({
         <circle
           {...corner}
           r={radius}
-          fill={fillColor}
+          fill={theme.fillColor}
           key={`renderbox--box-corner--${index}`}
         />
       ))}
       {paths.map((line, index) => (
         <path
           d={line}
-          stroke={fillColor}
+          stroke={theme.fillColor}
           key={`renderbox--box-line--${index}`}
         />
       ))}
@@ -94,7 +67,7 @@ const RenderBox = ({
           },
           padding,
           size,
-          strokeWidth,
+          strokeWidth: theme.strokeWidth,
         })
       )}
     </g>

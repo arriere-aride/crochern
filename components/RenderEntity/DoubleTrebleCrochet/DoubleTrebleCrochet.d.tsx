@@ -7,14 +7,20 @@ export interface DoubleTrebleCrochet {
    * Line size
    */
   size?: number;
-  /**
-   * What stroke width to use
-   */
-  strokeWidth?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
+  theme?: {
+    /**
+     * What stroke width to use
+     */
+    strokeWidth: number;
+    /**
+     * What stroke to use
+     */
+    stroke: string;
+    /**
+     * What fill color to use
+     */
+    fillColor: string;
+  };
   /**
    * What angle to set
    */
@@ -28,10 +34,4 @@ export interface DoubleTrebleCrochet {
    * ref to entity box and center
    */
   middlePadding?: number;
-  /**
-   * How to style on hover?
-   */
-  hover?: {
-    fillColor: string;
-  };
 }

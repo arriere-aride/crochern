@@ -38,6 +38,10 @@ export const ToolBarItem = ({
           >
             <svg width="100%" height="100%">
               {cloneElement(entity as any, {
+                theme: {
+                  fillColor,
+                  stroke: backgroundColor,
+                },
                 fillColor,
                 backgroundColor,
                 size: size - padding,

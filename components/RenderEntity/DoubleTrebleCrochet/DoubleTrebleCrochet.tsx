@@ -1,5 +1,6 @@
 import { type DoubleTrebleCrochet as IDoubleTrebleCrochet } from "./DoubleTrebleCrochet.d";
 import { DoubleTrebleCrochetContainer } from "./DoubleTrebleCrochet.styled";
+import { DoubleTrebleCrochetBars } from "./DoubleTrebleCrochetBars";
 
 /** Render Double treble crochet (Triple bride) */
 export const DoubleTrebleCrochet = ({
@@ -7,7 +8,11 @@ export const DoubleTrebleCrochet = ({
   size = 16,
   rotation = 0,
   padding = 1,
-  strokeWidth = 2,
+  theme = {
+    strokeWidth: 2,
+    stroke: "#1a1a1a",
+    fillColor: "#7F7F80",
+  },
   middlePadding = 4,
 }: IDoubleTrebleCrochet) => {
   const { x, y } = position;
@@ -26,6 +31,12 @@ export const DoubleTrebleCrochet = ({
       y: center.y + halfSize - padding,
     },
   };
+  const Bars = DoubleTrebleCrochetBars({
+    center,
+    box,
+    fifthSize,
+    middleBarSize,
+  });
 
   return (
     <DoubleTrebleCrochetContainer
@@ -34,10 +45,7 @@ export const DoubleTrebleCrochet = ({
       width={box.max.x}
       height={box.max.y}
     >
-      <g
-        id={`render-item-dtc--1`}
-        strokeWidth={strokeWidth}
-      >
+      <g id={`render-item-dtc--1`} {...theme}>
         <line
           x1={center.x}
           y1={box.max.y}
@@ -57,25 +65,11 @@ export const DoubleTrebleCrochet = ({
             transformOrigin: "center",
             transformBox: "fill-box",
           }}
+          {...theme}
         >
-          <line
-            x1={center.x - fifthSize}
-            x2={center.x + fifthSize}
-            y1={box.min.y + middleBarSize}
-            y2={box.min.y + middleBarSize}
-          />
-          <line
-            x1={center.x - fifthSize}
-            x2={center.x + fifthSize}
-            y1={center.y}
-            y2={center.y}
-          />
-          <line
-            x1={center.x - fifthSize}
-            x2={center.x + fifthSize}
-            y1={box.max.y - middleBarSize}
-            y2={box.max.y - middleBarSize}
-          />
+          {Bars.map((bar: any, index: number) => (
+            <line key={index} {...bar} />
+          ))}
         </g>
       </g>
     </DoubleTrebleCrochetContainer>
