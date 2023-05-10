@@ -1,26 +1,15 @@
 import { EntityTheme } from "@/stores";
 
-export interface DoubleCrochet {
-  /**
-   * What theme to use?
-   */
+export interface HalfDoubleCrochet {
   theme?: EntityTheme;
   /**
-   * What stroke width to set
-   */
-  strokeWidth?: number;
-  /**
-   * What position it have
+   * What position it should have, centered point
    */
   position?: { x: number; y: number };
   /**
    * Line size
    */
   size?: number;
-  /**
-   * What angle to set
-   */
-  rotation?: number;
   /**
    * What padding to set
    */

@@ -1,52 +1,18 @@
-import styled from "@emotion/styled";
-
-interface Chain {
-  /**
-   * What stroke width to set
-   */
-  strokeWidth?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
-  /**
-   * What stroke color to use
-   */
-  strokeColor?: string;
-  /**
-   * What padding to set
-   */
-  padding?: number;
-  /**
-   * What radius to use
-   */
-  radius?: {
-    rx: number;
-    ry: number;
-  };
-  /**
-   * Box size
-   */
-  size?: number;
-  /**
-   * Where to position
-   */
-  position?: {
-    x: number;
-    y: number;
-  };
-}
+import { type Chain as IChain } from "./Chain.d";
+import { ChainContainer } from "./Chain.styled";
 
 /** Render Chain (maille en l’air) */
 export const Chain = ({
-  fillColor = "#1a1a1a",
-  strokeColor = "transparent",
+  theme = {
+    color: "#1a1a1a",
+    strokeWidth: 0,
+    backgroundColor: "transparent",
+  },
   padding = 0,
   radius = { rx: 8, ry: 4 },
   size = 16,
   position = { x: 0, y: 0 },
-  strokeWidth = 0,
-}: Chain) => {
+}: IChain) => {
   const id: number = Math.floor(
     Math.random() * 100
   );
@@ -62,13 +28,9 @@ export const Chain = ({
     },
   };
 
-  const ChainContainer = styled.svg`
-    stroke: ${strokeColor};
-    fill: ${fillColor};
-  `;
-
   return (
     <ChainContainer
+      {...theme}
       x={x}
       y={y}
       width={box.max.x}
@@ -76,7 +38,7 @@ export const Chain = ({
     >
       <g
         id={`render-item-ch--${id}`}
-        strokeWidth={strokeWidth}
+        strokeWidth={theme.strokeWidth}
       >
         <ellipse
           cx={center.x}

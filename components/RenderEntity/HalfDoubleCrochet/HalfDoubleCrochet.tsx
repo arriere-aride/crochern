@@ -1,36 +1,20 @@
-import styled from "@emotion/styled";
-
-interface HalfDoubleCrochet {
-  /**
-   * What stroke width to set
-   */
-  strokeWidth?: number;
-  /**
-   * What position it should have, centered point
-   */
-  position?: { x: number; y: number };
-  /**
-   * Line size
-   */
-  size?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
-  /**
-   * What padding to set
-   */
-  padding?: number;
-}
+import { type HalfDoubleCrochet as IHalfDoubleCrochet } from "./HalfDoubleCrochet.d";
+import {
+  HalfDoubleCrochetContainer,
+  HalfDoubleCrochetGroup,
+} from "./HalfDoubleCrochet.styled";
 
 /** Render Half double crochet (demi-bride) */
 export const HalfDoubleCrochet = ({
   position = { x: 0, y: 0 },
   size = 16,
   padding = 1,
-  fillColor = "#1a1a1a",
-  strokeWidth = 2,
-}: HalfDoubleCrochet) => {
+  theme = {
+    color: "#1a1a1a",
+    strokeWidth: 2,
+    backgroundColor: "transparent",
+  },
+}: IHalfDoubleCrochet) => {
   const id: string = Math.floor(
     Math.random() * 100
   ).toString();
@@ -47,10 +31,6 @@ export const HalfDoubleCrochet = ({
       y: center.y + halfSize - padding,
     },
   };
-  const HalfDoubleCrochetContainer = styled.svg`
-    stroke: ${fillColor};
-    cursor: pointer;
-  `;
 
   return (
     <HalfDoubleCrochetContainer
@@ -58,26 +38,27 @@ export const HalfDoubleCrochet = ({
       y={y}
       width={box.max.x}
       height={box.max.y}
+      {...theme}
     >
-      <g
+      <HalfDoubleCrochetGroup
         id={`render-item-hdc--${id}`}
-        strokeWidth={strokeWidth}
+        {...theme}
       >
         <line
-          strokeWidth={2}
+          stroke={theme.color}
           x1={center.x}
           y1={box.max.y}
           x2={center.x}
           y2={box.min.y}
         />
         <line
-          strokeWidth={2}
+          stroke={theme.color}
           x1={box.min.x}
           y1={box.min.y}
           x2={box.max.x}
           y2={box.min.y}
         />
-      </g>
+      </HalfDoubleCrochetGroup>
     </HalfDoubleCrochetContainer>
   );
 };

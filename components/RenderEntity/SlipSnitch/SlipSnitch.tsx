@@ -1,11 +1,14 @@
 import { type SlipSnitch as ISlipSnitch } from "./SlipSnitch.d";
-import { SlipSnitchContainer } from "./SlipSnitch.styled";
+import {
+  SlipSnitchContainer,
+  SlipSnitchGroup,
+} from "./SlipSnitch.styled";
 
 /** Render Snitch (maille coulée) */
 export const SlipSnitch = ({
   theme = {
-    fillColor: "#1a1a1a",
-    strokeColor: "transparent",
+    color: "#1a1a1a",
+    backgroundColor: "transparent",
     strokeWidth: 0,
   },
   radius = 8,
@@ -13,9 +16,6 @@ export const SlipSnitch = ({
   padding = 0,
   position = { x: 0, y: 0 },
 }: ISlipSnitch) => {
-  const id: number = Math.floor(
-    Math.random() * 100
-  );
   const r = Math.floor(radius / 2);
   const halfSize = Math.floor(size / 2);
   const { x, y } = position;
@@ -39,16 +39,16 @@ export const SlipSnitch = ({
       height={box.max.y}
       {...theme}
     >
-      <g
-        id={`render-item-slst--${id}`}
-        strokeWidth={theme.strokeWidth}
+      <SlipSnitchGroup
+        id={`render-item-slst--1`}
+        {...theme}
       >
         <circle
           cx={center.x}
           cy={center.y}
           r={r}
         />
-      </g>
+      </SlipSnitchGroup>
     </SlipSnitchContainer>
   );
 };

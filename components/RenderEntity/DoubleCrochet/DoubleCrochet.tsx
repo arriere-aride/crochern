@@ -1,11 +1,15 @@
-import styled from "@emotion/styled";
 import { type DoubleCrochet as IDoubleCrochet } from "./DoubleCrochet.d";
+import { DoubleCrochetContainer } from "./DoubleCrochet.styled";
 
 /** Render Double crochet (bride) */
 export const DoubleCrochet = ({
   position = { x: 0, y: 0 },
   size = 16,
-  fillColor = "#1a1a1a",
+  theme = {
+    color: "#1a1a1a",
+    strokeWidth: 0,
+    backgroundColor: "transparent",
+  },
   rotation = 0,
   padding = 1,
   strokeWidth = 2,
@@ -29,17 +33,13 @@ export const DoubleCrochet = ({
     },
   };
 
-  const DoubleCrochetContainer = styled.svg`
-    stroke: ${fillColor};
-    cursor: pointer;
-  `;
-
   return (
     <DoubleCrochetContainer
       x={x}
       y={y}
       width={box.max.x}
       height={box.max.y}
+      {...theme}
     >
       <g
         id={`render-item-dc--${id}`}

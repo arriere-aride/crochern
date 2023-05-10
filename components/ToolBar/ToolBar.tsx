@@ -15,8 +15,10 @@ import { toolBarStyle } from "./ToolBar.styled";
 export const ToolBar = ({
   tools = [],
   handleClick = () => true,
-  backgroundColor = "#484848",
-  fillColor = "#7F7F80",
+  theme = {
+    backgroundColor: "#484848",
+    color: "#7F7F80",
+  },
   borderColor = "#008C9E",
   toolSize = 24,
   padding = 4,
@@ -39,9 +41,8 @@ export const ToolBar = ({
   return (
     <Box
       sx={toolBarStyle({
-        backgroundColor,
+        theme,
         borderColor,
-        fillColor,
         cellSize: toolSize + padding,
         visible,
       })}
@@ -49,12 +50,11 @@ export const ToolBar = ({
       {tools.map((tool, index: number) => (
         <ToolBarItem
           key={`toolbar-item-${index}`}
+          theme={theme}
           index={index}
           size={toolSize}
           item={tool}
-          backgroundColor={backgroundColor}
           padding={padding}
-          fillColor={fillColor}
           handleClick={handleClick}
         />
       ))}

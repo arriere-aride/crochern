@@ -1,24 +1,23 @@
 import { EntityTheme } from "@/stores";
 
-export interface DoubleCrochet {
+export interface SingleCrochet {
   /**
-   * What theme to use?
+   * Whate theme to use?
    */
   theme?: EntityTheme;
   /**
-   * What stroke width to set
+   * Where to put entity
    */
-  strokeWidth?: number;
-  /**
-   * What position it have
-   */
-  position?: { x: number; y: number };
+  position?: {
+    x: number;
+    y: number;
+  };
   /**
    * Line size
    */
   size?: number;
   /**
-   * What angle to set
+   * Rotating piece, in degrees
    */
   rotation?: number;
   /**

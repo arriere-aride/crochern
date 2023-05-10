@@ -1,8 +1,10 @@
+import { EntityTheme } from "@/stores";
+
 export interface TrebleCrochet {
   /**
-   * What stroke width to set
+   * What theme to use?
    */
-  strokeWidth?: number;
+  theme?: EntityTheme;
   /**
    * What position it have
    */
@@ -11,10 +13,6 @@ export interface TrebleCrochet {
    * Line size
    */
   size?: number;
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
   /**
    * What angle to set
    */

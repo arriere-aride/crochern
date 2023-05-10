@@ -10,11 +10,6 @@ const meta: Meta<typeof SingleCrochet> = {
     "Crochet/Atoms/RenderEntity/SingleCrochet",
   component: SingleCrochet,
   tags: ["autodocs"],
-  argTypes: {
-    fillColor: {
-      control: "color",
-    },
-  },
   decorators: [
     (Story) => (
       <svg>
@@ -29,7 +24,7 @@ type Story = StoryObj<typeof SingleCrochet>;
 
 export const Default: Story = {
   args: {
-    fillColor: "#1a1a1a",
+    theme: { color: "#1a1a1a" },
     size: 8,
     position: { x: 50, y: 50 },
   },

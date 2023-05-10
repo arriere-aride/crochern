@@ -8,8 +8,10 @@ export const ToolBarItem = ({
   size = 16,
   item,
   padding = 2,
-  backgroundColor = "#484848",
-  fillColor = "#7F7F80",
+  theme = {
+    backgroundColor: "#484848",
+    color: "#7F7F80",
+  },
   handleClick = () => true,
 }: IToolBarItem) => {
   const StyledAnchor = Anchor({ size, padding });
@@ -26,7 +28,10 @@ export const ToolBarItem = ({
           <Tooltip
             anchorSelect={`.anchor-${index}`}
             place="right"
-            style={{ backgroundColor }}
+            style={{
+              backgroundColor:
+                theme.backgroundColor,
+            }}
           >
             {item.label}
           </Tooltip>
@@ -38,12 +43,7 @@ export const ToolBarItem = ({
           >
             <svg width="100%" height="100%">
               {cloneElement(entity as any, {
-                theme: {
-                  fillColor,
-                  stroke: backgroundColor,
-                },
-                fillColor,
-                backgroundColor,
+                theme,
                 size: size - padding,
               })}
             </svg>

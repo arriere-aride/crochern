@@ -29,6 +29,7 @@ export type {
   ArchivedEntity,
   InMemoryEntity,
 } from "./EntityMoveReducer.d";
+export type { EntityTheme } from "./EntityReducer";
 export { ActionTypes as SelectionActionTypes } from "./EntitySelectionReducer.d";
 export type { TargetEntity } from "./EntitySelectionReducer.d";
 export {

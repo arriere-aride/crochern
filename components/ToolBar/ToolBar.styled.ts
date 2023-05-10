@@ -1,24 +1,15 @@
-interface ToolBarStyle {
-  backgroundColor: string;
-  borderColor: string;
-  fillColor: string;
-  cellSize: number;
-  visible: boolean;
-}
-
 export const toolBarStyle = ({
-  backgroundColor,
   borderColor,
-  fillColor,
   cellSize,
   visible,
-}: ToolBarStyle) => ({
+  theme,
+}: any) => ({
   display: "grid",
   gridGap: 2,
   gridAutoRows: cellSize,
-  backgroundColor,
+  backgroundColor: theme.backgroundColor,
   borderColor,
-  color: fillColor,
+  color: theme.color,
   gridTemplateColumns: `repeat(auto-fit, minmax(${cellSize}, 1fr))`,
   visibility: visible ? "visible" : "hidden",
 });

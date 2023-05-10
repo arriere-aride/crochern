@@ -1,47 +1,21 @@
-import styled from "@emotion/styled";
-
-interface SingleCrochet {
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
-  /**
-   * What stroke width to set
-   */
-  strokeWidth?: number;
-  /**
-   * Where to position
-   */
-  position?: {
-    x: number;
-    y: number;
-  };
-  /**
-   * Line size
-   */
-  size?: number;
-  /**
-   * Rotating piece, in degrees
-   */
-  rotation?: number;
-  /**
-   * What padding to set
-   */
-  padding?: number;
-}
+import { SingleCrochet as ISingleCrochet } from "./SingleCrochet.d";
+import {
+  SingleCrochetContainer,
+  SingleCrochetGroup,
+} from "./SingleCrochet.styled";
 
 /** Render Single crochet (maille serrée) */
 export const SingleCrochet = ({
-  fillColor = "#1a1a1a",
+  theme = {
+    color: "#1a1a1a",
+    strokeWidth: 2,
+    backgroundColor: "transparent",
+  },
   size = 16,
   position = { x: 0, y: 0 },
   rotation = 0,
-  strokeWidth = 2,
   padding = 1,
-}: SingleCrochet) => {
-  const id: string = Math.floor(
-    Math.random() * 100
-  ).toString();
+}: ISingleCrochet): JSX.Element => {
   const { x, y } = position;
   const rotate = `rotate(${rotation})`;
   const halfSize = Math.floor(size / 2);
@@ -57,26 +31,18 @@ export const SingleCrochet = ({
     },
   };
 
-  const SingleCrochetContainer = styled.svg`
-    stroke: ${fillColor};
-    cursor: pointer;
-  `;
-
   return (
     <SingleCrochetContainer
       x={x}
       y={y}
       width={box.max.x}
       height={box.max.y}
+      {...theme}
     >
-      <g
-        id={`render-item-sc--${id}`}
-        strokeWidth={strokeWidth}
+      <SingleCrochetGroup
+        id={`render-item-sc--1`}
+        {...theme}
         transform={rotate}
-        style={{
-          transformOrigin: "center",
-          transformBox: "fill-box",
-        }}
       >
         <line
           x1={box.min.x}
@@ -90,7 +56,7 @@ export const SingleCrochet = ({
           x2={center.x}
           y2={box.max.y}
         />
-      </g>
+      </SingleCrochetGroup>
     </SingleCrochetContainer>
   );
 };

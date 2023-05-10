@@ -1,3 +1,5 @@
+import { EntityTheme } from "@/stores";
+
 export interface ToolBar {
   /**
    * What tools to use
@@ -7,17 +9,13 @@ export interface ToolBar {
     label: string;
   }[];
   /**
+   * What theme to use
+   */
+  theme?: EntityTheme;
+  /**
    * Which size each tool have
    */
   toolSize?: number;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * What content color to use
-   */
-  fillColor?: string;
   /**
    * What border color to use
    */

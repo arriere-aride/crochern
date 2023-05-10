@@ -1,8 +1,10 @@
+export interface EntityTheme {
+  color?: string;
+  strokeWidth?: number;
+  backgroundColor?: string;
+}
 export interface Entity {
   _id: string;
   label: string;
-  strokeColor?: string;
-  strokeWidth?: string;
-  backgroundColor?: string;
-  fillColor?: string;
+  theme?: EntityTheme;
 }

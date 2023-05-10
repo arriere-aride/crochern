@@ -5,3 +5,10 @@ export const DoubleTrebleCrochetContainer =
     cursor: "pointer",
     stroke: `${props.fillColor}`,
   }));
+
+export const DoubleTrebleCrochetGroup = styled.g(
+  (props: any) => ({
+    stroke: `${props.color}`,
+    fillColor: `${props.backgroundColor}`,
+  })
+);

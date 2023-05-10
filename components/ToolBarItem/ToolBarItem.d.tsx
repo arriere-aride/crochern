@@ -1,3 +1,5 @@
+import { EntityTheme } from "@/stores";
+
 export interface ToolBarItem {
   /**
    * Wich index to use
@@ -15,13 +17,9 @@ export interface ToolBarItem {
     label: string;
   };
   /**
-   * What background color to have
+   * What theme to use
    */
-  backgroundColor?: string;
-  /**
-   * What fill color to have
-   */
-  fillColor?: string;
+  theme: EntityTheme;
   /**
    * What padding to have
    */

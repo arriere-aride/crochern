@@ -1,5 +1,8 @@
 import { type DoubleTrebleCrochet as IDoubleTrebleCrochet } from "./DoubleTrebleCrochet.d";
-import { DoubleTrebleCrochetContainer } from "./DoubleTrebleCrochet.styled";
+import {
+  DoubleTrebleCrochetContainer,
+  DoubleTrebleCrochetGroup,
+} from "./DoubleTrebleCrochet.styled";
 import { DoubleTrebleCrochetBars } from "./DoubleTrebleCrochetBars";
 
 /** Render Double treble crochet (Triple bride) */
@@ -10,8 +13,8 @@ export const DoubleTrebleCrochet = ({
   padding = 1,
   theme = {
     strokeWidth: 2,
-    stroke: "#1a1a1a",
-    fillColor: "#7F7F80",
+    color: "#1a1a1a",
+    backgroundColor: "#7F7F80",
   },
   middlePadding = 4,
 }: IDoubleTrebleCrochet) => {
@@ -45,7 +48,10 @@ export const DoubleTrebleCrochet = ({
       width={box.max.x}
       height={box.max.y}
     >
-      <g id={`render-item-dtc--1`} {...theme}>
+      <DoubleTrebleCrochetGroup
+        id={`render-item-dtc--1`}
+        {...theme}
+      >
         <line
           x1={center.x}
           y1={box.max.y}
@@ -58,7 +64,7 @@ export const DoubleTrebleCrochet = ({
           x2={box.max.x}
           y2={box.min.y}
         />
-        <g
+        <DoubleTrebleCrochetGroup
           id={`render-item-dtc-bar--2`}
           transform={rotate}
           style={{
@@ -70,8 +76,8 @@ export const DoubleTrebleCrochet = ({
           {Bars.map((bar: any, index: number) => (
             <line key={index} {...bar} />
           ))}
-        </g>
-      </g>
+        </DoubleTrebleCrochetGroup>
+      </DoubleTrebleCrochetGroup>
     </DoubleTrebleCrochetContainer>
   );
 };
