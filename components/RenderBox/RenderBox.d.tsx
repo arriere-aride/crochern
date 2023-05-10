@@ -1,18 +1,21 @@
+import { EntityTheme } from "@/stores";
+
 export interface RenderBox {
   /**
    * Box size, will also scale entity inside
    */
   size?: number;
-  theme?: {
-    /**
-     * What stroke width to use
-     */
-    strokeWidth?: number;
-    /**
-     * What fill color to use
-     */
-    fillColor?: string;
+  /**
+   * What box theme to use
+   */
+  boxTheme?: {
+    color: string;
+    strokeWidth: number;
   };
+  /**
+   * What theme to use
+   */
+  theme?: EntityTheme;
   /**
    * What radius corners circle to use
    */

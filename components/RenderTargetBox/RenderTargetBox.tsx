@@ -18,7 +18,12 @@ export const RenderTargetBox = ({
     <g>
       {targets?.length > 0 &&
         targets.map(
-          ({ _id, entity, position }: any) => {
+          ({
+            _id,
+            entity,
+            position,
+            theme,
+          }: any) => {
             return React.Children.map(
               entity,
               (child) => (
@@ -35,9 +40,14 @@ export const RenderTargetBox = ({
                 >
                   {selected != null &&
                   _id == selected._id ? (
-                    <RenderBox entity={entity} />
+                    <RenderBox
+                      entity={entity}
+                      theme={theme}
+                    />
                   ) : (
-                    React.cloneElement(child)
+                    React.cloneElement(child, {
+                      theme,
+                    })
                   )}
                 </svg>
               )

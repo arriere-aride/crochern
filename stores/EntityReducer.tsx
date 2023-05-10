@@ -6,5 +6,5 @@ export interface EntityTheme {
 export interface Entity {
   _id: string;
   label: string;
-  theme?: EntityTheme;
+  theme: EntityTheme;
 }

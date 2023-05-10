@@ -4,8 +4,12 @@ import { type RenderBox as IRenderBox } from "./RenderBox.d";
 /* Render a box when entity is highlighted*/
 const RenderBox = ({
   size = 18,
+  boxTheme = {
+    color: "#566FA6",
+    strokeWidth: 2,
+  },
   theme = {
-    fillColor: "#566FA6",
+    color: "#484848",
     strokeWidth: 2,
   },
   radius = 2,
@@ -13,19 +17,19 @@ const RenderBox = ({
   position = { x: 0, y: 0 },
   entity,
 }: IRenderBox): JSX.Element => {
-  const corners: { cx: number; cy: number }[] = [
+  const corners: { x: number; y: number }[] = [
     {
-      cx: position.x + radius,
-      cy: position.y + radius,
+      x: position.x + radius,
+      y: position.y + radius,
     },
     {
-      cx: size - radius,
-      cy: position.y + radius,
+      x: size - radius,
+      y: position.y + radius,
     },
-    { cx: size - radius, cy: size - radius },
+    { x: size - radius, y: size - radius },
     {
-      cx: position.x + radius,
-      cy: size - radius,
+      x: position.x + radius,
+      y: size - radius,
     },
   ];
   const paths: string[] = [
@@ -46,26 +50,24 @@ const RenderBox = ({
         <circle
           {...corner}
           r={radius}
-          fill={theme.fillColor}
+          fill={boxTheme.color}
           key={`renderbox--box-corner--${index}`}
         />
       ))}
       {paths.map((line, index) => (
         <path
           d={line}
-          stroke={theme.fillColor}
+          stroke={boxTheme.color}
           key={`renderbox--box-line--${index}`}
         />
       ))}
       {React.Children.map(entity, (child) =>
         React.cloneElement(child as any, {
           position: {
-            cx: (position.x + size) / 2,
-            cy: (position.y + size) / 2,
             x: position.x,
             y: position.y,
           },
-          strokeWidth: theme.strokeWidth,
+          theme,
         })
       )}
     </g>

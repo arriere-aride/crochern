@@ -1,12 +1,4 @@
-import {
-  Chain,
-  DoubleCrochet,
-  DoubleTrebleCrochet,
-  HalfDoubleCrochet,
-  SingleCrochet,
-  SlipSnitch,
-  TrebleCrochet,
-} from "@/components/RenderEntity";
+import { tools } from "@/data";
 import {
   ArchivedEntity,
   InMemoryEntity,
@@ -14,33 +6,6 @@ import {
   TargetEntity,
 } from "@/stores";
 import { faker } from "@faker-js/faker";
-const entities = [
-  {
-    label: "Slip Snitch",
-    entity: <SlipSnitch />,
-  },
-  {
-    label: "Single Crochet",
-    entity: <SingleCrochet />,
-  },
-  { label: "Chain", entity: <Chain /> },
-  {
-    label: "Half Double Crochet",
-    entity: <HalfDoubleCrochet />,
-  },
-  {
-    label: "Double Crochet",
-    entity: <DoubleCrochet />,
-  },
-  {
-    label: "Treble Crochet",
-    entity: <TrebleCrochet />,
-  },
-  {
-    label: "Double Treble Crochet",
-    entity: <DoubleTrebleCrochet />,
-  },
-];
 
 export type SeedMemoryEntity = InMemoryEntity[];
 export type SeedLogEntity = ArchivedEntity[];
@@ -53,11 +18,16 @@ export function seedMemoryEntity(
   const entity = () => ({
     _id: faker.datatype.uuid(),
     label:
-      faker.helpers.arrayElement(entities).label,
+      faker.helpers.arrayElement(tools).label,
     entity:
-      faker.helpers.arrayElement(entities).entity,
+      faker.helpers.arrayElement(tools).entity,
     createdAt: observerDate,
     updatedAt: observerDate,
+    theme: {
+      color: faker.color.rgb({ prefix: "#" }),
+      backgroundColor: "transparent",
+      strokeWidth: 2,
+    },
   });
   return Array(count)
     .fill({})

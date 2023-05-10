@@ -1,16 +1,23 @@
 import { tools } from "@/data";
 import store, {
+  EntityTheme,
   MoveActionTypes,
   TargetEntity,
 } from "@/stores";
 
 export interface OnToolBarEntityClick {
   index: number;
+  theme?: EntityTheme;
   e: React.MouseEvent<HTMLElement>;
 }
 
 export function OnToolBarEntityClick({
   index = 0,
+  theme = {
+    color: "#E3E3E3",
+    backgroundColor: "transparent",
+    strokeWidth: 2,
+  },
   e,
 }: OnToolBarEntityClick): boolean {
   e.preventDefault();
@@ -21,6 +28,7 @@ export function OnToolBarEntityClick({
     position: { x: e.screenX, y: e.screenY },
     createdAt: new Date(),
     updatedAt: new Date(),
+    theme,
   };
   store.dispatch({
     type: MoveActionTypes.STASH,

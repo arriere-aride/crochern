@@ -1,4 +1,5 @@
 import { Entity } from "./EntityReducer";
+import { TargetEntity } from "./EntitySelectionReducer.d";
 
 export interface InMemoryEntity extends Entity {
   entity: JSX.Element | React.ReactNode;

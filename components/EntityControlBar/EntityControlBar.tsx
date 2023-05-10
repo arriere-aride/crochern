@@ -38,6 +38,11 @@ export const EntityControlBar = ({
         value={Math.floor(entity.position.y)}
         property="Y"
       />
+      <EntityControlItem
+        theme={theme}
+        value={entity.theme.color}
+        property="COLOR"
+      />
     </Flex>
   );
 };
