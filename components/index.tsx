@@ -1,6 +1,7 @@
 export * from "@/components/Actions";
 export * from "@/components/CommandBar/CommandBar";
 export * from "@/components/EntityControlBar/EntityControlBar";
+export * from "@/components/EntityControlColorItem/EntityControlColorItem";
 export * from "@/components/EntityControlItem/EntityControlItem";
 export * from "@/components/Events";
 export * from "@/components/Grid/Grid";

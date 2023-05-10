@@ -1,14 +1,11 @@
 import { Box, Flex } from "rebass";
+import { type EntityControlItem as IEntityControlItem } from "./EntityControlItem.d";
 
 export const EntityControlItem = ({
   property = "prop",
   value = "value",
   theme = {},
-}: {
-  property: string;
-  value: any;
-  theme: any;
-}) => (
+}: IEntityControlItem): JSX.Element => (
   <Box width={1 / 2}>
     <Flex flexWrap="wrap" mx={2}>
       <Box

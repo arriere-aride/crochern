@@ -1,7 +1,10 @@
+import {
+  EntityControlColorItem,
+  EntityControlItem,
+} from "@/components";
 import { Store } from "@/stores";
 import { useSelector } from "react-redux";
 import { Flex } from "rebass";
-import { EntityControlItem } from "../EntityControlItem/EntityControlItem";
 import { type EntityControlBar as IEntityControlBar } from "./EntityControlBar.d";
 
 export const EntityControlBar = ({
@@ -38,7 +41,7 @@ export const EntityControlBar = ({
         value={Math.floor(entity.position.y)}
         property="Y"
       />
-      <EntityControlItem
+      <EntityControlColorItem
         theme={theme}
         value={entity.theme.color}
         property="COLOR"
