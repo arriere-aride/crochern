@@ -7,12 +7,11 @@ export const DoubleCrochet = ({
   size = 16,
   theme = {
     color: "#1a1a1a",
-    strokeWidth: 0,
+    strokeWidth: 2,
     backgroundColor: "transparent",
   },
   rotation = 0,
   padding = 1,
-  strokeWidth = 2,
 }: IDoubleCrochet) => {
   const id: string = Math.floor(
     Math.random() * 100
@@ -43,17 +42,17 @@ export const DoubleCrochet = ({
     >
       <g
         id={`render-item-dc--${id}`}
-        strokeWidth={strokeWidth}
+        strokeWidth={theme.strokeWidth}
       >
         <line
-          strokeWidth={strokeWidth}
+          strokeWidth={theme.strokeWidth}
           x1={center.x}
           y1={box.max.y}
           x2={center.x}
           y2={box.min.y}
         />
         <line
-          strokeWidth={strokeWidth}
+          strokeWidth={theme.strokeWidth}
           x1={box.min.x}
           y1={box.min.y}
           x2={box.max.x}
@@ -68,7 +67,7 @@ export const DoubleCrochet = ({
           }}
         >
           <line
-            strokeWidth={strokeWidth}
+            strokeWidth={theme.strokeWidth}
             x1={center.x - fifthSize}
             x2={center.x + fifthSize}
             y1={center.y}

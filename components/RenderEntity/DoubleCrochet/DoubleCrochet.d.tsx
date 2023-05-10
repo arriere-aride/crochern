@@ -6,10 +6,6 @@ export interface DoubleCrochet {
    */
   theme?: EntityTheme;
   /**
-   * What stroke width to set
-   */
-  strokeWidth?: number;
-  /**
    * What position it have
    */
   position?: { x: number; y: number };

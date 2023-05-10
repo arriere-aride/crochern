@@ -11,6 +11,7 @@ export const ToolBarItem = ({
   theme = {
     backgroundColor: "#484848",
     color: "#7F7F80",
+    strokeWidth: 2,
   },
   handleClick = () => true,
 }: IToolBarItem) => {

@@ -18,6 +18,7 @@ export const ToolBar = ({
   theme = {
     backgroundColor: "#484848",
     color: "#7F7F80",
+    strokeWidth: 2,
   },
   borderColor = "#008C9E",
   toolSize = 24,

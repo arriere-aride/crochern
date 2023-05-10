@@ -11,6 +11,6 @@ export const SingleCrochetGroup = styled.g(
   (props: any) => ({
     transformOrigin: "center",
     transformBox: "fill-box",
-    strokeWidth: `${props.strokeWidth}`,
+    strokeWidth: `${props.strokeWidth}px`,
   })
 );
