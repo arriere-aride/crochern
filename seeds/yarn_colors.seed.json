@@ -1,0 +1,107 @@
+{
+  "list": [
+    {
+      "label": "Paco",
+      "hexadecimalCode": "#401a11",
+      "image": "myimage-1.jpg",
+      "brands": [
+        {
+          "label": "hobbii",
+          "products": [
+            {
+              "label": "Rainbow Cotton 8/6",
+              "content": [{ "label": "coton", "of": "100%" }],
+              "weight": [
+                { "unit": "g", "value": 50 },
+                { "unit": "oz", "value": 1.75 }
+              ],
+              "yarnLength": [
+                { "unit": "m", "value": 105 },
+                { "unit": "yds", "value": 115 }
+              ],
+              "yarnWeight": [{ "unit": "ply", "value": 4 }],
+              "recommendedNeedles": [
+                { "unit": "mm", "value": 3.5 },
+                { "unit": "US", "value": 4 }
+              ],
+              "recommendedCrochetHook": [
+                { "unit": "mm", "value": 3 },
+                { "unit": "US", "value": "̰~D-3" },
+                { "unit": "mm", "value": 3.5 },
+                { "unit": "US", "value": "E-4" }
+              ],
+              "knittingGauge": [
+                {
+                  "stitches": 23,
+                  "rows": 30,
+                  "to": [
+                    { "unit": "cm", "value": 10 },
+                    { "unit": "\"", "value": 4 }
+                  ]
+                }
+              ],
+              "careInstructions": [
+                {
+                  "machineWash": [
+                    { "unit": "°C", "value": 40 },
+                    { "unit": "°F", "value": 104 }
+                  ]
+                },
+                "Do not tumble Dry"
+              ],
+              "sellers": [
+                {
+                  "label": "hobbii",
+                  "href": "https://hobbii.fr/rainbow-cotton-8-6?option=14348",
+                  "tag": ["#hobbiirainbowcotton86"]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hexadecimalCode": "#46B953",
+      "image": "myimage-2.jpg",
+      "label": "Chateau Green",
+      "brands": [
+        {
+          "label": "hobbii",
+          "products": [
+            {
+              "label": "Rainbow Cotton 8/6",
+              "sellers": [
+                {
+                  "label": "hobbii",
+                  "href": "https://hobbii.fr/rainbow-cotton-8-6?option=14360"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hexadecimalCode": "#456297",
+      "image": "myimage-3.jpg",
+      "label": "Kashmir Blue",
+      "brands": [
+        {
+          "label": "hobbii",
+          "products": [
+            {
+              "label": "Rainbow Cotton 8/6",
+              "sellers": [
+                {
+                  "label": "hobbii",
+                  "href": "https://hobbii.fr/rainbow-cotton-8-6?option=14387"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

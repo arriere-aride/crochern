@@ -1,0 +1,165 @@
+{
+  "additionalProperties": false,
+  "type": "object",
+  "required": ["list"],
+  "properties": {
+    "list": {
+      "type": "array",
+      "nullable": false,
+      "items": {
+        "required": ["hexadecimalCode", "image", "label", "brands"],
+        "type": "object",
+        "properties": {
+          "label": { "type": "string", "nullable": false, "minLength": 1 },
+          "hexadecimalCode": { "type": "string" },
+          "image": { "type": "string", "nullable": true },
+          "brands": {
+            "type": "array",
+            "nullable": false,
+            "minItems": 1,
+            "items": {
+              "required": ["products", "label"],
+              "type": "object",
+              "properties": {
+                "label": { "type": "string" },
+                "products": {
+                  "type": "array",
+                  "nullable": false,
+                  "items": {
+                    "required": ["label", "sellers"],
+                    "type": "object",
+                    "properties": {
+                      "label": { "type": "string" },
+                      "content": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "label": { "type": "string" },
+                            "of": { "type": "string" }
+                          }
+                        }
+                      },
+                      "weight": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "unit": { "type": "string" },
+                            "value": { "type": "number", "minimum": 0 }
+                          }
+                        }
+                      },
+                      "yarnLength": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "unit": { "type": "string" },
+                            "value": { "type": "number", "minimum": 0 }
+                          }
+                        }
+                      },
+                      "yarnWeight": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "unit": { "type": "string" },
+                            "value": { "type": "number", "minimum": 0 }
+                          }
+                        }
+                      },
+                      "recommendedNeedles": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "unit": { "type": "string" },
+                            "value": { "type": "number" }
+                          }
+                        }
+                      },
+                      "recommendedCrochetHook": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "unit": { "type": "string" },
+                            "value": { "type": ["string", "number"] }
+                          }
+                        }
+                      },
+                      "knittingGauge": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "nullable": true,
+                          "properties": {
+                            "stitches": { "type": "number", "minimum": 0 },
+                            "rows": { "type": "number", "minimum": 0 },
+                            "to": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "unit": { "type": "string" },
+                                  "value": { "type": "number", "minimum": 0 }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "careInstructions": {
+                        "type": "array",
+                        "items": {
+                          "nullable": true,
+                          "type": ["object", "string"],
+                          "properties": {
+                            "machineWash": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "nullable": true,
+                                "properties": {
+                                  "unit": { "type": "string" },
+                                  "value": { "type": "number", "minimum": 0 }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "sellers": {
+                        "type": "array",
+                        "items": {
+                          "required": ["label", "href"],
+                          "type": "object",
+                          "properties": {
+                            "label": { "type": "string" },
+                            "href": { "type": "string" },
+                            "tag": {
+                              "type": "array",
+                              "items": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
