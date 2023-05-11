@@ -3,10 +3,11 @@ import yarnColorsSchema from "@/schemas/schema_yarn_color.json";
 import yarnColors from "@/seeds/yarn_colors.seed.json";
 import Ajv from "ajv/dist/2019";
 import { JTDDataType } from "ajv/dist/jtd";
-import type {
+import {
   NextApiRequest,
   NextApiResponse,
 } from "next";
+import NextCors from "nextjs-cors";
 
 type Data = JTDDataType<
   typeof yarnColorsSchema | { errors: any }
@@ -20,6 +21,12 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  NextCors(req, res, {
+    methods: ["GET"],
+    origin: "*",
+    optionsSuccessStatus: 200,
+  });
+
   const validate = ajv.compile<Data>(
     yarnColorsSchema
   );
