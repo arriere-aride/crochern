@@ -15,4 +15,8 @@ export interface EntityControlColorItem {
    * Which size it have
    */
   size?: number;
+  /**
+   * What to do on click
+   */
+  onColorClick?: (values: any) => any;
 }

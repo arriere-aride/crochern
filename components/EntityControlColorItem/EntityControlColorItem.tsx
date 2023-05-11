@@ -8,6 +8,7 @@ export const EntityControlColorItem = ({
   value = "value",
   theme = {},
   size = 16,
+  onColorClick = () => true,
 }: IEntityControlColorItem): JSX.Element => (
   <Flex flexWrap="wrap" mx={2} width={"100%"}>
     <Box width={1 / 3} justifyContent={"center"}>
@@ -16,10 +17,19 @@ export const EntityControlColorItem = ({
       </span>
     </Box>
     <Box width={1 / 3} justifyContent={"center"}>
-      <ColorFiller value={value} size={size} />
+      <ColorFiller
+        value={value}
+        size={size}
+        onClick={onColorClick}
+      />
     </Box>
     <Box width={1 / 3} justifyContent={"center"}>
-      <span style={theme?.value}>{value}</span>
+      <span
+        style={theme?.value}
+        onClick={onColorClick}
+      >
+        {value}
+      </span>
     </Box>
   </Flex>
 );
