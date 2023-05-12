@@ -6,7 +6,7 @@ import type {
 import { OnPressShift } from "./OnPressShift";
 
 const meta: Meta<typeof OnPressShift> = {
-  title: "Crochet/Atoms/OnPressShift",
+  title: "Crochet/Atoms/Events/OnPressShift",
   component: OnPressShift,
   tags: ["autodocs"],
 };
