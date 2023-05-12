@@ -1,8 +1,10 @@
 import {
   EntityControlColorItem,
   EntityControlItem,
+  OnEntityControlColorItemClick,
 } from "@/components";
-import { Store } from "@/stores";
+import store, { Store } from "@/stores";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Flex } from "rebass";
 import { type EntityControlBar as IEntityControlBar } from "./EntityControlBar.d";
@@ -22,10 +24,13 @@ export const EntityControlBar = ({
       color: "#b1b1b1",
     },
   },
+  colors = [],
 }: IEntityControlBar) => {
   const entity = useSelector(
     (state: Store) => state.selection.selection[0]
   );
+  const [rerender, setRerender] = useState(false);
+  store.subscribe(() => setRerender(!rerender));
   if (entity == null) {
     return <></>;
   }
@@ -45,6 +50,8 @@ export const EntityControlBar = ({
         theme={theme}
         value={entity.theme.color}
         property="COLOR"
+        colors={colors}
+        onClick={OnEntityControlColorItemClick}
       />
     </Flex>
   );

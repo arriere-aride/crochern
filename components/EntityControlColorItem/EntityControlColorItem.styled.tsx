@@ -5,5 +5,6 @@ export const ColorFiller = styled.div(
     width: `${props.size}px`,
     height: `${props.size}px`,
     backgroundColor: `${props.value}`,
+    cursor: "pointer",
   })
 );

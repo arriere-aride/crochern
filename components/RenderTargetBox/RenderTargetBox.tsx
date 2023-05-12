@@ -1,5 +1,8 @@
-import { Store, TargetEntity } from "@/stores";
-import React from "react";
+import store, {
+  Store,
+  TargetEntity,
+} from "@/stores";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RenderBox } from "../RenderBox/RenderBox";
 
@@ -11,9 +14,11 @@ export const RenderTargetBox = ({
   targets,
   onTargetEntityClick,
 }: RenderTargetBox) => {
+  const [rerender, setRender] = useState(false);
   const selected = useSelector(
     (state: Store) => state.selection.selection[0]
   );
+  store.subscribe(() => setRender(!rerender));
   return (
     <g>
       {targets?.length > 0 &&

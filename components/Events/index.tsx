@@ -1,3 +1,4 @@
+export { OnEntityControlColorItemClick } from "./OnEntityControlColorItemClick/OnEntityControlColorItemClick";
 export { OnPressShift } from "./OnPressShift/OnPressShift";
 export { OnScrollResize } from "./OnScrollResize/OnScrollResize";
 export { OnStashBoxRenderClick } from "./OnStashBoxRenderClick/OnStashBoxRenderClick";

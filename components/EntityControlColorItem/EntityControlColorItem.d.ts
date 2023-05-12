@@ -16,7 +16,11 @@ export interface EntityControlColorItem {
    */
   size?: number;
   /**
-   * What to do on click
+   * Which colors it can select
    */
-  onColorClick?: (values: any) => any;
+  colors?: string[];
+  /**
+   * What to do on control color item click
+   */
+  onClick?: (values: any) => any;
 }
