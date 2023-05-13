@@ -13,7 +13,6 @@ const RenderBox = ({
     strokeWidth: 2,
   },
   radius = 2,
-  padding = 0,
   position = { x: 0, y: 0 },
   entity,
 }: IRenderBox): JSX.Element => {

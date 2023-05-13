@@ -16,7 +16,7 @@ export const RenderSnapBox = ({
     strokeWidth: 1,
     fillColor: "transparent",
   },
-  currentPosition,
+  currentPosition = { x: 0, y: 0 },
   onDocumentClick,
 }: IRenderSnapBox): JSX.Element => {
   const hideBox =

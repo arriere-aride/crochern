@@ -24,7 +24,7 @@ export const RenderShadowBox = ({
     },
   },
   padding = 4,
-  currentPosition,
+  currentPosition = { x: 0, y: 0 },
   currentEntity,
   grid,
   onDocumentClick,
