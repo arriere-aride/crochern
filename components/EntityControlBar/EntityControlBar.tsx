@@ -6,8 +6,8 @@ import {
 import store, { Store } from "@/stores";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Flex } from "rebass";
 import { type EntityControlBar as IEntityControlBar } from "./EntityControlBar.d";
+import { EntityControlBarLine } from "./EntityControlBar.styled";
 
 export const EntityControlBar = ({
   theme = {
@@ -15,6 +15,9 @@ export const EntityControlBar = ({
       backgroundColor: "#484848",
       height: "100%",
       paddingTop: "1rem",
+    },
+    line: {
+      borderBottom: "1px solid #353535",
     },
     property: {
       fontWeight: 800,
@@ -35,24 +38,28 @@ export const EntityControlBar = ({
     return <></>;
   }
   return (
-    <Flex flexWrap="wrap" style={theme.bar}>
-      <EntityControlItem
-        theme={theme}
-        value={Math.floor(entity.position.x)}
-        property="X"
-      />
-      <EntityControlItem
-        theme={theme}
-        value={Math.floor(entity.position.y)}
-        property="Y"
-      />
-      <EntityControlColorItem
-        theme={theme}
-        value={entity.theme.color}
-        property="COLOR"
-        colors={colors}
-        onClick={OnEntityControlColorItemClick}
-      />
-    </Flex>
+    <div style={theme.bar}>
+      <EntityControlBarLine {...theme.line}>
+        <EntityControlItem
+          theme={theme}
+          value={Math.floor(entity.position.x)}
+          property="X"
+        />
+        <EntityControlItem
+          theme={theme}
+          value={Math.floor(entity.position.y)}
+          property="Y"
+        />
+      </EntityControlBarLine>
+      <EntityControlBarLine {...theme.line}>
+        <EntityControlColorItem
+          theme={theme}
+          value={entity.theme.color}
+          property="COLOR"
+          colors={colors}
+          onClick={OnEntityControlColorItemClick}
+        />
+      </EntityControlBarLine>
+    </div>
   );
 };

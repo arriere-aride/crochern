@@ -21,7 +21,10 @@ export const EntityControlColorItem = ({
       flexWrap="wrap"
       mx={2}
       width={"100%"}
-      style={{ position: "relative" }}
+      style={{
+        position: "relative",
+        gridColumn: "span 2",
+      }}
     >
       <Box
         width={1 / 3}
