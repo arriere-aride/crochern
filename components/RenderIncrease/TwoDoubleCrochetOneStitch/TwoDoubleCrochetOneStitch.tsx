@@ -40,7 +40,7 @@ export const TwoDoubleCrochetOneStitch = ({
 
   return (
     <TwoDoubleCrochetOneStitchContainer
-      id={`render-item-tdcos--1`}
+      id={`render-item-tdcos--box-1`}
       {...theme}
     >
       {doubleCrochetBarList.map(
@@ -50,7 +50,7 @@ export const TwoDoubleCrochetOneStitch = ({
         ) => (
           <g
             key={index}
-            id={`render-item-tdcos-bar-${index}`}
+            id={`render-item-tdcos--${index}`}
             transform={rotate ?? ""}
             style={{
               transformOrigin: "center",
