@@ -1,14 +1,7 @@
+import { EntityTheme } from "@/stores";
+
 export interface TwoDoubleCrochetOneStitch {
-  theme?: {
-    /**
-     * What fill color to use
-     */
-    fillColor: string;
-    /**
-     * What stroke width to use
-     */
-    strokeWidth: number;
-  };
+  theme: EntityTheme;
   /**
    * Where to position both dc
    */
