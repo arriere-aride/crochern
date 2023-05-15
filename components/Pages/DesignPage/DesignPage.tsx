@@ -1,13 +1,14 @@
 import {
   EntityControlBar,
   Grid,
+  OnGridClick,
   OnStashBoxRenderClick,
   RenderPreFill,
   SplashScreen,
   ToolBar,
+  useBoundingGrid,
   useToggle,
 } from "@/components";
-import { useEffect, useState } from "react";
 import { Box } from "rebass";
 import { type DesignPage as IDesignPage } from "./DesignPage.d";
 import {
@@ -24,20 +25,9 @@ export const DesignPage = ({
   entityControlBarProps,
   splashScreenProps,
 }: IDesignPage) => {
-  const gridId = "design-grid-id";
+  const id = "design-grid-id";
   const [currentGridProps, setCurrentGridProps] =
-    useState<DOMRect | null>(null);
-
-  useEffect(() => {
-    const element = document.querySelector(
-      `#${gridId}`
-    );
-    if (element != null) {
-      setCurrentGridProps(
-        element.getBoundingClientRect()
-      );
-    }
-  }, []);
+    useBoundingGrid({ id });
   const [visible, toggleVisible] =
     useToggle(true);
 
@@ -50,7 +40,7 @@ export const DesignPage = ({
         />
       </SplashScreenContainer>
       <RenderPreFill
-        grid={currentGridProps}
+        grid={currentGridProps as DOMRect}
         OnStashBoxRenderClick={
           OnStashBoxRenderClick
         }
@@ -61,7 +51,11 @@ export const DesignPage = ({
         </ToolBarContainer>
       </div>
       <GridContainer>
-        <Grid {...gridProps} id={gridId} />
+        <Grid
+          {...gridProps}
+          id={id}
+          onGridClick={OnGridClick}
+        />
       </GridContainer>
       <EntityControlBarContainer>
         <EntityControlBar

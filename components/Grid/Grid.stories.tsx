@@ -1,14 +1,12 @@
+import {
+  OnGridClick,
+  OnTargetEntityClick,
+} from "@/components";
+import store from "@/stores";
 import type {
   Meta,
   StoryObj,
 } from "@storybook/react";
-
-import { SelectTargetEntity } from "@/selectors";
-import SelectGridEntity from "@/selectors/SelectGridEntity";
-import store, {
-  SelectionActionTypes,
-} from "@/stores";
-
 import { Provider } from "react-redux";
 import { Grid } from "./Grid";
 
@@ -50,23 +48,10 @@ export const GridFourRatio: Story = {
     },
   },
 };
-const getCursorPosition = (event: any) => {
-  const [x, y] = [event.clientX, event.clientY];
-};
-const OnTargetEntityClick = (id: string) => {
-  const targets = SelectTargetEntity();
-  const entity = SelectGridEntity({
-    id,
-    list: targets,
-  });
-  store.dispatch({
-    type: SelectionActionTypes.SELECT,
-    entity,
-  });
-};
+
 export const WithClickEvent: Story = {
   args: {
-    onGridClick: getCursorPosition,
+    onGridClick: OnGridClick,
     onTargetEntityClick: OnTargetEntityClick,
   },
 };

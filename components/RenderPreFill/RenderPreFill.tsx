@@ -35,7 +35,6 @@ export const RenderPreFill = ({
           currentPosition={{ x, y }}
           currentEntity={current}
           grid={grid}
-          // onDocumentClick={OnStashBoxRenderClick}
         />
         <RenderSnapBox
           grid={grid}

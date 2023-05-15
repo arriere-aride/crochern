@@ -1,3 +1,4 @@
+import { SelectPointPositionInGrid } from "@/selectors";
 import { AABB } from "@/validators";
 import { type RenderSnapBox as IRenderSnapBox } from "./RenderSnapBox.d";
 import {
@@ -21,14 +22,11 @@ export const RenderSnapBox = ({
 }: IRenderSnapBox): JSX.Element => {
   const hideBox =
     grid != null && !AABB(currentPosition, grid);
-  const [x, y] = [
-    grid
-      ? currentPosition.x - grid.left + padding
-      : currentPosition.x,
-    grid
-      ? currentPosition.y - grid.top
-      : currentPosition.y,
-  ];
+  const [x, y] = SelectPointPositionInGrid({
+    point: currentPosition,
+    grid,
+  });
+
   return (
     <SnapBoxDocument
       onClick={(e) =>

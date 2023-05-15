@@ -1,6 +1,7 @@
 import {
   GridCell,
   RenderTargetBox,
+  useBoundingGrid,
   useScroll,
 } from "@/components";
 import { SelectTargetEntity } from "@/selectors";
@@ -27,8 +28,8 @@ const Grid = ({
   },
   baseScale = 1,
   maxScale = 12,
-  onGridClick,
-  onTargetEntityClick,
+  onGridClick = () => true,
+  onTargetEntityClick = () => true,
 }: IGrid) => {
   const [scale, setScale] =
     React.useState<number>(baseScale);
@@ -44,13 +45,17 @@ const Grid = ({
       });
     }
   });
+  const [currentGridProps, setCurrentGridProps] =
+    useBoundingGrid({ id });
 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       {...grid}
       id={id}
-      onClick={onGridClick}
+      onClick={(event) => {
+        onGridClick(event, currentGridProps);
+      }}
     >
       <g transform={`scale(${scale})`}>
         <defs>

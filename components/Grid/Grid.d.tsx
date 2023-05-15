@@ -36,9 +36,9 @@ export interface Grid {
   /**
    * What to do on Grid click
    */
-  onGridClick?: (values: any) => any;
+  onGridClick?: (...values: any) => any;
   /**
    * What to do on Entity click
    */
-  onTargetEntityClick?: (values: any) => any;
+  onTargetEntityClick?: (...values: any) => any;
 }

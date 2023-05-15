@@ -1,3 +1,4 @@
+export { useBoundingGrid } from "./useBoundinGrid";
 export { useMousePosition } from "./useMousePosition";
 export { usePressKey } from "./usePressKey";
 export { useScroll } from "./useScroll";
