@@ -1,19 +1,13 @@
-import store, {
-  Store,
-  TargetEntity,
-} from "@/stores";
+import store, { Store } from "@/stores";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RenderBox } from "../RenderBox/RenderBox";
+import { RenderTargetBox as IRenderTargetBox } from "./RenderTargetBox.d";
 
-export interface RenderTargetBox {
-  targets: TargetEntity[];
-  onTargetEntityClick?: (values: any) => any;
-}
 export const RenderTargetBox = ({
   targets,
   onTargetEntityClick,
-}: RenderTargetBox) => {
+}: IRenderTargetBox) => {
   const [rerender, setRender] = useState(false);
   const selected = useSelector(
     (state: Store) => state.selection.selection[0]
