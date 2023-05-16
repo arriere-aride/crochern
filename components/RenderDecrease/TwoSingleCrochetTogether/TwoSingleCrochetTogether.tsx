@@ -1,76 +1,66 @@
-interface TwoSingleCrochetTogether {
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
+import { type TwoSingleCrochetTogether as ITwoSingleCrochetTogether } from "./TwoSingleCrochetTogether.d";
+import { TwoSingleCrochetTogetherSvg } from "./TwoSingleCrochetTogether.styled";
 
-  /**
-   * Where to position
-   */
-  position?: {
-    x: number;
-    y: number;
-  };
-  /**
-   * Line size
-   */
-  size?: number;
-}
-
-/** Render Two Single Together  (2 Mailles Serrées écoulées ensemble) */
+/**
+ * Render Two Single Together
+ * (2 Mailles Serrées écoulées ensemble)
+ */
 export const TwoSingleCrochetTogether = ({
-  fillColor = "#1a1a1a",
-  position = { x: 50, y: 50 },
+  theme = {
+    color: "#1a1a1a",
+    strokeWidth: 2,
+  },
+  position = { x: 0, y: 0 },
   size = 16,
-}: TwoSingleCrochetTogether) => {
-  const id: string = Math.floor(
-    Math.random() * 100
-  ).toString();
+  padding = 1,
+}: ITwoSingleCrochetTogether) => {
   const { x, y } = position;
+  const doubleStrokeWidth =
+    (theme.strokeWidth ?? 1) * 2;
   const halfSize = Math.floor(size / 2);
-  const tierceSize = Math.floor(size / 3);
-  const padding = 1;
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
+  const box = {
+    min: { x: x + padding, y: y + padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
+  };
 
   return (
-    <g
-      id={`render-item-tscoc--${id}`}
-      stroke={fillColor}
-      strokeWidth={2}
+    <TwoSingleCrochetTogetherSvg
+      id={`render-item-tsct--1`}
+      {...theme}
     >
       <g
-        id={`render-item-tscoc-sc--${id}`}
-        style={{
-          transformOrigin: "center",
-          transformBox: "fill-box",
-        }}
+        id={`render-item-tsct-sc--1`}
+        stroke={theme.color}
+        strokeWidth={theme.strokeWidth}
       >
         <line
-          x1={x - tierceSize + padding}
-          y1={y - tierceSize + padding}
-          x2={x + tierceSize - padding}
-          y2={y - tierceSize + padding}
+          x1={box.min.x + doubleStrokeWidth}
+          y1={center.y}
+          x2={box.max.x - doubleStrokeWidth}
+          y2={center.y}
         />
         <line
-          x1={x}
-          y1={y - halfSize - padding}
-          x2={x}
-          y2={y}
+          x1={center.x}
+          y1={box.min.y + doubleStrokeWidth}
+          x2={center.x}
+          y2={box.max.y - doubleStrokeWidth}
         />
       </g>
-      <g
-        id={`render-item-tscoc-container--${id}`}
-      >
+      <g id={`render-item-tsct-container--1`}>
         <path
-          d={`M ${x - halfSize} ${y} ${x} ${
-            y - size
-          } `}
+          d={`M ${center.x} ${box.min.y} ${box.min.x} ${center.y} `}
         />
         <path
-          d={`M ${x + halfSize} ${y} ${x} ${
-            y - size
-          } `}
+          d={`M ${center.x} ${box.min.y} ${box.max.x} ${center.y} `}
         />
       </g>
-    </g>
+    </TwoSingleCrochetTogetherSvg>
   );
 };
