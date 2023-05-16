@@ -12,11 +12,6 @@ const meta: Meta<
     "Crochet/Atoms/RenderDecrease/ThreeSingleCrochetTogether",
   component: ThreeSingleCrochetTogether,
   tags: ["autodocs"],
-  argTypes: {
-    fillColor: {
-      control: "color",
-    },
-  },
   decorators: [
     (Story) => (
       <svg>

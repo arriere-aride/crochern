@@ -1,74 +1,78 @@
-interface ThreeSingleCrochetTogether {
-  /**
-   * What fill color to use
-   */
-  fillColor?: string;
+import { type ThreeSingleCrochetTogether as IThreeSingleCrochetTogether } from "./ThreeSingleCrochetTogether.d";
+import { ThreeSingleCrochetTogetherContainer } from "./ThreeSingleCrochetTogether.styled";
 
-  /**
-   * Where to position
-   */
-  position?: {
-    x: number;
-    y: number;
-  };
-  /**
-   * Line size
-   */
-  size?: number;
-}
-
-/** Render Three Single Crochet in One Stitch  (3 Mailles Serrées dans la même Maille) */
+/** Render Three Single Crochet in One Stitch
+ * (3 Mailles Serrées dans la même Maille)
+ */
 export const ThreeSingleCrochetTogether = ({
-  fillColor = "#1a1a1a",
-  position = { x: 50, y: 50 },
+  theme = {
+    color: "#1a1a1a",
+    strokeWidth: 2,
+    backgroundColor: "transparent",
+  },
+  position = { x: 0, y: 0 },
   size = 16,
-}: ThreeSingleCrochetTogether) => {
-  const id: string = Math.floor(
-    Math.random() * 100
-  ).toString();
+  padding = 1,
+}: IThreeSingleCrochetTogether): JSX.Element => {
   const { x, y } = position;
-  const tierceSize = Math.floor(size / 3);
-  const padding = 2;
+  const halfSize = Math.floor(size / 2);
+  const strokeWidth = theme.strokeWidth || 1;
+  const doubleStrokeWidth = strokeWidth * 2;
+  const tripleStrokeWidth = strokeWidth * 3;
+  const quadStrokeWidth = strokeWidth * 4;
+
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
+  const box = {
+    min: { x: x + padding, y: y + padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
+    },
+  };
 
   return (
-    <g
-      id={`render-item-thscoc--${id}`}
-      stroke={fillColor}
-      strokeWidth={2}
+    <ThreeSingleCrochetTogetherContainer
+      id={`render-item-thsct--1`}
+      {...theme}
     >
-      <g id={`render-item-thscoc-sc--${id}`}>
+      <g
+        id={`render-item-thsct-sc--1`}
+        stroke={theme.color}
+        strokeWidth={strokeWidth}
+      >
         <line
-          x1={x - tierceSize}
-          y1={y + tierceSize * 2 + padding}
-          x2={x + tierceSize}
-          y2={y + tierceSize * 2 + padding}
+          x1={box.min.x + doubleStrokeWidth}
+          y1={center.y + doubleStrokeWidth}
+          x2={box.max.x - doubleStrokeWidth}
+          y2={center.y + doubleStrokeWidth}
         />
         <line
-          x1={x}
-          y1={y + tierceSize + padding}
-          x2={x}
-          y2={y + size}
+          x1={center.x}
+          y1={box.min.y + quadStrokeWidth}
+          x2={center.x}
+          y2={box.max.y}
         />
       </g>
       <g
-        id={`render-item-thscoc-container--${id}`}
+        id={`render-item-thsct-container--1`}
+        stroke={theme.color}
+        strokeWidth={strokeWidth}
       >
         <path
-          d={`M ${x} ${y} ${x - size} ${
-            y + size
-          } `}
+          d={`M ${center.x} ${box.min.y} ${box.min.x} ${center.y}`}
         />
         <path
-          d={`M ${x} ${y} ${x + size} ${
-            y + size
-          } `}
+          d={`M ${center.x} ${box.min.y} ${box.max.x} ${center.y}`}
         />
         <path
-          d={`M ${x} ${y - 1} ${x} ${
-            y + tierceSize
+          d={`M ${center.x} ${box.min.y} V ${
+            box.min.y + tripleStrokeWidth
           }`}
         />
       </g>
-    </g>
+    </ThreeSingleCrochetTogetherContainer>
   );
 };
