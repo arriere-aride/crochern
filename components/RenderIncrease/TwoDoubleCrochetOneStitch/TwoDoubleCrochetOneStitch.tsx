@@ -40,6 +40,8 @@ export const TwoDoubleCrochetOneStitch = ({
 
   return (
     <TwoDoubleCrochetOneStitchContainer
+      x={x}
+      y={y}
       id={`render-item-tdcos--box-1`}
       {...theme}
     >
