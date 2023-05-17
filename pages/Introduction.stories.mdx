@@ -7,26 +7,24 @@ import {
   DoubleCrochet,
   TrebleCrochet,
   DoubleTrebleCrochet,
-} from "@@/components/RenderEntity";
-import {
-  FrontLoopOnly,
-  BackLoopOnly,
-  FrontPost,
-  BackPost,
-} from "@@/components/RenderVariation";
-import {
-  TwoSingleCrochetOneStitch,
-  ThreeSingleCrochetOneStitch,
-  TwoDoubleCrochetOneStitch,
-  RepeatDoubleCrochetOneStitch,
-} from "@@/components/RenderIncrease";
 
-import {
-  TwoSingleCrochetTogether,
-  ThreeSingleCrochetTogether,
-  TwoDoubleCrochetTogether,
-  RepeatDoubleCrochetTogether,
-} from "@@/components/RenderDecrease";
+FrontLoopOnly,
+BackLoopOnly,
+FrontPost,
+BackPost,
+
+TwoSingleCrochetOneStitch,
+ThreeSingleCrochetOneStitch,
+TwoDoubleCrochetOneStitch,
+RepeatDoubleCrochetOneStitch,
+
+TwoSingleCrochetTogether,
+ThreeSingleCrochetTogether,
+TwoDoubleCrochetTogether,
+RepeatDoubleCrochetTogether,
+
+PuffStitch,
+} from "@/components";
 
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
@@ -683,8 +681,19 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     </td>
   </tr>
   <tr>
-    <td></td>
-    <td>Puff stitch</td>
+    <td>
+      <svg width="16px" height="16px">
+        <PuffStitch />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="../?path=/story/crochet-atoms-renderpuffs-puffstitch--docs"
+        style={{ textDecoration: "underline" }}
+      >
+        Puff stitch
+      </a>
+    </td>
     <td></td>
     <td>Mouchet / Soufflé</td>
     <td></td>
