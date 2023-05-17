@@ -17,20 +17,22 @@ export const RepeatDoubleCrochetTogether = ({
 }: IRepeatDoubleCrochetTogether) => {
   const { x, y } = position;
   const strokeWidth = theme.strokeWidth || 2;
-  const halfSize = Math.floor(size / 2);
-  const tierceSize = Math.floor(size / 3);
-  const quarterSize = Math.floor(size / 4);
-  const fifthSize = Math.floor(size / 5);
-  const sixthSize = Math.floor(size / 6);
+  const sizes = {
+    halfSize: Math.floor(size / 2),
+    tierceSize: Math.floor(size / 3),
+    quarterSize: Math.floor(size / 4),
+    fifthSize: Math.floor(size / 5),
+    sixthSize: Math.floor(size / 6),
+  };
   const center = {
-    x: x + halfSize,
-    y: y + halfSize,
+    x: x + sizes.halfSize,
+    y: y + sizes.halfSize,
   };
   const box = {
     min: { x: x + padding, y: y + padding },
     max: {
-      x: center.x + halfSize - padding,
-      y: center.y + halfSize - padding,
+      x: center.x + sizes.halfSize - padding,
+      y: center.y + sizes.halfSize - padding,
     },
   };
 
@@ -38,13 +40,7 @@ export const RepeatDoubleCrochetTogether = ({
     RepeatDoubleCrochetList({
       box,
       center,
-      sizes: {
-        halfSize,
-        tierceSize,
-        quarterSize,
-        fifthSize,
-        sixthSize,
-      },
+      sizes,
       theme: { strokeWidth },
     });
 
@@ -76,8 +72,8 @@ export const RepeatDoubleCrochetTogether = ({
       <RepeatText
         circle={{ x: center.x, y: center.y }}
         text={{
-          x: box.min.x + quarterSize,
-          y: center.y + quarterSize,
+          x: box.min.x + sizes.quarterSize,
+          y: center.y + sizes.quarterSize,
         }}
         repeat={repeat}
       />
