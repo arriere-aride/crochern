@@ -1,6 +1,6 @@
 import { EntityTheme } from "@/stores";
 
-export interface PuffStitch {
+export interface PuffStitchThreeDoubleCrochet {
   theme?: EntityTheme;
   /**
    * What position it should have, centered point

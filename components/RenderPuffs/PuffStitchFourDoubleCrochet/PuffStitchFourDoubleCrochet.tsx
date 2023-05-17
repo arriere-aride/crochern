@@ -1,7 +1,7 @@
-import { type PuffStitch as IPuffStitch } from "./PuffStitch.d";
-import { PuffStitchContainer } from "./PuffStitch.styled";
+import { type PuffStitchFourDoubleCrochet as IPuffStitchFourDoubleCrochet } from "./PuffStitchFourDoubleCrochet.d";
+import { PuffStitchFourDoubleCrochetContainer } from "./PuffStitchFourDoubleCrochet.styled";
 
-export const PuffStitch = ({
+export const PuffStitchFourDoubleCrochet = ({
   theme = {
     color: "#1a1a1a",
     strokeWidth: 2,
@@ -10,7 +10,7 @@ export const PuffStitch = ({
   position = { x: 0, y: 0 },
   size = 16,
   padding = 1,
-}: IPuffStitch): JSX.Element => {
+}: IPuffStitchFourDoubleCrochet): JSX.Element => {
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
   const r = Math.trunc((size - padding) / 2);
@@ -26,9 +26,17 @@ export const PuffStitch = ({
     },
   };
   return (
-    <PuffStitchContainer x={x} y={y} {...theme}>
-      <path
-        d={`M ${center.x} ${box.min.y} ${center.x} ${box.max.y}`}
+    <PuffStitchFourDoubleCrochetContainer
+      x={x}
+      y={y}
+      {...theme}
+    >
+      <ellipse
+        cx={center.x}
+        cy={center.y}
+        rx={Math.trunc(r / 2)}
+        ry={r}
+        fill={theme.backgroundColor}
       />
       <circle
         cx={center.x}
@@ -36,6 +44,6 @@ export const PuffStitch = ({
         fill={theme.backgroundColor}
         r={r}
       />
-    </PuffStitchContainer>
+    </PuffStitchFourDoubleCrochetContainer>
   );
 };
