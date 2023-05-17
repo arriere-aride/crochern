@@ -1,82 +1,86 @@
-import { DoubleCrochet } from "@@/components/RenderEntity";
+import { RepeatText } from "@/components/RenderIncrease/RepeatDoubleCrochetOneStitch/RepeatText";
 import { type RepeatDoubleCrochetTogether as IRepeatDoubleCrochetTogether } from "./RepeatDoubleCrochetTogether.d";
-import { DoubleCrochetGroup } from "./RepeatDoubleCrochetTogether.styled";
+import { RepeatDoubleCrochetList } from "./RepeatDoubleCrochetTogether.data";
+import { RepeatDoubleCrochetTogetherContainer } from "./RepeatDoubleCrochetTogether.styled";
 
 /** Render {repeat} Double Crochet Together  (
  * {repeat} Brides écoulées ensemble) */
 export const RepeatDoubleCrochetTogether = ({
   theme = {
-    fillColor: "#1a1a1a",
+    color: "#1a1a1a",
     strokeWidth: 2,
   },
-  position = { x: 50, y: 50 },
+  position = { x: 0, y: 0 },
   size = 16,
   repeat = 3,
-  padding = 2,
+  padding = 1,
 }: IRepeatDoubleCrochetTogether) => {
   const { x, y } = position;
+  const strokeWidth = theme.strokeWidth || 2;
   const halfSize = Math.floor(size / 2);
   const tierceSize = Math.floor(size / 3);
   const quarterSize = Math.floor(size / 4);
-  const doubleCrochetList = [
-    {
-      x: x + padding,
-      y,
-      rotate: `rotate(${115})`,
+  const fifthSize = Math.floor(size / 5);
+  const sixthSize = Math.floor(size / 6);
+  const center = {
+    x: x + halfSize,
+    y: y + halfSize,
+  };
+  const box = {
+    min: { x: x + padding, y: y + padding },
+    max: {
+      x: center.x + halfSize - padding,
+      y: center.y + halfSize - padding,
     },
-    {
-      x: x - quarterSize,
-      y: y + tierceSize,
-      rotate: `rotate(180)`,
-    },
-    {
-      x: x - halfSize - padding,
-      y,
-      rotate: `rotate(-${115})`,
-    },
-  ];
+  };
+
+  const repeatDoublecCrochetList =
+    RepeatDoubleCrochetList({
+      box,
+      center,
+      sizes: {
+        halfSize,
+        tierceSize,
+        quarterSize,
+        fifthSize,
+        sixthSize,
+      },
+      theme: { strokeWidth },
+    });
+
   return (
-    <g>
-      {doubleCrochetList.map(
-        (props: any, index: number) => (
-          <svg
-            x={props.x}
-            y={props.y}
+    <RepeatDoubleCrochetTogetherContainer
+      x={x}
+      y={y}
+      {...theme}
+      id={`render-item-rdct--container-1`}
+    >
+      {repeatDoublecCrochetList.map(
+        (
+          { pathD, rotate }: any,
+          index: number
+        ) => (
+          <g
             key={index}
+            id={`render-item-rdct--${index}`}
+            transform={rotate ?? ""}
+            style={{
+              transformOrigin: "center",
+              transformBox: "fill-box",
+            }}
           >
-            <DoubleCrochetGroup
-              key={`item-dcoc-${index}`}
-              transform={props.rotate}
-              {...theme}
-            >
-              <DoubleCrochet
-                size={16}
-                rotation={15}
-              />
-            </DoubleCrochetGroup>
-          </svg>
+            <path d={pathD} />
+          </g>
         )
       )}
-      {repeat >= 4 && (
-        <svg x={x - quarterSize} y={y - halfSize}>
-          <circle
-            r={repeat < 10 ? 8 : 10}
-            cx={50}
-            cy={48}
-            fill={"#1a1a1a"}
-            stroke="white"
-            strokeWidth={1}
-          />
-          <text
-            x={repeat < 10 ? 47 : 43}
-            y={52}
-            fontSize="12px"
-            fill="white"
-          >
-            {repeat}
-          </text>
-        </svg>
-      )}
-    </g>
+      <RepeatText
+        circle={{ x: center.x, y: center.y }}
+        text={{
+          x: box.min.x + quarterSize,
+          y: center.y + quarterSize,
+        }}
+        repeat={repeat}
+      />
+    </RepeatDoubleCrochetTogetherContainer>
   );
 };

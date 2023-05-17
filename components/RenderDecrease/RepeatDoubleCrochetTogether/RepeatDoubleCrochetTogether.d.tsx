@@ -1,18 +1,14 @@
+import { EntityTheme } from "@/stores";
+
 export interface RepeatDoubleCrochetTogether {
   /**
    * How much repeat
    */
   repeat?: number;
-  theme?: {
-    /**
-     * What fill color to use
-     */
-    fillColor: string;
-    /**
-     * What stroke width to use
-     */
-    strokeWidth: number;
-  };
+  /**
+   * Which theme to use
+   */
+  theme?: EntityTheme;
 
   /**
    * Where to position both dc

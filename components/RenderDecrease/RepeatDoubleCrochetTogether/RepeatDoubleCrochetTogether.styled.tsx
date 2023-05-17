@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 
-export const DoubleCrochetGroup = styled.g(
-  (props: any) => ({
-    fillColor: props.fillColor,
-    strokeWidth: props.strokeWidth,
-    transformOrigin: "center",
-    transformBox: "fill-box",
-  })
-);
+export const RepeatDoubleCrochetTogetherContainer =
+  styled.svg((props: any) => ({
+    stroke: `${props.color}`,
+    strokeWidth: `${props.strokeWidth}px`,
+    fill: `${props.backgroundColor}`,
+  }));
