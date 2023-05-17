@@ -22,6 +22,9 @@ import {
   PuffStitchThreeDoubleCrochet,
   PuffStitchFourDoubleCrochet,
   PuffStitchFiveDoubleCrochet,
+  ClusterThreeDoubleCrochet,
+  ClusterFourDoubleCrochet,
+  ClusterFiveDoubleCrochet,
 } from "@/components";
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
@@ -29,6 +32,7 @@ import { GrStatusPlaceholder } from "react-icons/gr";
 <Meta title="Introduction" />
 
 # Welcome to Storybook
+
 Storybook helps you build UI components in isolation from your app's business logic, data, and context.
 That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
 Browse example stories now by navigating to them in the sidebar.
@@ -652,13 +656,43 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>status</td>
   </tr>
   <tr>
+    <td>
+      <svg width="16px" height="16px">
+        <ClusterThreeDoubleCrochet />
+      </svg>
+      <svg width="16px" height="16px">
+        <ClusterFourDoubleCrochet />
+      </svg> 
+      <svg width="16px" height="16px">
+        <ClusterFiveDoubleCrochet />
+      </svg>
+    </td>
+    <td>
+      Cluster stitch
+      <a
+        href="../?path=/story/crochet-atoms-renderpuffs-ClusterThreeDoubleCrochet--docs"
+        style={{ textDecoration: "underline" }}
+      >
+      \[3 double crochet\]
+      </a>
+      <a
+        href="../?path=/story/crochet-atoms-renderpuffs-ClusterFourDoubleCrochet--docs"
+        style={{ textDecoration: "underline" }}
+      >
+      \[4 double crochet\]
+      </a> 
+      <a
+        href="../?path=/story/crochet-atoms-renderpuffs-ClusterFiveDoubleCrochet--docs"
+        style={{ textDecoration: "underline" }}
+      >
+      \[5 double crochet\]
+      </a>
+    </td>
     <td></td>
-    <td>Cluster stitch</td>
-    <td></td>
-    <td>Nopes</td>
+    <td>Cluster</td>
     <td></td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
@@ -681,9 +715,6 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
       </svg>  
       <svg width="16px" height="16px">
         <PuffStitchFiveDoubleCrochet />
-      </svg>
-      <svg width="24px" height="24px">
-        <PuffStitchFiveDoubleCrochet size={24}/>
       </svg>
     </td>
     <td>
@@ -735,7 +766,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>sc crab st</td>
     <td>Point Écrevisse</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -743,7 +776,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>sc loop st</td>
     <td>Point fourrure</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -751,7 +786,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Point Étoile</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -759,7 +796,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Point Diamant</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -767,7 +806,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Point Crocodile</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -775,7 +816,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Point Y</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -783,7 +826,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Point X</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -791,7 +836,9 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Point Y Inversé</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
   <tr>
     <td></td>
@@ -799,6 +846,8 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td></td>
     <td>Picot</td>
     <td></td>
-    <td><GrStatusPlaceholder style={{ fontSize: "12px" }} /></td>
+    <td>
+      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+    </td>
   </tr>
 </table>
