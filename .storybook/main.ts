@@ -2,7 +2,8 @@ import type { StorybookConfig } from "@storybook/nextjs";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 const config: StorybookConfig = {
   stories: [
-    "../@(pages|components)/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+    "../pages/Introduction.stories.mdx",
+    "../components/**/*.stories.@(js|jsx|ts|tsx|mdx)",
   ],
   addons: [
     "@storybook/addon-links",
