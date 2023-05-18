@@ -1,4 +1,5 @@
 import { type PopcornStitchFiveDoubleCrochet as IPopcornStitchFiveDoubleCrochet } from "./PopcornStitchFiveDoubleCrochet.d";
+import { PopcornStitchFiveDoubleCrochetList } from "./PopcornStitchFiveDoubleCrochet.data";
 import { PopcornStitchFiveDoubleCrochetContainer } from "./PopcornStitchFiveDoubleCrochet.styled";
 
 export const PopcornStitchFiveDoubleCrochet = ({
@@ -13,9 +14,11 @@ export const PopcornStitchFiveDoubleCrochet = ({
 }: IPopcornStitchFiveDoubleCrochet): JSX.Element => {
   const { x, y } = position;
   const halfSize = Math.floor(size / 2);
-  const quarterSize = Math.floor(size / 4);
-  const fifthSize = Math.floor(size / 5);
-  const sixthSize = Math.floor(size / 6);
+  const sizes = {
+    quarterSize: Math.floor(size / 4),
+    fifthSize: Math.floor(size / 5),
+    sixthSize: Math.floor(size / 6),
+  };
   const r = Math.trunc((size - padding) / 2);
   const center = {
     x: x + halfSize,
@@ -28,6 +31,13 @@ export const PopcornStitchFiveDoubleCrochet = ({
       y: center.y + halfSize - padding,
     },
   };
+  const popcornStitchList =
+    PopcornStitchFiveDoubleCrochetList({
+      box,
+      sizes,
+      center,
+      padding,
+    });
   return (
     <PopcornStitchFiveDoubleCrochetContainer
       x={x}
@@ -47,39 +57,24 @@ export const PopcornStitchFiveDoubleCrochet = ({
         fill={theme.backgroundColor}
         r={r}
       />
-      <path
-        d={`M ${box.min.x} ${box.min.y} Q ${
-          center.x
-        } ${box.min.y + quarterSize} ${
-          box.max.x
-        } ${box.min.y}`}
-        fill={theme.backgroundColor}
-        stroke={theme.color}
-        strokeWidth={theme.strokeWidth}
-      />
-      <path
-        d={`M ${box.min.x} ${center.y} H ${
-          box.min.x + sixthSize
-        } `}
-      />
-      <path
-        d={`M ${box.max.x} ${center.y} H ${
-          box.max.x - sixthSize
-        } `}
-      />
-      <path
-        d={`M ${center.x - padding} ${
-          center.y
-        } H ${center.x - fifthSize} `}
-      />
-      <path
-        d={`M ${center.x + padding} ${
-          center.y
-        } H ${center.x + fifthSize} `}
-      />
-      <path
-        d={`M ${center.x} ${box.min.y} V ${box.max.y}`}
-      />
+      {popcornStitchList.map(
+        (
+          { pathD, rotate }: any,
+          index: number
+        ) => (
+          <g
+            key={index}
+            id={`render-item-rdct--${index}`}
+            transform={rotate ?? ""}
+            style={{
+              transformOrigin: "center",
+              transformBox: "fill-box",
+            }}
+          >
+            <path d={pathD} />
+          </g>
+        )
+      )}
     </PopcornStitchFiveDoubleCrochetContainer>
   );
 };

@@ -53,9 +53,6 @@ export const PopcornStitchFourDoubleCrochet = ({
         } ${box.min.y + quarterSize} ${
           box.max.x
         } ${box.min.y}`}
-        fill={theme.backgroundColor}
-        stroke={theme.color}
-        strokeWidth={theme.strokeWidth}
       />
       <path
         d={`M ${box.min.x} ${center.y} H ${
