@@ -28,6 +28,7 @@ import {
   PopcornStitchFourDoubleCrochet,
   PopcornStitchFiveDoubleCrochet,
   SingleCrochetLoopStitch,
+  SingleCrochetCrabStitch
 } from "@/components";
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
@@ -783,13 +784,24 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     <td>status</td>
   </tr>
   <tr>
-    <td></td>
-    <td>Single Crochet Crab Stitch or Reverse Stitch</td>
+    <td>
+    <svg width="16px" height="16px">
+        <SingleCrochetCrabStitch />
+      </svg>
+    </td>
+    <td>
+      <a
+          href="../?path=/story/crochet-atoms-renderfancies-singlecrochetcrabstitch--default"
+          style={{ textDecoration: "underline" }}
+        >
+        Single Crochet Crab Stitch or Reverse Stitch
+      </a>
+    </td>
     <td>sc crab st</td>
     <td>Point Écrevisse</td>
     <td></td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
