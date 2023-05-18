@@ -13,6 +13,7 @@ export * from "@/components/Pages";
 export * from "@/components/RenderBox/RenderBox";
 export * from "@/components/RenderDecrease";
 export * from "@/components/RenderEntity";
+export * from "@/components/RenderFancies";
 export * from "@/components/RenderIncrease";
 export * from "@/components/RenderPreFill/RenderPreFill";
 export * from "@/components/RenderPuffs";
