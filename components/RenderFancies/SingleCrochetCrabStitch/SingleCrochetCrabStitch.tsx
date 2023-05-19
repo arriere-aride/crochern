@@ -4,7 +4,9 @@ import {
   SingleCrochetCrabStitchGroup,
 } from "./SingleCrochetCrabStitch.styled";
 
-/** Render Single crochet (maille serrée) */
+/** Render Single crochet Crab Stitch
+ * (point écrevisse)
+ */
 export const SingleCrochetCrabStitch = ({
   theme = {
     color: "#1a1a1a",
