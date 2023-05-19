@@ -2,8 +2,8 @@ import { type SingleCrochetLoopStitch as ISingleCrochetLoopStitch } from "./Sing
 import { SingleCrochetLoopStitchSvg } from "./SingleCrochetLoopStitch.styled";
 
 /**
- * Render Two Single Together
- * (2 Mailles Serrées écoulées ensemble)
+ * Render Single Crochet Loop Stitch
+ * (point fourrure)
  */
 export const SingleCrochetLoopStitch = ({
   theme = {
