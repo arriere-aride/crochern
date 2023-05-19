@@ -37,7 +37,7 @@ export const StarStitch = ({
   });
   return (
     <StarStitchSvg
-      id={`render-item-sp--1`}
+      id={`render-item-ss-box--1`}
       {...theme}
     >
       {starStitchList.map(
@@ -47,7 +47,7 @@ export const StarStitch = ({
         ) => (
           <g
             key={index}
-            id={`render-item-tdcos--${index}`}
+            id={`render-item-ss--${index}`}
             transform={rotate ?? ""}
           >
             <path d={pathD} />
