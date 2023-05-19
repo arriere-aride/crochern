@@ -1,5 +1,6 @@
 export { CrocodileStitch } from "./CrocodileStitch/CrocodileStitch";
 export { DiamondStitch } from "./DiamondStitch/DiamondStitch";
+export { InvertedYStitch } from "./InvertedYStitch/InvertedYStitch";
 export { SingleCrochetCrabStitch } from "./SingleCrochetCrabStitch/SingleCrochetCrabStitch";
 export { SingleCrochetLoopStitch } from "./SingleCrochetLoopStitch/SingleCrochetLoopStitch";
 export { StarStitch } from "./StarStitch/StarStitch";
