@@ -65,7 +65,7 @@ export const YStitch = ({
         cy={box.min.y}
         r={padding}
         fill={theme.backgroundColor}
-      />{" "}
+      />
       <circle
         cx={center.x + strokeWidth}
         cy={box.min.y}
