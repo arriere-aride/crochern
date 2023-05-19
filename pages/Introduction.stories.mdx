@@ -32,7 +32,8 @@ import {
   StarStitch,
   DiamondStitch,
   CrocodileStitch,
-  YStitch
+  YStitch,
+  XStitch,
 } from "@/components";
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { GrStatusPlaceholder } from "react-icons/gr";
@@ -915,13 +916,24 @@ We recommend building UIs with a [**component-driven**](https://componentdriven.
     </td>
   </tr>
   <tr>
-    <td></td>
-    <td>X Stitch</td>
+    <td>
+    <svg width="16px" height="16px">
+        <XStitch />
+      </svg>
+    </td>
+    <td>
+      <a
+        href="../?path=/story/crochet-atoms-renderfancies-XStitch--docs"
+        style={{ textDecoration: "underline" }}
+      >
+      X Stitch
+      </a>
+    </td>
     <td></td>
     <td>Point X</td>
     <td></td>
     <td>
-      <GrStatusPlaceholder style={{ fontSize: "12px" }} />
+      <AiOutlineCheckSquare style={{ color: "green", fontSize: "16px" }} />
     </td>
   </tr>
   <tr>
