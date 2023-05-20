@@ -56,7 +56,7 @@ export const SplashScreen = ({
               <Link href="https://github.com/arriere-aride/crochern">
                 <GithubIcon />
               </Link>
-              <Link href="https://6442b05ef9aaa3328e81efe6-atpogdsvsf.chromatic.com/?path=/docs/introduction--docs">
+              <Link href="https://6442b05ef9aaa3328e81efe6-vqehlbmdpu.chromatic.com/?path=/docs/introduction--docs">
                 <StoryBookIcon />
               </Link>
             </CenteredIcons>
